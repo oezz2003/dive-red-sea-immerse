@@ -48,28 +48,28 @@ const Shop = () => {
       category: 'Equipment',
       price: '$89',
       rating: 4.9,
-      image: '/images/diving-mask.jpg'
+      image: '/images/course-1-1.jpg'
     },
     {
       name: 'Wetsuit 3mm',
       category: 'Suits',
       price: '$159',
       rating: 4.8,
-      image: '/images/wetsuit-shop.jpg'
+      image: '/images/wetsuit-1.jpg'
     },
     {
       name: 'Diving Fins',
       category: 'Equipment',
       price: '$69',
       rating: 4.7,
-      image: '/images/diving-fins.jpg'
+      image: '/images/course-1-2.jpg'
     },
     {
       name: 'Underwater Camera',
       category: 'Photography',
       price: '$299',
       rating: 4.9,
-      image: '/images/underwater-camera.jpg'
+      image: '/images/course-1-3.jpg'
     }
   ];
 
@@ -83,7 +83,7 @@ const Shop = () => {
           <div 
             className="absolute inset-0 bg-cover bg-center bg-fixed"
             style={{
-              backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(255, 107, 53, 0.3)), url('/images/diving-equipment.jpg')"
+              backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(255, 107, 53, 0.3)), url('/images/slide-bg-1-3.jpg')"
             }}
           />
           

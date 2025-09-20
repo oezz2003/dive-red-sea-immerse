@@ -7,13 +7,28 @@ import { Button } from '@/components/ui/button';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+    
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      setScrolled(currentScrollY > 50);
+      
+      // Hide header when scrolling down, show when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      
+      lastScrollY = currentScrollY;
     };
-    window.addEventListener('scroll', handleScroll);
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -30,33 +45,77 @@ const Navbar = () => {
   return (
     <motion.nav
       initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      animate={{ 
+        y: isVisible ? 0 : -100,
+        opacity: isVisible ? 1 : 0
+      }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled 
-          ? 'bg-background/95 backdrop-blur-md shadow-depth border-b border-border' 
+          ? 'bg-background/95 header-blur shadow-depth border-b border-border' 
           : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="relative">
-              <Waves className="h-8 w-8 text-primary animate-wave" />
-              <div className="absolute -inset-2 bg-primary/20 rounded-full animate-pulse" />
-            </div>
-            <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-primary to-seafoam bg-clip-text text-transparent">
-              Eagle Divers
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
+        <div className="flex items-center justify-between h-20 lg:h-24">
+          {/* Left Navigation - Desktop Only */}
+          <div className="hidden lg:flex items-center space-x-8 flex-1">
+            {navItems.slice(0, 3).map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className={`relative text-sm font-medium transition-colors hover:text-primary ${
+                className={`nav-link relative text-sm font-medium transition-colors hover:text-primary ${
+                  location.pathname === item.href 
+                    ? 'text-primary' 
+                    : 'text-foreground/80'
+                }`}
+              >
+                {item.label}
+                {location.pathname === item.href && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
+                  />
+                )}
+              </Link>
+            ))}
+          </div>
+
+          {/* Centered Logo */}
+           <motion.div
+             initial={{ scale: 0.8, opacity: 0 }}
+             animate={{ scale: 1, opacity: 1 }}
+             transition={{ duration: 0.6, ease: "easeOut" }}
+             className="flex-1 flex justify-center"
+           >
+             <Link to="/" className="flex flex-col items-center space-y-2 group logo-glow">
+               <div className="relative">
+                 <img 
+                   src="/images/logo-1-1.png" 
+                   alt="Eagle Divers Logo" 
+                   className="h-16 w-auto object-contain"
+                 />
+                 <motion.div
+                   animate={{ rotate: 360 }}
+                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                   className="absolute -inset-2 border border-primary/30 rounded-full"
+                 />
+               </div>
+               <div className="text-center">
+                 <div className="text-xs font-semibold text-primary/80 tracking-widest uppercase">
+                   Red Sea
+                 </div>
+               </div>
+             </Link>
+           </motion.div>
+
+          {/* Right Navigation - Desktop Only */}
+          <div className="hidden lg:flex items-center space-x-8 flex-1 justify-end">
+            {navItems.slice(3).map((item) => (
+              <Link
+                key={item.href}
+                to={item.href}
+                className={`nav-link relative text-sm font-medium transition-colors hover:text-primary ${
                   location.pathname === item.href 
                     ? 'text-primary' 
                     : 'text-foreground/80'
@@ -73,7 +132,7 @@ const Navbar = () => {
             ))}
             <Button 
               size="sm" 
-              className="btn-bubble bg-surface-gradient hover:shadow-glow"
+              className="btn-bubble bg-surface-gradient hover:shadow-glow ml-4"
               asChild
             >
               <Link to="/contact">Book Now</Link>
@@ -101,32 +160,53 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-background/95 backdrop-blur-md border-b border-border"
           >
-            <div className="container mx-auto px-4 py-4">
-              <div className="flex flex-col space-y-4">
+            <div className="container mx-auto px-4 py-6">
+               {/* Mobile Logo */}
+               <div className="flex justify-center mb-6">
+                 <Link to="/" onClick={() => setIsOpen(false)} className="flex flex-col items-center space-y-2 logo-glow">
+                   <div className="relative">
+                     <img 
+                       src="/images/logo-1-1.png" 
+                       alt="Eagle Divers Logo" 
+                       className="h-12 w-auto object-contain"
+                     />
+                     <div className="absolute -inset-2 bg-primary/20 rounded-full animate-pulse" />
+                   </div>
+                   <div className="text-center">
+                     <div className="text-xs font-semibold text-primary/80 tracking-widest uppercase">
+                       Red Sea
+                     </div>
+                   </div>
+                 </Link>
+               </div>
+              
+              {/* Mobile Navigation */}
+              <div className="grid grid-cols-2 gap-4 mb-6">
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`text-sm font-medium transition-colors hover:text-primary ${
+                    className={`text-center py-3 px-4 rounded-lg transition-all duration-300 ${
                       location.pathname === item.href 
-                        ? 'text-primary' 
-                        : 'text-foreground/80'
+                        ? 'bg-primary/10 text-primary border border-primary/20' 
+                        : 'text-foreground/80 hover:bg-primary/5 hover:text-primary'
                     }`}
                   >
                     {item.label}
                   </Link>
                 ))}
-                <Button 
-                  size="sm" 
-                  className="btn-bubble bg-surface-gradient w-fit"
-                  asChild
-                >
-                  <Link to="/contact" onClick={() => setIsOpen(false)}>
-                    Book Now
-                  </Link>
-                </Button>
               </div>
+              
+              <Button 
+                size="lg" 
+                className="btn-bubble bg-surface-gradient hover:shadow-glow w-full"
+                asChild
+              >
+                <Link to="/contact" onClick={() => setIsOpen(false)}>
+                  Book Now
+                </Link>
+              </Button>
             </div>
           </motion.div>
         )}

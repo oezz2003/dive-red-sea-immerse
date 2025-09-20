@@ -22,6 +22,7 @@ const Courses = () => {
       features: ['Theory & Pool Training', '4 Open Water Dives', 'PADI Certification', 'Equipment Included'],
       category: 'Beginner',
       popular: true,
+      image: '/images/padi-open-water.jpg',
     },
     {
       title: 'Advanced Open Water',
@@ -33,6 +34,7 @@ const Courses = () => {
       features: ['5 Adventure Dives', 'Deep & Navigation', 'Wreck Diving', 'Night Diving'],
       category: 'Advanced',
       popular: false,
+      image: '/images/PADI-Advanced-Open-Water.jpg',
     },
     {
       title: 'Rescue Diver',
@@ -44,6 +46,7 @@ const Courses = () => {
       features: ['Emergency Response', 'Rescue Scenarios', 'First Aid Training', 'Leadership Skills'],
       category: 'Professional',
       popular: false,
+      image: '/images/dive_stress_rescue.jpg',
     },
     {
       title: 'Divemaster',
@@ -55,6 +58,7 @@ const Courses = () => {
       features: ['Leadership Training', 'Guide Certification', 'Professional Skills', 'Career Pathway'],
       category: 'Professional',
       popular: false,
+      image: '/images/divemaster.jpg',
     },
     {
       title: 'Nitrox Specialty',
@@ -66,6 +70,7 @@ const Courses = () => {
       features: ['Nitrox Theory', 'Gas Analysis', 'Dive Planning', 'Safety Procedures'],
       category: 'Advanced',
       popular: false,
+      image: '/images/PADI_ENRICHED_AIR.jpg',
     },
     {
       title: 'Deep Diving Specialty',
@@ -77,6 +82,7 @@ const Courses = () => {
       features: ['Deep Dive Planning', 'Safety Procedures', 'Equipment Setup', '4 Deep Dives'],
       category: 'Advanced',
       popular: false,
+      image: '/images/PADI_DEEP_DIVER.jpg',
     },
   ];
 
@@ -92,8 +98,16 @@ const Courses = () => {
       
       <main className="pt-20">
         {/* Header */}
-        <section className="py-20 bg-ocean-gradient">
-          <div className="container mx-auto px-4 text-center">
+        <section 
+          className="py-20 relative overflow-hidden"
+          style={{
+            backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(26, 188, 156, 0.4)), url('/images/slide-bg-1-2.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
+          }}
+        >
+          <div className="container mx-auto px-4 text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -104,7 +118,7 @@ const Courses = () => {
               </h1>
               <p className="text-lg text-white/90 max-w-2xl mx-auto">
                 Professional PADI certified courses for all skill levels. 
-                Start your underwater adventure with Eagle Divers.
+                Start your underwater adventure with Eagle Divers in the Red Sea.
               </p>
             </motion.div>
           </div>
@@ -159,11 +173,21 @@ const Courses = () => {
                     )}
 
                     <CardHeader className="relative">
-                      <div className="flex justify-between items-start mb-4">
-                        <Badge variant="outline" className="text-primary border-primary">
-                          {course.level}
-                        </Badge>
-                        <span className="text-2xl font-bold text-primary">{course.price}</span>
+                      <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
+                        <img 
+                          src={course.image} 
+                          alt={course.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/60 to-transparent" />
+                        <div className="absolute top-4 left-4">
+                          <Badge variant="outline" className="text-white border-white bg-white/20">
+                            {course.level}
+                          </Badge>
+                        </div>
+                        <div className="absolute top-4 right-4">
+                          <span className="text-2xl font-bold text-white">{course.price}</span>
+                        </div>
                       </div>
                       <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                         {course.title}

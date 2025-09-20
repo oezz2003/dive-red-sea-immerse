@@ -8,11 +8,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <Waves className="h-6 w-6 text-primary animate-wave" />
-              <span className="text-lg font-bold bg-gradient-to-r from-primary to-seafoam bg-clip-text text-transparent">
-                Eagle Divers
-              </span>
+            <div className="flex flex-col items-start space-y-2">
+              <img 
+                src="/images/logo-1-1.png" 
+                alt="Eagle Divers Logo" 
+                className="h-12 w-auto object-contain"
+              />
+              <div className="text-xs font-semibold text-primary/80 tracking-widest uppercase">
+                Red Sea
+              </div>
             </div>
             <p className="text-sm text-muted-foreground">
               Professional diving center offering world-class scuba diving experiences 

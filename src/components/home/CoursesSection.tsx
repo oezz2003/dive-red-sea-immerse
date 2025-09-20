@@ -21,6 +21,7 @@ const CoursesSection = () => {
       description: 'Start your diving journey with our comprehensive beginner course. Learn essential skills in confined water before exploring the Red Sea.',
       features: ['Theory & Pool Training', '4 Open Water Dives', 'PADI Certification', 'Equipment Included'],
       popular: true,
+      image: '/images/padi-open-water.jpg',
     },
     {
       title: 'Advanced Open Water',
@@ -31,6 +32,7 @@ const CoursesSection = () => {
       description: 'Enhance your diving skills with specialized adventure dives including deep diving, navigation, and wreck exploration.',
       features: ['5 Adventure Dives', 'Deep & Navigation', 'Wreck Diving', 'Night Diving'],
       popular: false,
+      image: '/images/PADI-Advanced-Open-Water.jpg',
     },
     {
       title: 'Rescue Diver',
@@ -41,6 +43,7 @@ const CoursesSection = () => {
       description: 'Learn to prevent and manage diving emergencies. Develop leadership skills and enhance your safety awareness.',
       features: ['Emergency Response', 'Rescue Scenarios', 'First Aid Training', 'Leadership Skills'],
       popular: false,
+      image: '/images/dive_stress_rescue.jpg',
     },
   ];
 
@@ -109,11 +112,21 @@ const CoursesSection = () => {
                 <div className="absolute inset-0 bg-surface-gradient opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
 
                 <CardHeader className="relative">
-                  <div className="flex justify-between items-start mb-4">
-                    <Badge variant="outline" className="text-primary border-primary">
-                      {course.level}
-                    </Badge>
-                    <span className="text-2xl font-bold text-primary">{course.price}</span>
+                  <div className="relative h-40 mb-4 rounded-lg overflow-hidden">
+                    <img 
+                      src={course.image} 
+                      alt={course.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/60 to-transparent" />
+                    <div className="absolute top-3 left-3">
+                      <Badge variant="outline" className="text-white border-white bg-white/20">
+                        {course.level}
+                      </Badge>
+                    </div>
+                    <div className="absolute top-3 right-3">
+                      <span className="text-xl font-bold text-white">{course.price}</span>
+                    </div>
                   </div>
                   <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                     {course.title}

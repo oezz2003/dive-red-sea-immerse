@@ -39,7 +39,7 @@ const Activities = () => {
       price: '$45',
       location: 'Red Sea Marina',
       rating: 4.8,
-      image: '/images/kayak.jpg',
+      image: '/images/kayak-1.jpg',
       description: 'Explore hidden coves and crystal clear waters on our guided kayak tour.',
       highlights: ['Guided tour', 'Equipment included', 'Snorkel stops', 'Refreshments']
     },
@@ -52,7 +52,7 @@ const Activities = () => {
       price: '$35',
       location: 'Hurghada Bay',
       rating: 4.9,
-      image: '/images/sup.jpg',
+      image: '/images/sup-1.jpg',
       description: 'Perfect for beginners and experts alike. Peaceful paddling with stunning views.',
       highlights: ['All skill levels', 'Calm waters', 'Instruction included', 'Photo opportunities']
     },
@@ -78,7 +78,7 @@ const Activities = () => {
       price: '$65',
       location: 'Giftun Island',
       rating: 4.9,
-      image: '/images/snorkel-safari.jpg',
+      image: '/images/pool_Snorkel.jpg',
       description: 'Discover colorful coral reefs and marine life at the best snorkeling spots.',
       highlights: ['Boat transport', 'Multiple sites', 'Equipment included', 'Lunch provided']
     },
@@ -91,7 +91,7 @@ const Activities = () => {
       price: '$50',
       location: 'Marina District',
       rating: 4.6,
-      image: '/images/waterbike.jpg',
+      image: '/images/waterbike-2.jpg',
       description: 'Pedal across the waves on our eco-friendly waterbikes. Unique water adventure.',
       highlights: ['Eco-friendly', 'Easy to learn', 'Scenic route', 'Photo stops']
     },
@@ -104,7 +104,7 @@ const Activities = () => {
       price: '$15',
       location: 'Eagle Divers Center',
       rating: 4.8,
-      image: '/images/wetsuit.jpg',
+      image: '/images/wetsuit-1.jpg',
       description: 'High-quality wetsuits for all water activities. Various sizes available.',
       highlights: ['Multiple sizes', 'Premium quality', 'Sanitized equipment', 'Flexible timing']
     }
@@ -121,12 +121,12 @@ const Activities = () => {
       <main className="pt-20">
         {/* Hero Section with Parallax */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-fixed"
-            style={{
-              backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.6), rgba(26, 188, 156, 0.3)), url('/images/activities-hero.jpg')"
-            }}
-          />
+           <div 
+             className="absolute inset-0 bg-cover bg-center bg-fixed"
+             style={{
+               backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.6), rgba(26, 188, 156, 0.3)), url('/images/slide-bg-1-1.jpg')"
+             }}
+           />
           
           {/* Floating particles */}
           <div className="absolute inset-0">

@@ -64,22 +64,31 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           className="mb-8"
         >
           <div className="relative inline-block">
-            <Waves className="h-16 w-16 text-primary animate-wave mx-auto" />
+            <img 
+              src="/images/logo-1-1.png" 
+              alt="Eagle Divers Logo" 
+              className="h-20 w-auto object-contain mx-auto"
+            />
             <div className="absolute -inset-4 bg-primary/20 rounded-full animate-pulse" />
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-6 border border-primary/30 rounded-full"
+            />
           </div>
-          <motion.h1
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-4xl font-bold text-white mt-4"
-          >
-            Eagle Divers
-          </motion.h1>
           <motion.p
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-primary/80 mt-2"
+            className="text-primary/80 mt-4 text-sm font-semibold tracking-widest uppercase"
+          >
+            Red Sea
+          </motion.p>
+          <motion.p
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.7, duration: 0.6 }}
+            className="text-white/60 mt-2 text-sm"
           >
             Dive into Adventure
           </motion.p>

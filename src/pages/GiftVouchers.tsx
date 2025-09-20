@@ -134,7 +134,7 @@ const GiftVouchers = () => {
           <div 
             className="absolute inset-0 bg-cover bg-center bg-fixed"
             style={{
-              backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.6), rgba(255, 107, 53, 0.4)), url('/images/gift-diving.jpg')"
+              backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.6), rgba(255, 107, 53, 0.4)), url('/images/scuba-gift.jpg')"
             }}
           />
           
@@ -478,7 +478,11 @@ const GiftVouchers = () => {
                   <Card className="overflow-hidden bg-coral-gradient shadow-glow">
                     <CardContent className="p-8 text-center text-white">
                       <div className="mb-4">
-                        <Anchor className="h-12 w-12 mx-auto mb-4 text-white" />
+                        <img 
+                          src="/images/logo-1-1.png" 
+                          alt="Eagle Divers Logo" 
+                          className="h-12 w-auto object-contain mx-auto mb-4"
+                        />
                         <h3 className="text-2xl font-bold mb-2">Eagle Divers</h3>
                         <p className="text-white/90">Gift Voucher</p>
                       </div>

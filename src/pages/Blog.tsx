@@ -43,7 +43,7 @@ const Blog = () => {
       date: '2024-01-15',
       readTime: '8 min read',
       views: 1250,
-      image: '/images/blog-red-sea-spots.jpg',
+      image: '/images/gallery-1-2.jpg',
       tags: ['Red Sea', 'Diving Spots', 'Travel Guide']
     },
     {
@@ -55,7 +55,7 @@ const Blog = () => {
       date: '2024-01-12',
       readTime: '12 min read',
       views: 890,
-      image: '/images/blog-photography.jpg',
+      image: '/images/gallery-1-3.jpg',
       tags: ['Photography', 'Underwater', 'Tips']
     },
     {
@@ -67,7 +67,7 @@ const Blog = () => {
       date: '2024-01-10',
       readTime: '6 min read',
       views: 2100,
-      image: '/images/blog-equipment.jpg',
+      image: '/images/course-1-4.jpg',
       tags: ['Safety', 'Equipment', 'Beginner Tips']
     },
     {
@@ -79,7 +79,7 @@ const Blog = () => {
       date: '2024-01-08',
       readTime: '4 min read',
       views: 3200,
-      image: '/images/blog-award.jpg',
+      image: '/images/eagle_divers_ni_team.jpg',
       tags: ['News', 'Awards', 'Achievement']
     },
     {
@@ -91,7 +91,7 @@ const Blog = () => {
       date: '2024-01-05',
       readTime: '10 min read',
       views: 1580,
-      image: '/images/blog-conservation.jpg',
+      image: '/images/gallery-1-5.jpg',
       tags: ['Conservation', 'Marine Life', 'Environment']
     },
     {
@@ -103,7 +103,7 @@ const Blog = () => {
       date: '2024-01-03',
       readTime: '7 min read',
       views: 960,
-      image: '/images/blog-night-diving.jpg',
+      image: '/images/gallery-1-6.jpg',
       tags: ['Night Diving', 'Adventure', 'Marine Life']
     }
   ];
@@ -134,7 +134,7 @@ const Blog = () => {
           <div 
             className="absolute inset-0 bg-cover bg-center bg-fixed"
             style={{
-              backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(26, 188, 156, 0.4)), url('/images/blog-hero.jpg')"
+              backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(26, 188, 156, 0.4)), url('/images/slider-2-bg-2.JPG')"
             }}
           />
           
