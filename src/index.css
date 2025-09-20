@@ -2,41 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Eagle Divers Design System - Dark Navy Blue Theme
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base Colors - Dark Navy Theme */
+    --background: 215 48% 11%;  /* #0A1A2F */
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 215 48% 13%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 215 48% 13%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Electric Blue */
+    --primary: 198 93% 60%;  /* Electric blue for CTAs */
+    --primary-foreground: 215 48% 11%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Lighter Navy */
+    --secondary: 215 40% 20%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 215 32% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 198 93% 60%;
+    --accent-foreground: 215 48% 11%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 215 32% 20%;
+    --input: 215 32% 17%;
+    --ring: 198 93% 60%;
 
-    --radius: 0.5rem;
+    /* Ocean Theme Colors */
+    --ocean-deep: 215 48% 11%;
+    --ocean-surface: 198 93% 60%;
+    --coral-orange: 15 86% 58%;
+    --sea-foam: 180 68% 75%;
+
+    /* Gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(215 48% 11%), hsl(198 93% 30%));
+    --gradient-surface: linear-gradient(180deg, hsl(198 93% 60%), hsl(198 93% 40%));
+    --gradient-coral: linear-gradient(45deg, hsl(15 86% 58%), hsl(25 86% 68%));
+
+    /* Shadows & Effects */
+    --shadow-depth: 0 20px 60px -10px hsl(215 48% 5% / 0.5);
+    --shadow-glow: 0 0 40px hsl(198 93% 60% / 0.3);
+    --shadow-float: 0 10px 30px -5px hsl(215 48% 5% / 0.3);
+
+    /* Animation Variables */
+    --bubble-duration: 3s;
+    --wave-duration: 4s;
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -55,42 +79,14 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  /* Light mode variant - keeping dark as default for diving theme */
+  .light {
+    --background: 210 40% 98%;
+    --foreground: 215 48% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 48% 11%;
+    --border: 215 25% 85%;
+    --input: 215 25% 85%;
   }
 }
 
@@ -100,6 +96,141 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom animations for Eagle Divers */
+@layer utilities {
+  /* Bubble Animation */
+  .animate-bubble {
+    animation: bubble var(--bubble-duration) ease-in-out infinite;
+  }
+
+  .animate-bubble-delayed {
+    animation: bubble var(--bubble-duration) ease-in-out infinite 1s;
+  }
+
+  /* Wave Animation */
+  .animate-wave {
+    animation: wave var(--wave-duration) ease-in-out infinite;
+  }
+
+  /* Floating Animation */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Dive In Animation */
+  .animate-dive-in {
+    animation: diveIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Surface Effect */
+  .animate-surface {
+    animation: surface 2s ease-out forwards;
+  }
+
+  /* Ripple Effect */
+  .animate-ripple {
+    animation: ripple 0.6s ease-out;
+  }
+
+  /* Bubble hover effect for buttons */
+  .btn-bubble {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+
+  .btn-bubble::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .btn-bubble:hover::before {
+    transform: translateX(100%);
+  }
+
+  /* Depth shadows */
+  .shadow-depth {
+    box-shadow: var(--shadow-depth);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-float {
+    box-shadow: var(--shadow-float);
+  }
+
+  /* Gradient backgrounds */
+  .bg-ocean {
+    background: var(--gradient-ocean);
+  }
+
+  .bg-surface {
+    background: var(--gradient-surface);
+  }
+
+  .bg-coral {
+    background: var(--gradient-coral);
+  }
+}
+
+/* Keyframes */
+@keyframes bubble {
+  0%, 100% { transform: translateY(0px) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-20px) scale(1.1); opacity: 1; }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateX(0px) translateY(0px); }
+  25% { transform: translateX(-5px) translateY(-3px); }
+  50% { transform: translateX(0px) translateY(-5px); }
+  75% { transform: translateX(5px) translateY(-3px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes diveIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-50px) scale(0.9);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes surface {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
   }
 }

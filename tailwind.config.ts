@@ -57,6 +57,38 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        /* Eagle Divers Ocean Theme Colors */
+        ocean: {
+          deep: "hsl(var(--ocean-deep))",
+          surface: "hsl(var(--ocean-surface))",
+        },
+        coral: {
+          DEFAULT: "hsl(var(--coral-orange))",
+        },
+        seafoam: "hsl(var(--sea-foam))",
+      },
+      fontFamily: {
+        sans: [
+          'Inter',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'sans-serif',
+        ],
+      },
+      backgroundImage: {
+        'ocean-gradient': 'var(--gradient-ocean)',
+        'surface-gradient': 'var(--gradient-surface)',
+        'coral-gradient': 'var(--gradient-coral)',
+      },
+      boxShadow: {
+        'depth': 'var(--shadow-depth)',
+        'glow': 'var(--shadow-glow)',
+        'float': 'var(--shadow-float)',
       },
       borderRadius: {
         lg: "var(--radius)",
