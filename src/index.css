@@ -39,10 +39,14 @@ All colors MUST be HSL.
     --input: 215 32% 17%;
     --ring: 198 93% 60%;
 
-    /* Ocean Theme Colors */
+    /* Marine Tourism Color Palette */
     --ocean-deep: 215 48% 11%;
     --ocean-surface: 198 93% 60%;
-    --coral-orange: 15 86% 58%;
+    --turquoise: 180 54% 52%;    /* #1ABC9C Turquoise Blue */
+    --coral-orange: 15 86% 58%;  /* #FF6B35 Coral Orange */
+    --sunny-yellow: 48 100% 60%; /* #FFD93D Sunny Yellow */
+    --seaweed-green: 145 63% 49%; /* #2ECC71 Seaweed Green */
+    --off-white: 210 17% 98%;    /* #F8F9FA Off White */
     --sea-foam: 180 68% 75%;
 
     /* Gradients */

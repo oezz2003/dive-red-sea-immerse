@@ -57,14 +57,18 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        /* Eagle Divers Ocean Theme Colors */
+        /* Eagle Divers Marine Tourism Theme */
         ocean: {
           deep: "hsl(var(--ocean-deep))",
           surface: "hsl(var(--ocean-surface))",
         },
+        turquoise: "hsl(var(--turquoise))",
         coral: {
           DEFAULT: "hsl(var(--coral-orange))",
         },
+        sunny: "hsl(var(--sunny-yellow))",
+        seaweed: "hsl(var(--seaweed-green))",
+        offwhite: "hsl(var(--off-white))",
         seafoam: "hsl(var(--sea-foam))",
       },
       fontFamily: {

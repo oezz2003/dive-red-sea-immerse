@@ -21,7 +21,9 @@ const Navbar = () => {
     { href: '/', label: 'Home' },
     { href: '/courses', label: 'Courses' },
     { href: '/activities', label: 'Activities' },
-    { href: '/gallery', label: 'Gallery' },
+    { href: '/shop', label: 'Shop' },
+    { href: '/gift-vouchers', label: 'Gift Vouchers' },
+    { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
   ];
 
