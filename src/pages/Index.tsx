@@ -15,23 +15,21 @@ const Index = () => {
   };
 
   return (
-    <>
-      <AnimatePresence mode="wait">
-        {isLoading ? (
-          <LoadingScreen key="loading" onComplete={handleLoadingComplete} />
-        ) : (
-          <div key="content" className="min-h-screen bg-background">
-            <Navbar />
-            <main>
-              <HeroSection />
-              <AboutSection />
-              <CoursesSection />
-            </main>
-            <Footer />
-          </div>
-        )}
-      </AnimatePresence>
-    </>
+    <AnimatePresence mode="wait">
+      {isLoading ? (
+        <LoadingScreen key="loading" onComplete={handleLoadingComplete} />
+      ) : (
+        <div key="content">
+          <Navbar />
+          <main>
+            <HeroSection />
+            <AboutSection />
+            <CoursesSection />
+          </main>
+          <Footer />
+        </div>
+      )}
+    </AnimatePresence>
   );
 };
 

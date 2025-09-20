@@ -66,7 +66,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <Navbar />
       
       <main className="pt-20">
@@ -290,7 +290,7 @@ const Contact = () => {
       </main>
 
       <Footer />
-    </div>
+    </>
   );
 };
 
