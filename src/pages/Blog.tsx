@@ -36,15 +36,15 @@ const Blog = () => {
   const blogPosts = [
     {
       id: 1,
-      title: 'Top 10 Diving Spots in the Red Sea',
-      excerpt: 'Discover the most breathtaking underwater locations that make the Red Sea a world-class diving destination.',
+      title: 'Top 10 Diving Spots in the NI',
+      excerpt: 'Discover the most breathtaking underwater locations that make the NI a world-class diving destination.',
       category: 'destinations',
       author: 'Ahmed Hassan',
       date: '2024-01-15',
       readTime: '8 min read',
       views: 1250,
       image: '/images/gallery-1-2.jpg',
-      tags: ['Red Sea', 'Diving Spots', 'Travel Guide']
+      tags: ['NI', 'Diving Spots', 'Travel Guide']
     },
     {
       id: 2,
@@ -73,7 +73,7 @@ const Blog = () => {
     {
       id: 4,
       title: 'Eagle Divers Wins Best Diving Center Award 2024',
-      excerpt: 'We are proud to announce that Eagle Divers has been recognized as the Best Diving Center in the Red Sea region.',
+      excerpt: 'We are proud to announce that Eagle Divers has been recognized as the Best Diving Center in the NI region.',
       category: 'news',
       author: 'Eagle Divers Team',
       date: '2024-01-08',
@@ -85,7 +85,7 @@ const Blog = () => {
     {
       id: 5,
       title: 'Marine Life Conservation: How Divers Can Help',
-      excerpt: 'Learn about marine conservation efforts in the Red Sea and how responsible diving practices can protect underwater ecosystems.',
+      excerpt: 'Learn about marine conservation efforts in the NI and how responsible diving practices can protect underwater ecosystems.',
       category: 'diving-tips',
       author: 'Dr. Fatima Al-Rashid',
       date: '2024-01-05',
@@ -149,7 +149,7 @@ const Blog = () => {
               </h1>
               <p className="text-xl text-white/90 max-w-3xl mx-auto">
                 Explore the underwater world through our diving adventures, tips, 
-                and insights from the Red Sea's most experienced dive professionals.
+                and insights from the NI's most experienced dive professionals.
               </p>
             </motion.div>
           </div>

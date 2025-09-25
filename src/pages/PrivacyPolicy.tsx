@@ -70,17 +70,17 @@ const PrivacyPolicy = () => {
     {
       icon: Mail,
       title: 'Email',
-      detail: 'privacy@eagledivers.com'
+      detail: 'privacy@eaglediversni.com'
     },
     {
       icon: Phone,
       title: 'Phone',
-      detail: '+20 123 456 789'
+      detail: '07756699880'
     },
     {
       icon: MapPin,
       title: 'Address',
-      detail: 'Red Sea Riviera, Hurghada, Egypt'
+      detail: 'Antrim, Northern Ireland'
     }
   ];
 

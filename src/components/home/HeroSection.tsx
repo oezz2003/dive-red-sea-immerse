@@ -69,7 +69,7 @@ const HeroSection = () => {
         >
           Dive into the{' '}
           <span className="bg-gradient-to-r from-primary to-seafoam bg-clip-text text-transparent">
-            Red Sea
+            NI
           </span>
           <br />
           with Eagle Divers
@@ -81,7 +81,7 @@ const HeroSection = () => {
           className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed"
         >
           Explore, Learn, and Discover with Certified Diving Experts. 
-          Experience the underwater wonders of the Red Sea with professional 
+          Experience the underwater wonders of the NI with professional 
           PADI instructors and state-of-the-art equipment.
         </motion.p>
 
@@ -119,7 +119,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mt-12 text-white/60 text-sm"
         >
-          <p>PADI Certified • 15+ Years Experience • Red Sea Specialists</p>
+          <p>PADI Certified • 15+ Years Experience • NI Specialists</p>
         </motion.div>
       </motion.div>
 

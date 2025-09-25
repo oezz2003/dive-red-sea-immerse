@@ -37,7 +37,7 @@ const Activities = () => {
       duration: '3 hours',
       groupSize: '2-8 people',
       price: '$45',
-      location: 'Red Sea Marina',
+      location: 'NI Marina',
       rating: 4.8,
       image: '/images/kayak-1.jpg',
       description: 'Explore hidden coves and crystal clear waters on our guided kayak tour.',
@@ -162,7 +162,7 @@ const Activities = () => {
                 Water<span className="text-turquoise">Sports</span> Hub
               </h1>
               <p className="text-xl text-white/90 max-w-3xl mx-auto mb-8">
-                From peaceful kayaking to thrilling waterbike adventures, discover the Red Sea 
+                From peaceful kayaking to thrilling waterbike adventures, discover the NI 
                 with our exciting water activities and equipment rentals.
               </p>
               <motion.div
@@ -341,7 +341,7 @@ const Activities = () => {
                 Ready for Your Water Adventure?
               </h2>
               <p className="text-white/90 text-lg max-w-2xl mx-auto mb-8">
-                Join thousands of satisfied adventurers who have experienced the magic of the Red Sea 
+                Join thousands of satisfied adventurers who have experienced the magic of the NI 
                 with Eagle Divers' premium water activities.
               </p>
               <Button 

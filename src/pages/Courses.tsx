@@ -18,7 +18,7 @@ const Courses = () => {
       duration: '3-4 days',
       maxDepth: '18m',
       price: '$299',
-      description: 'Start your diving journey with our comprehensive beginner course. Learn essential skills in confined water before exploring the Red Sea.',
+      description: 'Start your diving journey with our comprehensive beginner course. Learn essential skills in confined water before exploring the NI.',
       features: ['Theory & Pool Training', '4 Open Water Dives', 'PADI Certification', 'Equipment Included'],
       category: 'Beginner',
       popular: true,
@@ -118,7 +118,7 @@ const Courses = () => {
               </h1>
               <p className="text-lg text-white/90 max-w-2xl mx-auto">
                 Professional PADI certified courses for all skill levels. 
-                Start your underwater adventure with Eagle Divers in the Red Sea.
+                Start your underwater adventure with Eagle Divers in the NI.
               </p>
             </motion.div>
           </div>

@@ -18,7 +18,7 @@ const CoursesSection = () => {
       duration: '3-4 days',
       maxDepth: '18m',
       price: '$299',
-      description: 'Start your diving journey with our comprehensive beginner course. Learn essential skills in confined water before exploring the Red Sea.',
+      description: 'Start your diving journey with our comprehensive beginner course. Learn essential skills in confined water before exploring the NI.',
       features: ['Theory & Pool Training', '4 Open Water Dives', 'PADI Certification', 'Equipment Included'],
       popular: true,
       image: '/images/padi-open-water.jpg',

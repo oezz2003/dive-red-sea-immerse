@@ -66,7 +66,7 @@ const AboutSection = () => {
               className="text-muted-foreground text-lg leading-relaxed"
             >
               For over 15 years, Eagle Divers has been the premier diving center 
-              in the Red Sea, dedicated to sharing our passion for the underwater world. 
+              in the NI, dedicated to sharing our passion for the underwater world. 
               Our team of certified PADI instructors brings decades of combined experience 
               to ensure your diving adventure is both safe and unforgettable.
             </motion.p>
@@ -80,7 +80,7 @@ const AboutSection = () => {
               From beginner courses to advanced certifications, we offer comprehensive 
               training programs that cater to all skill levels. Our commitment to 
               marine conservation and sustainable diving practices ensures that the 
-              beauty of the Red Sea will be preserved for future generations.
+              beauty of the NI will be preserved for future generations.
             </motion.p>
 
             {/* Stats Grid */}
@@ -116,7 +116,7 @@ const AboutSection = () => {
             <div className="relative overflow-hidden rounded-2xl shadow-depth">
               <img
                 src={coralImage}
-                alt="Beautiful Red Sea coral reef"
+                alt="Beautiful NI coral reef"
                 className="w-full h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/20 to-transparent" />

@@ -82,7 +82,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="text-primary/80 mt-4 text-sm font-semibold tracking-widest uppercase"
           >
-            Red Sea
+            NI
           </motion.p>
           <motion.p
             initial={{ y: 20, opacity: 0 }}

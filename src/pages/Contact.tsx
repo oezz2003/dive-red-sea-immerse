@@ -46,22 +46,22 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Location',
-      details: ['Red Sea Riviera', 'Hurghada, Egypt'],
+      details: ['Antrim', 'Northern Ireland'],
     },
     {
       icon: Phone,
       title: 'Phone',
-      details: ['+20 123 456 789', '+20 987 654 321'],
+      details: ['07756699880'],
     },
     {
       icon: Mail,
       title: 'Email',
-      details: ['info@eagledivers.com', 'booking@eagledivers.com'],
+      details: ['info@eaglediversni.com', 'admin@eaglediversni.com'],
     },
     {
       icon: Clock,
       title: 'Hours',
-      details: ['Mon - Sun: 7:00 AM - 8:00 PM', 'Always available for emergencies'],
+      details: ['Mon - Sun: 9:00 AM - 5:00 PM'],
     },
   ];
 
@@ -278,7 +278,7 @@ const Contact = () => {
                       <div className="text-center">
                         <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
                         <p className="text-foreground font-semibold">Interactive Map</p>
-                        <p className="text-muted-foreground">Find us at the Red Sea Riviera</p>
+                        <p className="text-muted-foreground">Find us in Antrim, Northern Ireland</p>
                       </div>
                     </div>
                   </Card>

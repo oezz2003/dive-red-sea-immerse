@@ -5,71 +5,69 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { 
-  ShoppingBag, 
+  Plane, 
   Star,
   ArrowRight,
-  Package,
-  Truck,
-  Shield,
-  Gift
+  MapPin,
+  Phone,
+  Mail,
+  MessageCircle,
+  Globe,
+  Waves,
+  Fish,
+  Compass
 } from 'lucide-react';
 
 const Shop = () => {
-  const comingSoonFeatures = [
+  const destinations = [
     {
-      icon: Package,
-      title: 'Diving Equipment',
-      description: 'Professional diving gear, masks, fins, and more',
+      icon: Waves,
+      title: 'Red Sea, Egypt',
+      description: 'Crystal-clear waters, vibrant coral reefs, and world-famous dive sites.',
+      emoji: '🌊',
       color: 'turquoise'
     },
     {
-      icon: Gift,
-      title: 'Gift Vouchers',
-      description: 'Perfect gifts for diving enthusiasts',
+      icon: Fish,
+      title: 'Maldives',
+      description: 'Luxury liveaboard experiences with manta rays and whale sharks.',
+      emoji: '🏝',
       color: 'coral'
     },
     {
-      icon: Truck,
-      title: 'Fast Delivery',
-      description: 'Quick shipping to your location',
+      icon: Compass,
+      title: 'Thailand',
+      description: 'Exotic beaches combined with thrilling drift dives.',
+      emoji: '🌴',
       color: 'seaweed'
     },
     {
-      icon: Shield,
-      title: 'Quality Guarantee',
-      description: 'Only the best diving equipment brands',
+      icon: Globe,
+      title: 'Mexico',
+      description: 'Cenote diving, reefs, and encounters with pelagic species.',
+      emoji: '🐠',
       color: 'sunny'
     }
   ];
 
-  const popularItems = [
+  const contactInfo = [
     {
-      name: 'Professional Diving Mask',
-      category: 'Equipment',
-      price: '$89',
-      rating: 4.9,
-      image: '/images/course-1-1.jpg'
+      icon: MapPin,
+      title: 'Location',
+      detail: 'Antrim, Northern Ireland',
+      color: 'turquoise'
     },
     {
-      name: 'Wetsuit 3mm',
-      category: 'Suits',
-      price: '$159',
-      rating: 4.8,
-      image: '/images/wetsuit-1.jpg'
+      icon: Phone,
+      title: 'Phone',
+      detail: '07756699880',
+      color: 'coral'
     },
     {
-      name: 'Diving Fins',
-      category: 'Equipment',
-      price: '$69',
-      rating: 4.7,
-      image: '/images/course-1-2.jpg'
-    },
-    {
-      name: 'Underwater Camera',
-      category: 'Photography',
-      price: '$299',
-      rating: 4.9,
-      image: '/images/course-1-3.jpg'
+      icon: Mail,
+      title: 'Email',
+      detail: 'info@eaglediversni.com',
+      color: 'seaweed'
     }
   ];
 
@@ -83,11 +81,11 @@ const Shop = () => {
           <div 
             className="absolute inset-0 bg-cover bg-center bg-fixed"
             style={{
-              backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(255, 107, 53, 0.3)), url('/images/slide-bg-1-3.jpg')"
+              backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.8), rgba(255, 107, 53, 0.3)), url('/images/slide-bg-1-3.jpg')"
             }}
           />
           
-          {/* Floating shopping icons */}
+          {/* Floating travel icons */}
           <div className="absolute inset-0">
             {[...Array(15)].map((_, i) => (
               <motion.div
@@ -108,7 +106,7 @@ const Shop = () => {
                   delay: Math.random() * 3,
                 }}
               >
-                <ShoppingBag className="h-6 w-6 text-white/20" />
+                <Plane className="h-6 w-6 text-white/20" />
               </motion.div>
             ))}
           </div>
@@ -120,14 +118,18 @@ const Shop = () => {
               transition={{ duration: 1 }}
             >
               <Badge className="mb-6 bg-coral text-white px-6 py-2 text-lg">
-                Coming Soon
+                Diving Holidays
               </Badge>
               <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6">
-                Eagle Divers <span className="text-coral">Shop</span>
+                Diving Holidays with <span className="text-coral">Eagle Divers NI</span>
               </h1>
-              <p className="text-xl text-white/90 max-w-3xl mx-auto mb-8">
-                Your one-stop destination for professional diving equipment, gear, and accessories. 
-                Quality products for every underwater adventure.
+              <p className="text-xl text-white/90 max-w-4xl mx-auto mb-8">
+                From Northern Ireland to the World's Best Dive Sites
+              </p>
+              <p className="text-lg text-white/80 max-w-4xl mx-auto mb-8">
+                Looking for your next underwater adventure? At Eagle Divers NI, we specialize in 
+                organizing unforgettable diving holidays from Northern Ireland to the Red Sea and beyond. 
+                Whether you're a beginner or an experienced diver, our team can arrange the perfect trip for you.
               </p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -139,23 +141,23 @@ const Shop = () => {
                   size="lg" 
                   className="btn-bubble bg-coral hover:bg-coral/90 text-white"
                 >
-                  <Gift className="mr-2 h-5 w-5" />
-                  Get Gift Voucher
+                  <Plane className="mr-2 h-5 w-5" />
+                  Plan Your Trip
                 </Button>
                 <Button 
                   size="lg" 
                   variant="outline"
                   className="border-white text-white hover:bg-white hover:text-ocean-deep"
                 >
-                  <Package className="mr-2 h-5 w-5" />
-                  Notify Me
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Contact Us
                 </Button>
               </motion.div>
             </motion.div>
           </div>
         </section>
 
-        {/* Coming Soon Features */}
+        {/* Popular Destinations */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <motion.div
@@ -165,18 +167,17 @@ const Shop = () => {
               className="text-center mb-16"
             >
               <h2 className="text-4xl font-bold text-foreground mb-6">
-                What's Coming to Our Shop
+                Popular Destinations
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-                We're preparing an amazing collection of diving equipment and accessories. 
-                Be the first to know when we launch!
+                Discover the world's most spectacular dive sites with our expertly planned diving holidays.
               </p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {comingSoonFeatures.map((feature, index) => (
+              {destinations.map((destination, index) => (
                 <motion.div
-                  key={feature.title}
+                  key={destination.title}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -184,16 +185,17 @@ const Shop = () => {
                 >
                   <Card className="text-center bg-card border-border shadow-float hover:shadow-glow transition-all duration-300">
                     <CardHeader>
-                      <div className={`mx-auto w-16 h-16 rounded-full bg-${feature.color}/20 flex items-center justify-center mb-4`}>
-                        <feature.icon className={`h-8 w-8 text-${feature.color}`} />
+                      <div className="text-4xl mb-4">{destination.emoji}</div>
+                      <div className={`mx-auto w-16 h-16 rounded-full bg-${destination.color}/20 flex items-center justify-center mb-4`}>
+                        <destination.icon className={`h-8 w-8 text-${destination.color}`} />
                       </div>
                       <CardTitle className="text-xl text-foreground">
-                        {feature.title}
+                        {destination.title}
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
                       <p className="text-muted-foreground">
-                        {feature.description}
+                        {destination.description}
                       </p>
                     </CardContent>
                   </Card>
@@ -203,7 +205,7 @@ const Shop = () => {
           </div>
         </section>
 
-        {/* Popular Items Preview */}
+        {/* Contact Section */}
         <section className="py-20 bg-card">
           <div className="container mx-auto px-4">
             <motion.div
@@ -213,57 +215,68 @@ const Shop = () => {
               className="text-center mb-16"
             >
               <h2 className="text-4xl font-bold text-foreground mb-6">
-                Popular Items Preview
+                Contact Eagle Divers NI
               </h2>
-              <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-                Get a sneak peek at some of the premium diving equipment 
-                we'll be offering in our upcoming shop.
+              <p className="text-muted-foreground text-lg max-w-3xl mx-auto mb-8">
+                Based in Northern Ireland, we're here to plan every detail of your trip. 
+                Get in touch today to start planning your diving holiday:
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {popularItems.map((item, index) => (
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {contactInfo.map((contact, index) => (
                 <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  key={contact.title}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ y: -5 }}
                 >
-                  <Card className="overflow-hidden bg-background border-border shadow-float">
-                    <div className="relative h-48 bg-gradient-to-br from-ocean-surface/20 to-turquoise/20">
-                      <div className="absolute inset-0 bg-ocean-gradient opacity-60" />
-                      <div className="absolute top-4 right-4">
-                        <Badge variant="secondary" className="bg-white/90 text-ocean-deep">
-                          {item.price}
-                        </Badge>
-                      </div>
-                      <div className="absolute bottom-4 left-4 flex items-center gap-1 text-white">
-                        <Star className="h-4 w-4 fill-sunny text-sunny" />
-                        <span className="font-semibold">{item.rating}</span>
-                      </div>
-                    </div>
-                    
+                  <Card className="text-center bg-background border-border shadow-float hover:shadow-glow transition-all duration-300">
                     <CardHeader>
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <CardTitle className="text-lg text-foreground">
-                            {item.name}
-                          </CardTitle>
-                          <Badge variant="outline" className="mt-2">
-                            {item.category}
-                          </Badge>
-                        </div>
+                      <div className={`mx-auto w-16 h-16 rounded-full bg-${contact.color}/20 flex items-center justify-center mb-4`}>
+                        <contact.icon className={`h-8 w-8 text-${contact.color}`} />
                       </div>
+                      <CardTitle className="text-lg text-foreground">
+                        {contact.title}
+                      </CardTitle>
                     </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground font-medium">
+                        {contact.detail}
+                      </p>
+                    </CardContent>
                   </Card>
                 </motion.div>
               ))}
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center"
+            >
+              <div className="bg-gradient-to-r from-turquoise/10 to-coral/10 rounded-2xl p-8 border border-turquoise/20">
+                <h3 className="text-2xl font-bold text-foreground mb-4">
+                  ✈️ Flights, transfers, accommodation, diving packages — all arranged for you by Eagle Divers NI.
+                </h3>
+                <p className="text-lg text-muted-foreground mb-6">
+                  🐠 Just bring your passion for the ocean, and we'll handle the rest!
+                </p>
+                <Button 
+                  size="lg"
+                  className="btn-bubble bg-coral hover:bg-coral/90 text-white shadow-glow"
+                >
+                  <Plane className="mr-2 h-5 w-5" />
+                  Start Planning Your Holiday
+                </Button>
+              </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* Newsletter Signup */}
+        {/* Call to Action */}
         <section className="py-20 bg-ocean-gradient relative overflow-hidden">
           <div className="absolute inset-0">
             {[...Array(8)].map((_, i) => (
@@ -295,23 +308,23 @@ const Shop = () => {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl font-bold text-white mb-6">
-                Be the First to Shop
+                Ready for Your Next Adventure?
               </h2>
               <p className="text-white/90 text-lg max-w-2xl mx-auto mb-8">
-                Join our newsletter to get exclusive early access to our shop, 
-                special discounts, and diving gear recommendations.
+                Let Eagle Divers NI take you on the diving holiday of a lifetime. 
+                From Northern Ireland to the world's most spectacular dive sites.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
                 <Button 
                   size="lg"
                   className="btn-bubble bg-coral hover:bg-coral/90 text-white shadow-glow flex-1"
                 >
-                  <ShoppingBag className="mr-2 h-5 w-5" />
-                  Notify Me When Ready
+                  <Plane className="mr-2 h-5 w-5" />
+                  Plan Your Holiday
                 </Button>
               </div>
               <p className="text-white/70 text-sm mt-4">
-                We'll never spam you. Unsubscribe at any time.
+                Free consultation • Custom packages • Expert guidance
               </p>
             </motion.div>
           </div>
