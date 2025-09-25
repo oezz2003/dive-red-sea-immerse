@@ -124,7 +124,7 @@ const Activities = () => {
            <div 
              className="absolute inset-0 bg-cover bg-center bg-fixed"
              style={{
-               backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.6), rgba(26, 188, 156, 0.3)), url('/images/slide-bg-1-1.jpg')"
+               backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.6), rgba(26, 188, 156, 0.3)), url('/images/hero-section pic.jpg')"
              }}
            />
           

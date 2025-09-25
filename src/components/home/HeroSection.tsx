@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import heroImage from '@/assets/hero-diving.jpg';
+// Using the hero-section pic.jpg from public/images
 
 const HeroSection = () => {
   const containerVariants = {
@@ -26,7 +26,7 @@ const HeroSection = () => {
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `url('/images/hero-section pic.jpg')` }}
       >
         <div className="absolute inset-0 bg-ocean-deep/60" />
       </div>

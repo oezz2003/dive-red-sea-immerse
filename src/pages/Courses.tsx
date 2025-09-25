@@ -101,7 +101,7 @@ const Courses = () => {
         <section 
           className="py-20 relative overflow-hidden"
           style={{
-            backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(26, 188, 156, 0.4)), url('/images/slide-bg-1-2.jpg')",
+            backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(26, 188, 156, 0.4)), url('/images/hero-section pic.jpg')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed'

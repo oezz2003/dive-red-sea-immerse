@@ -134,7 +134,7 @@ const Blog = () => {
           <div 
             className="absolute inset-0 bg-cover bg-center bg-fixed"
             style={{
-              backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(26, 188, 156, 0.4)), url('/images/slider-2-bg-2.JPG')"
+              backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(26, 188, 156, 0.4)), url('/images/hero-section pic.jpg')"
             }}
           />
           
