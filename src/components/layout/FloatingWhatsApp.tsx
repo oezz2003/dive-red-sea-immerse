@@ -6,7 +6,7 @@ const FloatingWhatsApp = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
-  const phoneNumber = '07756699880';
+  const phoneNumber = '+44 7756 699880';
   const message = 'Hi! I\'m interested in your diving courses and would like to know more information.';
   const whatsappUrl = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(message)}`;
 

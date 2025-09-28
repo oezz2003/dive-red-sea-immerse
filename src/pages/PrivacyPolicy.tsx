@@ -75,7 +75,7 @@ const PrivacyPolicy = () => {
     {
       icon: Phone,
       title: 'Phone',
-      detail: '07756699880'
+      detail: '+44 7756 699880'
     },
     {
       icon: MapPin,

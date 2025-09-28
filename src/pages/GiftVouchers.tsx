@@ -464,7 +464,7 @@ const GiftVouchers = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground font-medium">
-                      07756699880
+                      +44 7756 699880
                     </p>
                   </CardContent>
                 </Card>
