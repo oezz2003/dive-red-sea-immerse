@@ -13,37 +13,70 @@ const CoursesSection = () => {
 
   const courses = [
     {
-      title: 'Open Water Diver',
+      title: 'Try Scuba',
+      level: 'Beginner',
+      duration: '2-3 hours',
+      maxDepth: 'Pool/Shallow',
+      description: 'Experience scuba diving for the first time in a safe and controlled environment. Perfect introduction to the underwater world.',
+      features: ['Pool Session', 'Basic Skills', 'Equipment Introduction', 'Safety Briefing'],
+      popular: true,
+      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop&crop=center',
+      organization: 'SSI'
+    },
+    {
+      title: 'PADI Open Water Diver',
       level: 'Beginner',
       duration: '3-4 days',
       maxDepth: '18m',
-      price: '$299',
-      description: 'Start your diving journey with our comprehensive beginner course. Learn essential skills in confined water before exploring the NI.',
+      description: 'The world\'s most popular scuba diving course. Learn to dive safely and confidently.',
       features: ['Theory & Pool Training', '4 Open Water Dives', 'PADI Certification', 'Equipment Included'],
       popular: true,
-      image: '/images/padi-open-water.jpg',
+      image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center',
+      organization: 'PADI'
     },
     {
-      title: 'Advanced Open Water',
-      level: 'Intermediate',
+      title: 'SSI Open Water Diver',
+      level: 'Beginner',
+      duration: '3-4 days',
+      maxDepth: '18m',
+      description: 'Begin your lifelong adventures as a certified scuba diver. Personalized training with in-water practice sessions.',
+      features: ['Theory & Pool Training', '4 Open Water Dives', 'SSI Certification', 'Equipment Included'],
+      popular: false,
+      image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center',
+      organization: 'SSI'
+    },
+    {
+      title: 'PADI Advanced Open Water',
+      level: 'Advanced',
       duration: '2-3 days',
       maxDepth: '30m',
-      price: '$249',
-      description: 'Enhance your diving skills with specialized adventure dives including deep diving, navigation, and wreck exploration.',
+      description: 'Enhance your diving skills with five adventure dives including deep and navigation.',
       features: ['5 Adventure Dives', 'Deep & Navigation', 'Wreck Diving', 'Night Diving'],
       popular: false,
-      image: '/images/PADI-Advanced-Open-Water.jpg',
+      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop&crop=center',
+      organization: 'PADI'
     },
     {
-      title: 'Rescue Diver',
+      title: 'SSI Advanced Adventurer',
+      level: 'Advanced',
+      duration: '2-3 days',
+      maxDepth: '30m',
+      description: 'Try out five different specialties before committing to full programs. Great way to enhance your diving skills.',
+      features: ['5 Adventure Dives', 'Deep & Navigation', 'Wreck Diving', 'Night Diving'],
+      popular: false,
+      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop&crop=center',
+      organization: 'SSI'
+    },
+    {
+      title: 'PADI Rescue Diver',
       level: 'Advanced',
       duration: '3-4 days',
       maxDepth: '30m',
-      price: '$349',
-      description: 'Learn to prevent and manage diving emergencies. Develop leadership skills and enhance your safety awareness.',
+      description: 'Learn to prevent and manage diving emergencies. Develop leadership skills.',
       features: ['Emergency Response', 'Rescue Scenarios', 'First Aid Training', 'Leadership Skills'],
       popular: false,
-      image: '/images/dive_stress_rescue.jpg',
+      image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center',
+      organization: 'PADI'
     },
   ];
 
@@ -79,7 +112,7 @@ const CoursesSection = () => {
             Diving <span className="text-primary">Courses</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            From beginner to professional level, our PADI certified courses 
+            From beginner to professional level, our PADI and SSI certified courses 
             will guide you through every step of your diving journey.
           </p>
         </motion.div>
@@ -125,7 +158,9 @@ const CoursesSection = () => {
                       </Badge>
                     </div>
                     <div className="absolute top-3 right-3">
-                      <span className="text-xl font-bold text-white">{course.price}</span>
+                      <Badge variant="outline" className="text-white border-white bg-white/20">
+                        {course.organization}
+                      </Badge>
                     </div>
                   </div>
                   <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">

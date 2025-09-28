@@ -12,6 +12,7 @@ import GiftVouchers from "./pages/GiftVouchers";
 import Blog from "./pages/Blog";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
+import FloatingWhatsApp from "./components/layout/FloatingWhatsApp";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <FloatingWhatsApp />
         </div>
       </BrowserRouter>
     </TooltipProvider>

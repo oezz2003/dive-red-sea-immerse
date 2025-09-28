@@ -12,7 +12,7 @@ const AboutSection = () => {
     { icon: Award, label: 'PADI Certifications', value: '500+' },
     { icon: Users, label: 'Happy Divers', value: '2000+' },
     { icon: MapPin, label: 'Dive Sites', value: '25+' },
-    { icon: Heart, label: 'Years Experience', value: '15+' },
+    { icon: Heart, label: 'Years Experience', value: '35+' },
   ];
 
   return (
@@ -65,7 +65,7 @@ const AboutSection = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-muted-foreground text-lg leading-relaxed"
             >
-              For over 15 years, Eagle Divers has been the premier diving center 
+              For over 35 years, Eagle Divers has been the premier diving center 
               in the NI, dedicated to sharing our passion for the underwater world. 
               Our team of certified PADI instructors brings decades of combined experience 
               to ensure your diving adventure is both safe and unforgettable.

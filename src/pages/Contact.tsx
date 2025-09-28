@@ -71,7 +71,15 @@ const Contact = () => {
       
       <main className="pt-20">
         {/* Header */}
-        <section className="py-20 bg-ocean-gradient relative overflow-hidden">
+        <section 
+          className="py-20 relative overflow-hidden"
+          style={{
+            backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(26, 188, 156, 0.4)), url('/hero pics/contact hero .jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
+          }}
+        >
           <div className="absolute inset-0">
             {[...Array(15)].map((_, i) => (
               <motion.div

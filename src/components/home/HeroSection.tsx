@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
-// Using the hero-section pic.jpg from public/images
 
 const HeroSection = () => {
   const containerVariants = {
@@ -26,7 +25,7 @@ const HeroSection = () => {
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('/images/hero-section pic.jpg')` }}
+        style={{ backgroundImage: `url('/hero pics/main hero.jpg')` }}
       >
         <div className="absolute inset-0 bg-ocean-deep/60" />
       </div>
@@ -82,7 +81,7 @@ const HeroSection = () => {
         >
           Explore, Learn, and Discover with Certified Diving Experts. 
           Experience the underwater wonders of the NI with professional 
-          PADI instructors and state-of-the-art equipment.
+          PADI / SSI instructors.
         </motion.p>
 
         <motion.div
@@ -107,9 +106,9 @@ const HeroSection = () => {
             className="border-white/30 text-white hover:bg-white/10 text-lg px-8 py-3 group"
             asChild
           >
-            <Link to="/courses">
+            <Link to="/contact">
               <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-              Explore Courses
+              Get Started
             </Link>
           </Button>
         </motion.div>
@@ -119,7 +118,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mt-12 text-white/60 text-sm"
         >
-          <p>PADI Certified • 15+ Years Experience • NI Specialists</p>
+          <p>PADI Certified • 35+ Years Experience • NI Specialists</p>
         </motion.div>
       </motion.div>
 

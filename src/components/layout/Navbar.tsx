@@ -34,10 +34,10 @@ const Navbar = () => {
 
   const navItems = [
     { href: '/', label: 'Home' },
-    { href: '/courses', label: 'Courses' },
-    { href: '/activities', label: 'Activities' },
-    { href: '/shop', label: 'Diving Holidays' },
-    { href: '/gift-vouchers', label: 'Special Offers' },
+    { href: '/courses', label: 'SSI' },
+    { href: '/activities', label: 'PADI' },
+    { href: '/shop', label: 'Holidays' },
+    { href: '/gift-vouchers', label: 'Offers' },
     { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
   ];
@@ -135,7 +135,7 @@ const Navbar = () => {
               className="btn-bubble bg-surface-gradient hover:shadow-glow ml-2 xl:ml-4 text-xs xl:text-sm px-3 xl:px-4"
               asChild
             >
-              <Link to="/contact">Book Now</Link>
+              <Link to="/contact">Book</Link>
             </Button>
           </div>
 
@@ -204,7 +204,7 @@ const Navbar = () => {
                 asChild
               >
                 <Link to="/contact" onClick={() => setIsOpen(false)}>
-                  Book Now
+                  Book
                 </Link>
               </Button>
             </div>

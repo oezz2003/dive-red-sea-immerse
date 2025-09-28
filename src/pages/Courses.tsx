@@ -13,76 +13,114 @@ const Courses = () => {
 
   const courses = [
     {
+      title: 'Try Scuba',
+      level: 'Beginner',
+      duration: '2-3 hours',
+      maxDepth: 'Pool/Shallow',
+      description: 'Experience scuba diving for the first time in a safe and controlled environment. Perfect introduction to the underwater world.',
+      features: ['Pool Session', 'Basic Skills', 'Equipment Introduction', 'Safety Briefing'],
+      category: 'Beginner',
+      popular: true,
+      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop&crop=center',
+    },
+    {
       title: 'Open Water Diver',
       level: 'Beginner',
       duration: '3-4 days',
       maxDepth: '18m',
-      price: '$299',
-      description: 'Start your diving journey with our comprehensive beginner course. Learn essential skills in confined water before exploring the NI.',
-      features: ['Theory & Pool Training', '4 Open Water Dives', 'PADI Certification', 'Equipment Included'],
+      description: 'Begin your lifelong adventures as a certified scuba diver. Personalized training with in-water practice sessions.',
+      features: ['Theory & Pool Training', '4 Open Water Dives', 'SSI Certification', 'Equipment Included'],
       category: 'Beginner',
       popular: true,
-      image: '/images/padi-open-water.jpg',
+      image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center',
     },
     {
-      title: 'Advanced Open Water',
+      title: 'Advanced Adventurer',
       level: 'Intermediate',
       duration: '2-3 days',
       maxDepth: '30m',
-      price: '$249',
-      description: 'Enhance your diving skills with specialized adventure dives including deep diving, navigation, and wreck exploration.',
+      description: 'Try out five different specialties before committing to full programs. Great way to enhance your diving skills.',
       features: ['5 Adventure Dives', 'Deep & Navigation', 'Wreck Diving', 'Night Diving'],
       category: 'Advanced',
       popular: false,
-      image: '/images/PADI-Advanced-Open-Water.jpg',
-    },
-    {
-      title: 'Rescue Diver',
-      level: 'Advanced',
-      duration: '3-4 days',
-      maxDepth: '30m',
-      price: '$349',
-      description: 'Learn to prevent and manage diving emergencies. Develop leadership skills and enhance your safety awareness.',
-      features: ['Emergency Response', 'Rescue Scenarios', 'First Aid Training', 'Leadership Skills'],
-      category: 'Professional',
-      popular: false,
-      image: '/images/dive_stress_rescue.jpg',
-    },
-    {
-      title: 'Divemaster',
-      level: 'Professional',
-      duration: '2-3 weeks',
-      maxDepth: '40m',
-      price: '$699',
-      description: 'Become a diving professional. Lead dives, assist instructors, and guide certified divers on underwater adventures.',
-      features: ['Leadership Training', 'Guide Certification', 'Professional Skills', 'Career Pathway'],
-      category: 'Professional',
-      popular: false,
-      image: '/images/divemaster.jpg',
-    },
-    {
-      title: 'Nitrox Specialty',
-      level: 'Specialty',
-      duration: '1 day',
-      maxDepth: '40m',
-      price: '$149',
-      description: 'Learn to dive with enriched air nitrox for longer bottom times and shorter surface intervals.',
-      features: ['Nitrox Theory', 'Gas Analysis', 'Dive Planning', 'Safety Procedures'],
-      category: 'Advanced',
-      popular: false,
-      image: '/images/PADI_ENRICHED_AIR.jpg',
+      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop&crop=center',
     },
     {
       title: 'Deep Diving Specialty',
       level: 'Specialty',
       duration: '2 days',
       maxDepth: '40m',
-      price: '$199',
-      description: 'Explore the depths safely with proper planning, equipment, and techniques for deep water diving.',
+      description: 'Learn to plan and conduct dives between 18-40 meters deep. Essential for exploring deeper dive sites safely.',
       features: ['Deep Dive Planning', 'Safety Procedures', 'Equipment Setup', '4 Deep Dives'],
       category: 'Advanced',
       popular: false,
-      image: '/images/PADI_DEEP_DIVER.jpg',
+      image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center',
+    },
+    {
+      title: 'Wreck Diving Specialty',
+      level: 'Specialty',
+      duration: '2 days',
+      maxDepth: '30m',
+      description: 'Discover the thrill of diving on wrecks. Learn skills required to safely navigate and explore sunken structures.',
+      features: ['Wreck Navigation', 'Safety Procedures', 'Equipment Setup', '4 Wreck Dives'],
+      category: 'Advanced',
+      popular: false,
+      image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center',
+    },
+    {
+      title: 'Enriched Air Nitrox',
+      level: 'Specialty',
+      duration: '1 day',
+      maxDepth: '40m',
+      description: 'Extend your bottom time and reduce surface intervals by learning to dive with enriched air mixtures.',
+      features: ['Nitrox Theory', 'Gas Analysis', 'Dive Planning', 'Safety Procedures'],
+      category: 'Advanced',
+      popular: false,
+      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop&crop=center',
+    },
+    {
+      title: 'Perfect Buoyancy',
+      level: 'Specialty',
+      duration: '1 day',
+      maxDepth: '18m',
+      description: 'Improve your buoyancy control to enhance your diving experience and protect the aquatic environment.',
+      features: ['Buoyancy Techniques', 'Weight Distribution', 'Breathing Control', 'Environmental Awareness'],
+      category: 'Advanced',
+      popular: false,
+      image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center',
+    },
+    {
+      title: 'Night Diving & Limited Visibility',
+      level: 'Specialty',
+      duration: '1 day',
+      maxDepth: '18m',
+      description: 'Experience the underwater world in a new light. Learn techniques for safe night diving and limited visibility.',
+      features: ['Night Diving Skills', 'Light Use', 'Navigation Techniques', 'Safety Procedures'],
+      category: 'Advanced',
+      popular: false,
+      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop&crop=center',
+    },
+    {
+      title: 'Dive Guide',
+      level: 'Professional',
+      duration: '1-2 weeks',
+      maxDepth: '40m',
+      description: 'Learn to safely lead groups of certified divers. First step towards an exciting career as an SSI Professional.',
+      features: ['Leadership Training', 'Guide Certification', 'Group Management', 'Safety Protocols'],
+      category: 'Professional',
+      popular: false,
+      image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center',
+    },
+    {
+      title: 'Assistant Instructor',
+      level: 'Professional',
+      duration: '2-3 weeks',
+      maxDepth: '40m',
+      description: 'Learn the SSI Teaching System and philosophy. Assist instructors and independently teach SSI programs.',
+      features: ['Teaching Methods', 'Student Assessment', 'Course Planning', 'Professional Development'],
+      category: 'Professional',
+      popular: false,
+      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop&crop=center',
     },
   ];
 
@@ -98,15 +136,15 @@ const Courses = () => {
       
       <main className="pt-20">
         {/* Header */}
-        <section 
-          className="py-20 relative overflow-hidden"
-          style={{
-            backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(26, 188, 156, 0.4)), url('/images/hero-section pic.jpg')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
-          }}
-        >
+         <section 
+           className="py-20 relative overflow-hidden"
+           style={{
+             backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(26, 188, 156, 0.4)), url('/hero pics/ssi hero.jpg')",
+             backgroundSize: 'cover',
+             backgroundPosition: 'center',
+             backgroundAttachment: 'fixed'
+           }}
+         >
           <div className="container mx-auto px-4 text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -114,11 +152,11 @@ const Courses = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-                Diving Courses
+                SSI Diving Courses
               </h1>
               <p className="text-lg text-white/90 max-w-2xl mx-auto">
-                Professional PADI certified courses for all skill levels. 
-                Start your underwater adventure with Eagle Divers in the NI.
+                Professional SSI certified courses for all skill levels. 
+                Start your underwater adventure with Eagle Divers NI.
               </p>
             </motion.div>
           </div>
@@ -184,9 +222,6 @@ const Courses = () => {
                           <Badge variant="outline" className="text-white border-white bg-white/20">
                             {course.level}
                           </Badge>
-                        </div>
-                        <div className="absolute top-4 right-4">
-                          <span className="text-2xl font-bold text-white">{course.price}</span>
                         </div>
                       </div>
                       <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">

@@ -1,126 +1,106 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { 
-  Gift, 
-  Heart,
-  Star,
+  Star, 
+  CheckCircle,
+  Waves,
+  Thermometer,
+  Wind,
+  Compass,
+  Award,
   Users,
   Calendar,
-  DollarSign,
-  Send,
+  Phone,
+  Mail,
+  MessageCircle,
   Sparkles,
-  Award,
-  Anchor
+  MapPin
 } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
 
 const GiftVouchers = () => {
-  const [formData, setFormData] = useState({
-    recipientName: '',
-    recipientEmail: '',
-    senderName: '',
-    senderEmail: '',
-    voucherType: '',
-    customAmount: '',
-    message: '',
-    deliveryDate: '',
-  });
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Gift Voucher Ordered!",
-      description: "Your diving gift voucher will be sent shortly. Thank you!",
-    });
-    setFormData({
-      recipientName: '',
-      recipientEmail: '',
-      senderName: '',
-      senderEmail: '',
-      voucherType: '',
-      customAmount: '',
-      message: '',
-      deliveryDate: '',
-    });
-  };
-
-  const handleChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
-  const voucherPackages = [
+  const specialOffers = [
     {
-      id: 'discovery',
-      name: 'Discovery Package',
-      value: '$99',
-      description: 'Perfect introduction to diving',
-      includes: ['Try Dive session', 'Equipment rental', 'Instructor guidance', 'Certificate'],
+      id: 'discover-scuba-sea',
+      title: 'Discover Scuba Diving',
+      location: 'At Sea',
+      price: '£90',
+      description: 'Experience the thrill of scuba diving in open water under the guidance of our certified instructors.',
+      emoji: '🌊',
       color: 'turquoise',
-      icon: Star,
-      popular: false
+      icon: Waves,
+      features: ['Open water experience', 'Certified instructor guidance', 'All equipment included', 'Safety briefing']
     },
     {
-      id: 'adventure',
-      name: 'Adventure Package',
-      value: '$299',
-      description: 'Complete diving course experience',
-      includes: ['Open Water course', 'All equipment', '4 open water dives', 'Digital certification'],
+      id: 'discover-scuba-pool',
+      title: 'Discover Scuba Diving',
+      location: 'In a Swimming Pool',
+      price: '£50',
+      description: 'A safe, fun, and easy introduction for beginners who want to try scuba in a controlled environment.',
+      emoji: '🏊',
       color: 'coral',
-      icon: Award,
-      popular: true
+      icon: Waves,
+      features: ['Controlled environment', 'Perfect for beginners', 'Safe introduction', 'Try before you dive']
     },
     {
-      id: 'explorer',
-      name: 'Explorer Package',
-      value: '$549',
-      description: 'Advanced diving experiences',
-      includes: ['Advanced Open Water', 'Specialty course', 'Boat dives', 'Underwater photography'],
+      id: 'open-water-drysuit',
+      title: 'Open Water + Drysuit Package',
+      location: 'Complete Course',
+      price: '£775',
+      description: 'Get fully certified with your Open Water Diver qualification and learn how to safely use a drysuit — perfect for diving all year round in Northern Ireland and beyond.',
+      emoji: '🧊',
       color: 'seaweed',
-      icon: Anchor,
-      popular: false
+      icon: Thermometer,
+      features: ['Open Water certification', 'Drysuit training', 'Year-round diving', 'Northern Ireland ready']
     },
     {
-      id: 'custom',
-      name: 'Custom Amount',
-      value: 'Any Value',
-      description: 'Choose your own amount',
-      includes: ['Flexible use', 'Valid for 12 months', 'All services accepted', 'Transferable'],
+      id: 'nitrox-course',
+      title: 'Enriched Air (Nitrox) Course',
+      location: 'Specialty Course',
+      price: '£225',
+      description: 'Boost your bottom time and reduce fatigue with our Nitrox Course.',
+      emoji: '💨',
       color: 'sunny',
-      icon: Gift,
-      popular: false
+      icon: Wind,
+      features: ['Extended bottom time', 'Reduced fatigue', 'One free Nitrox tank fill', 'Advanced diving skills']
+    },
+    {
+      id: 'drysuit-course',
+      title: 'Drysuit Course',
+      location: 'Specialty Course',
+      price: '£225',
+      description: 'Learn the skills you need to dive comfortably and safely in a drysuit — essential for colder waters and longer dives.',
+      emoji: '🧥',
+      color: 'turquoise',
+      icon: Thermometer,
+      features: ['Drysuit certification', 'Cold water diving', 'Extended dive times', 'Professional training']
     }
   ];
 
   const whyChooseUs = [
     {
-      icon: Calendar,
-      title: '12 Month Validity',
-      description: 'Plenty of time to plan the perfect diving adventure'
+      icon: Users,
+      title: 'Experienced, passionate instructors',
+      description: 'Learn from certified professionals who love what they do'
     },
     {
       icon: Users,
-      title: 'Transferable',
-      description: 'Can be used by anyone, perfect flexibility'
+      title: 'Small groups for personal attention',
+      description: 'Maximum 4 students per instructor for focused learning'
     },
     {
-      icon: DollarSign,
-      title: 'Best Value',
-      description: 'Premium diving experiences at competitive prices'
+      icon: Calendar,
+      title: 'Flexible scheduling around you',
+      description: 'We work around your schedule, not the other way around'
     },
     {
-      icon: Heart,
-      title: 'Memorable Gift',
-      description: 'Give the gift of underwater adventure and lasting memories'
+      icon: Compass,
+      title: 'Courses tailored for local & international diving',
+      description: 'Prepare for both Northern Ireland waters and global destinations'
     }
   ];
 
@@ -134,11 +114,11 @@ const GiftVouchers = () => {
           <div 
             className="absolute inset-0 bg-cover bg-center bg-fixed"
             style={{
-              backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.6), rgba(255, 107, 53, 0.4)), url('/images/hero-section pic.jpg')"
+              backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.8), rgba(255, 107, 53, 0.3)), url('/hero pics/packges hero.jpg')"
             }}
           />
           
-          {/* Floating gift icons */}
+          {/* Floating offer icons */}
           <div className="absolute inset-0">
             {[...Array(12)].map((_, i) => (
               <motion.div
@@ -159,7 +139,7 @@ const GiftVouchers = () => {
                   delay: Math.random() * 5,
                 }}
               >
-                <Gift className="h-8 w-8 text-white/20" />
+                <Star className="h-8 w-8 text-white/20" />
               </motion.div>
             ))}
           </div>
@@ -173,16 +153,15 @@ const GiftVouchers = () => {
               <div className="flex items-center justify-center gap-2 mb-6">
                 <Sparkles className="h-8 w-8 text-sunny animate-pulse" />
                 <Badge className="bg-coral text-white px-6 py-2 text-lg">
-                  Perfect Gift
+                  Special Offers
                 </Badge>
                 <Sparkles className="h-8 w-8 text-sunny animate-pulse" />
               </div>
               <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6">
-                Gift <span className="text-coral">Vouchers</span>
+                Special Offers with <span className="text-coral">Eagle Divers NI</span>
               </h1>
-              <p className="text-xl text-white/90 max-w-3xl mx-auto mb-8">
-                Give the ultimate gift of underwater adventure. Perfect for birthdays, 
-                holidays, or any special occasion. Let them choose their own diving experience!
+              <p className="text-xl text-white/90 max-w-4xl mx-auto mb-8">
+                Dive into adventure – learn, explore, and save with our exclusive packages.
               </p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -193,24 +172,30 @@ const GiftVouchers = () => {
                 <Button 
                   size="lg" 
                   className="btn-bubble bg-coral hover:bg-coral/90 text-white"
+                  asChild
                 >
-                  <Gift className="mr-2 h-5 w-5" />
-                  Purchase Voucher
+                  <Link to="/contact">
+                    <Star className="mr-2 h-5 w-5" />
+                    View Offers
+                  </Link>
                 </Button>
                 <Button 
                   size="lg" 
                   variant="outline"
                   className="border-white text-white hover:bg-white hover:text-ocean-deep"
+                  asChild
                 >
-                  <Heart className="mr-2 h-5 w-5" />
-                  View Packages
+                  <Link to="/contact">
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    Contact Us
+                  </Link>
                 </Button>
               </motion.div>
             </motion.div>
           </div>
         </section>
 
-        {/* Gift Packages */}
+        {/* Special Offers */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <motion.div
@@ -220,69 +205,144 @@ const GiftVouchers = () => {
               className="text-center mb-16"
             >
               <h2 className="text-4xl font-bold text-foreground mb-6">
-                Choose Your Gift Package
+                Our Special Offers
               </h2>
               <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-                From beginner-friendly try dives to advanced diving courses, 
-                we have the perfect gift voucher for every diving enthusiast.
+                Choose from our range of diving courses and experiences designed to suit every level and budget.
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {voucherPackages.map((pkg, index) => (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {specialOffers.map((offer, index) => (
                 <motion.div
-                  key={pkg.id}
+                  key={offer.id}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ y: -10, scale: 1.02 }}
-                  className="relative"
+                  className="relative group"
                 >
-                  {pkg.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                      <Badge className="bg-coral text-white px-4 py-1">
-                        Most Popular
-                      </Badge>
-                    </div>
-                  )}
-                  
-                  <Card className={`relative overflow-hidden bg-card border-border shadow-float hover:shadow-glow transition-all duration-300 ${pkg.popular ? 'ring-2 ring-coral/50' : ''}`}>
-                    <div className={`absolute top-0 left-0 w-full h-2 bg-${pkg.color}`} />
+                  <Card className="relative overflow-hidden bg-gradient-to-br from-card to-card/80 border-border shadow-float hover:shadow-glow transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-primary/10">
+                    {/* Premium gradient overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-br from-${offer.color}/5 via-transparent to-${offer.color}/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                     
-                    <CardHeader className="text-center pb-4">
-                      <div className={`mx-auto w-16 h-16 rounded-full bg-${pkg.color}/20 flex items-center justify-center mb-4`}>
-                        <pkg.icon className={`h-8 w-8 text-${pkg.color}`} />
+                    {/* Top accent bar */}
+                    <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-${offer.color} to-${offer.color}/60`} />
+                    
+                    {/* Floating elements */}
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className={`w-3 h-3 rounded-full bg-${offer.color} animate-pulse`} />
+                    </div>
+                    
+                    <CardHeader className="text-center pb-6 relative z-10">
+                      {/* Emoji and icon container */}
+                      <div className="relative mb-6">
+                        <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                          {offer.emoji}
+                        </div>
+                        <div className={`mx-auto w-20 h-20 rounded-full bg-gradient-to-br from-${offer.color}/20 to-${offer.color}/10 flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl group-hover:shadow-${offer.color}/20 transition-all duration-300`}>
+                          <offer.icon className={`h-10 w-10 text-${offer.color} group-hover:scale-110 transition-transform duration-300`} />
+                        </div>
+                        {/* Decorative ring */}
+                        <div className={`absolute inset-0 rounded-full border-2 border-${offer.color}/20 group-hover:border-${offer.color}/40 transition-colors duration-300`} />
                       </div>
-                      <CardTitle className="text-xl text-foreground">
-                        {pkg.name}
+                      
+                      <CardTitle className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                        {offer.title}
                       </CardTitle>
-                      <div className="text-3xl font-bold text-primary">
-                        {pkg.value}
+                      
+                      <div className="inline-flex items-center px-3 py-1 rounded-full bg-muted/50 text-sm text-muted-foreground mb-4">
+                        <MapPin className="w-4 h-4 mr-1" />
+                        {offer.location}
                       </div>
-                      <p className="text-muted-foreground text-sm">
-                        {pkg.description}
+                      
+                      <div className="relative">
+                        <div className="text-4xl font-bold text-primary mb-2 group-hover:scale-105 transition-transform duration-300">
+                          {offer.price}
+                        </div>
+                        <div className={`w-16 h-0.5 bg-gradient-to-r from-${offer.color} to-transparent mx-auto`} />
+                      </div>
+                      
+                      <p className="text-muted-foreground text-sm leading-relaxed mt-4">
+                        {offer.description}
                       </p>
                     </CardHeader>
                     
-                    <CardContent className="space-y-4">
-                      <div className="space-y-2">
-                        <h4 className="font-semibold text-foreground">Includes:</h4>
-                        <ul className="space-y-1">
-                          {pkg.includes.map((item, i) => (
-                            <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <div className={`w-2 h-2 rounded-full bg-${pkg.color}`} />
-                              {item}
+                    <CardContent className="space-y-6 relative z-10">
+                      <div className="space-y-3">
+                        <h4 className="font-semibold text-foreground text-lg flex items-center gap-2">
+                          <Award className={`w-5 h-5 text-${offer.color}`} />
+                          What's Included
+                        </h4>
+                        <ul className="space-y-2">
+                          {offer.features.map((feature, i) => (
+                            <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                              <CheckCircle className={`w-4 h-4 text-${offer.color} mt-0.5 flex-shrink-0`} />
+                              <span className="leading-relaxed">{feature}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                       
-                      <Button 
-                        className={`w-full btn-bubble bg-${pkg.color} hover:bg-${pkg.color}/90 text-white`}
-                        onClick={() => handleChange('voucherType', pkg.id)}
-                      >
-                        Select Package
-                      </Button>
+                      <div className="pt-4">
+                        <Button 
+                          className={`w-full btn-bubble bg-gradient-to-r from-${offer.color} to-${offer.color}/80 hover:from-${offer.color}/90 hover:to-${offer.color}/70 text-white shadow-lg hover:shadow-xl hover:shadow-${offer.color}/25 transition-all duration-300 group-hover:scale-105`}
+                          size="lg"
+                        >
+                          <Star className="mr-2 h-5 w-5" />
+                          Book This Offer
+                        </Button>
+                      </div>
+                    </CardContent>
+                    
+                    {/* Bottom decorative line */}
+                    <div className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-${offer.color}/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Us */}
+        <section className="py-20 bg-card">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl font-bold text-foreground mb-6">
+                Why Choose Eagle Divers NI?
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+                We're committed to providing the best diving education and experiences in Northern Ireland.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {whyChooseUs.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                >
+                  <Card className="text-center bg-background border-border shadow-float hover:shadow-glow transition-all duration-300">
+                    <CardHeader>
+                      <div className="mx-auto w-16 h-16 rounded-full bg-turquoise/20 flex items-center justify-center mb-4">
+                        <feature.icon className="h-8 w-8 text-turquoise" />
+                      </div>
+                      <CardTitle className="text-lg text-foreground">
+                        {feature.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">
+                        {feature.description}
+                      </p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -291,211 +351,174 @@ const GiftVouchers = () => {
           </div>
         </section>
 
-        {/* Purchase Form */}
-        <section className="py-20 bg-card">
-          <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12">
-              {/* Form */}
+        {/* Our Promise */}
+        <section className="py-20 bg-ocean-gradient relative overflow-hidden">
+          <div className="absolute inset-0">
+            {[...Array(8)].map((_, i) => (
               <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
+                key={i}
+                className="absolute w-6 h-6 bg-white/10 rounded-full"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                }}
+                animate={{
+                  scale: [1, 2, 1],
+                  opacity: [0.2, 0.8, 0.2],
+                  rotate: [0, 180, 360],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  delay: Math.random() * 3,
+                }}
+              />
+            ))}
+          </div>
+          
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl font-bold text-white mb-6">
+                ✨ Our Promise
+              </h2>
+              <p className="text-white/90 text-lg max-w-4xl mx-auto mb-8">
+                With Eagle Divers NI, you don't just book a course — you begin an underwater journey. 
+                Whether you're preparing for warm Red Sea waters or exploring Northern Ireland's 
+                coastline, our packages are designed to give you confidence and unforgettable experiences.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+                <Button 
+                  size="lg"
+                  className="btn-bubble bg-coral hover:bg-coral/90 text-white shadow-glow flex-1"
+                >
+                  <Phone className="mr-2 h-5 w-5" />
+                  Contact Us
+                </Button>
+              </div>
+              <p className="text-white/70 text-sm mt-4">
+                Ready to start your diving journey? Get in touch today!
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl font-bold text-foreground mb-6">
+                Ready to Start Your Diving Journey?
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+                Contact us today to book your course or ask any questions about our special offers.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-center"
               >
-                <Card className="bg-background border-border shadow-depth">
+                <Card className="bg-card border-border shadow-float hover:shadow-glow transition-all duration-300">
                   <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-foreground flex items-center gap-2">
-                      <Gift className="h-6 w-6 text-coral" />
-                      Purchase Gift Voucher
+                    <div className="mx-auto w-16 h-16 rounded-full bg-turquoise/20 flex items-center justify-center mb-4">
+                      <MapPin className="h-8 w-8 text-turquoise" />
+                    </div>
+                    <CardTitle className="text-lg text-foreground">
+                      Location
                     </CardTitle>
-                    <p className="text-muted-foreground">
-                      Fill out the details below to create a personalized diving gift voucher.
-                    </p>
                   </CardHeader>
                   <CardContent>
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="recipientName">Recipient Name</Label>
-                          <Input
-                            id="recipientName"
-                            value={formData.recipientName}
-                            onChange={(e) => handleChange('recipientName', e.target.value)}
-                            placeholder="Who is this gift for?"
-                            required
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="recipientEmail">Recipient Email</Label>
-                          <Input
-                            id="recipientEmail"
-                            type="email"
-                            value={formData.recipientEmail}
-                            onChange={(e) => handleChange('recipientEmail', e.target.value)}
-                            placeholder="recipient@example.com"
-                            required
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="senderName">Your Name</Label>
-                          <Input
-                            id="senderName"
-                            value={formData.senderName}
-                            onChange={(e) => handleChange('senderName', e.target.value)}
-                            placeholder="Your name"
-                            required
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="senderEmail">Your Email</Label>
-                          <Input
-                            id="senderEmail"
-                            type="email"
-                            value={formData.senderEmail}
-                            onChange={(e) => handleChange('senderEmail', e.target.value)}
-                            placeholder="your@example.com"
-                            required
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="voucherType">Voucher Package</Label>
-                          <Select value={formData.voucherType} onValueChange={(value) => handleChange('voucherType', value)}>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select a package" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="discovery">Discovery Package - $99</SelectItem>
-                              <SelectItem value="adventure">Adventure Package - $299</SelectItem>
-                              <SelectItem value="explorer">Explorer Package - $549</SelectItem>
-                              <SelectItem value="custom">Custom Amount</SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="deliveryDate">Delivery Date</Label>
-                          <Input
-                            id="deliveryDate"
-                            type="date"
-                            value={formData.deliveryDate}
-                            onChange={(e) => handleChange('deliveryDate', e.target.value)}
-                          />
-                        </div>
-                      </div>
-
-                      {formData.voucherType === 'custom' && (
-                        <div className="space-y-2">
-                          <Label htmlFor="customAmount">Custom Amount</Label>
-                          <Input
-                            id="customAmount"
-                            type="number"
-                            min="50"
-                            value={formData.customAmount}
-                            onChange={(e) => handleChange('customAmount', e.target.value)}
-                            placeholder="Enter amount ($50 minimum)"
-                          />
-                        </div>
-                      )}
-
-                      <div className="space-y-2">
-                        <Label htmlFor="message">Personal Message</Label>
-                        <Textarea
-                          id="message"
-                          value={formData.message}
-                          onChange={(e) => handleChange('message', e.target.value)}
-                          placeholder="Add a personal message to make this gift extra special..."
-                          rows={4}
-                        />
-                      </div>
-
-                      <Button 
-                        type="submit" 
-                        className="w-full btn-bubble bg-coral hover:bg-coral/90 text-white shadow-glow"
-                        size="lg"
-                      >
-                        <Send className="mr-2 h-5 w-5" />
-                        Purchase Gift Voucher
-                      </Button>
-                    </form>
+                    <p className="text-muted-foreground font-medium">
+                      Antrim, Northern Ireland
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
 
-              {/* Why Choose Us */}
               <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="space-y-8"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-center"
               >
-                <div>
-                  <h2 className="text-3xl font-bold text-foreground mb-4">
-                    Why Choose Our Gift Vouchers?
-                  </h2>
-                  <p className="text-muted-foreground text-lg">
-                    Give more than just a gift - give an unforgettable underwater adventure 
-                    that will create lasting memories.
-                  </p>
-                </div>
+                <Card className="bg-card border-border shadow-float hover:shadow-glow transition-all duration-300">
+                  <CardHeader>
+                    <div className="mx-auto w-16 h-16 rounded-full bg-coral/20 flex items-center justify-center mb-4">
+                      <Phone className="h-8 w-8 text-coral" />
+                    </div>
+                    <CardTitle className="text-lg text-foreground">
+                      Phone
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground font-medium">
+                      07756699880
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
 
-                <div className="space-y-6">
-                  {whyChooseUs.map((feature, index) => (
-                    <motion.div
-                      key={feature.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    >
-                      <Card className="p-6 bg-background border-border hover:shadow-float transition-all duration-300">
-                        <div className="flex items-start space-x-4">
-                          <div className="p-3 bg-turquoise/10 rounded-lg">
-                            <feature.icon className="h-6 w-6 text-turquoise" />
-                          </div>
-                          <div>
-                            <h3 className="font-semibold text-foreground mb-2">
-                              {feature.title}
-                            </h3>
-                            <p className="text-muted-foreground">
-                              {feature.description}
-                            </p>
-                          </div>
-                        </div>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Sample Voucher Preview */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                >
-                  <Card className="overflow-hidden bg-coral-gradient shadow-glow">
-                    <CardContent className="p-8 text-center text-white">
-                      <div className="mb-4">
-                        <img 
-                          src="/images/logo-1-1.png" 
-                          alt="Eagle Divers Logo" 
-                          className="h-12 w-auto object-contain mx-auto mb-4"
-                        />
-                        <h3 className="text-2xl font-bold mb-2">Eagle Divers</h3>
-                        <p className="text-white/90">Gift Voucher</p>
-                      </div>
-                      <div className="border-t border-b border-white/30 py-4 my-4">
-                        <p className="text-3xl font-bold">$299</p>
-                        <p className="text-white/90">Adventure Package</p>
-                      </div>
-                      <p className="text-sm text-white/80">
-                        Valid for 12 months • Transferable • All locations
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-center"
+              >
+                <Card className="bg-card border-border shadow-float hover:shadow-glow transition-all duration-300">
+                  <CardHeader>
+                    <div className="mx-auto w-16 h-16 rounded-full bg-seaweed/20 flex items-center justify-center mb-4">
+                      <Mail className="h-8 w-8 text-seaweed" />
+                    </div>
+                    <CardTitle className="text-lg text-foreground">
+                      Email
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-1">
+                      <p className="text-muted-foreground font-medium text-sm">
+                        info@eaglediversni.com
                       </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
+                      <p className="text-muted-foreground font-medium text-sm">
+                        admin@eaglediversni.com
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-center"
+              >
+                <Card className="bg-card border-border shadow-float hover:shadow-glow transition-all duration-300">
+                  <CardHeader>
+                    <div className="mx-auto w-16 h-16 rounded-full bg-sunny/20 flex items-center justify-center mb-4">
+                      <Calendar className="h-8 w-8 text-sunny" />
+                    </div>
+                    <CardTitle className="text-lg text-foreground">
+                      Hours
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground font-medium">
+                      Mon - Sun: 9:00 AM - 5:00 PM
+                    </p>
+                  </CardContent>
+                </Card>
               </motion.div>
             </div>
           </div>
