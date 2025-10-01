@@ -10,6 +10,7 @@ import Activities from "./pages/Activities";
 import Shop from "./pages/Shop";
 import GiftVouchers from "./pages/GiftVouchers";
 import Blog from "./pages/Blog";
+import BlogDetail from "./pages/BlogDetail";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 import FloatingWhatsApp from "./components/layout/FloatingWhatsApp";
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/shop" element={<Shop />} />
             <Route path="/gift-vouchers" element={<GiftVouchers />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogDetail />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

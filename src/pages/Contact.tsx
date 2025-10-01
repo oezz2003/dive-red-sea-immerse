@@ -275,20 +275,21 @@ const Contact = () => {
                   ))}
                 </div>
 
-                {/* Map Placeholder */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.8 }}
                 >
                   <Card className="overflow-hidden bg-card border-border">
-                    <div className="h-64 bg-gradient-to-br from-primary/20 to-seafoam/20 flex items-center justify-center">
-                      <div className="text-center">
-                        <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-                        <p className="text-foreground font-semibold">Interactive Map</p>
-                        <p className="text-muted-foreground">Find us in Antrim, Northern Ireland</p>
-                      </div>
-                    </div>
+                    <iframe
+                      width="100%"
+                      height="450"
+                      style={{ border: 0 }}
+                      loading="lazy"
+                      allowFullScreen
+                      referrerPolicy="no-referrer-when-downgrade"
+                      src="https://maps.google.com/maps?q=Eagle+Divers+dive+club,+Antrim,+Northern+Ireland&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                    ></iframe>
                   </Card>
                 </motion.div>
               </motion.div>

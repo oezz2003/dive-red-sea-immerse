@@ -96,7 +96,7 @@ const Navbar = () => {
                   className="h-12 sm:h-14 lg:h-16 xl:h-18 w-auto object-contain"
                 />
                 <motion.div
-                  animate={{ rotate: 360 }}
+                  
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                   className="absolute -inset-1 sm:-inset-2 border border-primary/30 rounded-full"
                 />

@@ -13,40 +13,40 @@ import {
   Phone,
   Mail,
   MessageCircle,
-  Globe,
   Waves,
   Fish,
-  Compass
+  Anchor,
+  Ship
 } from 'lucide-react';
 
 const Shop = () => {
   const destinations = [
     {
       icon: Waves,
-      title: 'Red Sea, Egypt',
-      description: 'Crystal-clear waters, vibrant coral reefs, and world-famous dive sites.',
-      emoji: '🌊',
+      title: 'Hurghada ',
+      description: 'Vibrant coral reefs, diverse marine life, and accessible dive sites.',
+      
       color: 'turquoise'
     },
     {
       icon: Fish,
-      title: 'Maldives',
-      description: 'Luxury liveaboard experiences with manta rays and whale sharks.',
-      emoji: '🏝',
+      title: 'Sharm El Sheikh ',
+      description: 'World-famous sites like Ras Mohammed and the Straits of Tiran.',
+      
       color: 'coral'
     },
     {
-      icon: Compass,
-      title: 'Thailand',
-      description: 'Exotic beaches combined with thrilling drift dives.',
-      emoji: '🌴',
+      icon: Anchor,
+      title: 'Dahab ',
+      description: 'Relaxed atmosphere with the famous Blue Hole and Canyon sites.',
+     
       color: 'seaweed'
     },
     {
-      icon: Globe,
-      title: 'Mexico',
-      description: 'Cenote diving, reefs, and encounters with pelagic species.',
-      emoji: '🐠',
+      icon: Ship,
+      title: 'Liveaboard',
+      description: 'Multi-day diving adventures exploring remote reefs and islands.',
+      
       color: 'sunny'
     }
   ];
@@ -192,7 +192,7 @@ const Shop = () => {
                 >
                   <Card className="text-center bg-card border-border shadow-float hover:shadow-glow transition-all duration-300">
                     <CardHeader>
-                      <div className="text-4xl mb-4">{destination.emoji}</div>
+                      
                       <div className={`mx-auto w-16 h-16 rounded-full bg-${destination.color}/20 flex items-center justify-center mb-4`}>
                         <destination.icon className={`h-8 w-8 text-${destination.color}`} />
                       </div>

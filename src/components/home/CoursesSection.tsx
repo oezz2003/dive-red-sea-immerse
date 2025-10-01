@@ -6,79 +6,13 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Badge } from '@/components/ui/badge';
 import { Clock, Users, Star, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getPopularCourses } from '@/data/courses';
 
 const CoursesSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-  const courses = [
-    {
-      title: 'Try Scuba',
-      level: 'Beginner',
-      duration: '2-3 hours',
-      maxDepth: 'Pool/Shallow',
-      description: 'Experience scuba diving for the first time in a safe and controlled environment. Perfect introduction to the underwater world.',
-      features: ['Pool Session', 'Basic Skills', 'Equipment Introduction', 'Safety Briefing'],
-      popular: true,
-      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop&crop=center',
-      organization: 'SSI'
-    },
-    {
-      title: 'PADI Open Water Diver',
-      level: 'Beginner',
-      duration: '3-4 days',
-      maxDepth: '18m',
-      description: 'The world\'s most popular scuba diving course. Learn to dive safely and confidently.',
-      features: ['Theory & Pool Training', '4 Open Water Dives', 'PADI Certification', 'Equipment Included'],
-      popular: true,
-      image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center',
-      organization: 'PADI'
-    },
-    {
-      title: 'SSI Open Water Diver',
-      level: 'Beginner',
-      duration: '3-4 days',
-      maxDepth: '18m',
-      description: 'Begin your lifelong adventures as a certified scuba diver. Personalized training with in-water practice sessions.',
-      features: ['Theory & Pool Training', '4 Open Water Dives', 'SSI Certification', 'Equipment Included'],
-      popular: false,
-      image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center',
-      organization: 'SSI'
-    },
-    {
-      title: 'PADI Advanced Open Water',
-      level: 'Advanced',
-      duration: '2-3 days',
-      maxDepth: '30m',
-      description: 'Enhance your diving skills with five adventure dives including deep and navigation.',
-      features: ['5 Adventure Dives', 'Deep & Navigation', 'Wreck Diving', 'Night Diving'],
-      popular: false,
-      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop&crop=center',
-      organization: 'PADI'
-    },
-    {
-      title: 'SSI Advanced Adventurer',
-      level: 'Advanced',
-      duration: '2-3 days',
-      maxDepth: '30m',
-      description: 'Try out five different specialties before committing to full programs. Great way to enhance your diving skills.',
-      features: ['5 Adventure Dives', 'Deep & Navigation', 'Wreck Diving', 'Night Diving'],
-      popular: false,
-      image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop&crop=center',
-      organization: 'SSI'
-    },
-    {
-      title: 'PADI Rescue Diver',
-      level: 'Advanced',
-      duration: '3-4 days',
-      maxDepth: '30m',
-      description: 'Learn to prevent and manage diving emergencies. Develop leadership skills.',
-      features: ['Emergency Response', 'Rescue Scenarios', 'First Aid Training', 'Leadership Skills'],
-      popular: false,
-      image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center',
-      organization: 'PADI'
-    },
-  ];
+  const courses = getPopularCourses();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -126,7 +60,7 @@ const CoursesSection = () => {
         >
           {courses.map((course, index) => (
             <motion.div
-              key={course.title}
+              key={course.id}
               variants={cardVariants}
               transition={{ duration: 0.6, ease: "easeOut" }}
               whileHover={{ y: -10, scale: 1.02 }}
@@ -185,7 +119,7 @@ const CoursesSection = () => {
                   <div className="space-y-2">
                     <h4 className="font-semibold text-foreground">What's Included:</h4>
                     <ul className="space-y-1">
-                      {course.features.map((feature, i) => (
+                      {course.features.slice(0, 4).map((feature, i) => (
                         <li key={i} className="text-sm text-muted-foreground flex items-center gap-2">
                           <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                           {feature}

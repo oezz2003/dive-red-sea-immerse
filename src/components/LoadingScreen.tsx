@@ -71,7 +71,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
             />
             <div className="absolute -inset-4 bg-primary/20 rounded-full animate-pulse" />
             <motion.div
-              animate={{ rotate: 360 }}
+              
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               className="absolute -inset-6 border border-primary/30 rounded-full"
             />

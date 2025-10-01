@@ -8,9 +8,6 @@ import { Badge } from '@/components/ui/badge';
 import { 
   Star, 
   CheckCircle,
-  Waves,
-  Thermometer,
-  Wind,
   Compass,
   Award,
   Users,
@@ -32,7 +29,7 @@ const GiftVouchers = () => {
       description: 'Experience the thrill of scuba diving in open water under the guidance of our certified instructors.',
       emoji: '🌊',
       color: 'turquoise',
-      icon: Waves,
+      iconSrc: '/icons/scuba-diving.png',
       features: ['Open water experience', 'Certified instructor guidance', 'All equipment included', 'Safety briefing']
     },
     {
@@ -43,7 +40,7 @@ const GiftVouchers = () => {
       description: 'A safe, fun, and easy introduction for beginners who want to try scuba in a controlled environment.',
       emoji: '🏊',
       color: 'coral',
-      icon: Waves,
+      iconSrc: '/icons/scuba-diving.png',
       features: ['Controlled environment', 'Perfect for beginners', 'Safe introduction', 'Try before you dive']
     },
     {
@@ -54,7 +51,7 @@ const GiftVouchers = () => {
       description: 'Get fully certified with your Open Water Diver qualification and learn how to safely use a drysuit — perfect for diving all year round in Northern Ireland and beyond.',
       emoji: '🧊',
       color: 'seaweed',
-      icon: Thermometer,
+      iconSrc: '/icons/surfboard.png',
       features: ['Open Water certification', 'Drysuit training', 'Year-round diving', 'Northern Ireland ready']
     },
     {
@@ -65,7 +62,7 @@ const GiftVouchers = () => {
       description: 'Boost your bottom time and reduce fatigue with our Nitrox Course.',
       emoji: '💨',
       color: 'sunny',
-      icon: Wind,
+      iconSrc: '/icons/vacations.png',
       features: ['Extended bottom time', 'Reduced fatigue', 'One free Nitrox tank fill', 'Advanced diving skills']
     },
     {
@@ -76,7 +73,7 @@ const GiftVouchers = () => {
       description: 'Learn the skills you need to dive comfortably and safely in a drysuit — essential for colder waters and longer dives.',
       emoji: '🧥',
       color: 'turquoise',
-      icon: Thermometer,
+      iconSrc: '/icons/beach.png',
       features: ['Drysuit certification', 'Cold water diving', 'Extended dive times', 'Professional training']
     }
   ];
@@ -237,11 +234,13 @@ const GiftVouchers = () => {
                     <CardHeader className="text-center pb-6 relative z-10">
                       {/* Emoji and icon container */}
                       <div className="relative mb-6">
-                        <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                          {offer.emoji}
-                        </div>
+                        
                         <div className={`mx-auto w-20 h-20 rounded-full bg-gradient-to-br from-${offer.color}/20 to-${offer.color}/10 flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl group-hover:shadow-${offer.color}/20 transition-all duration-300`}>
-                          <offer.icon className={`h-10 w-10 text-${offer.color} group-hover:scale-110 transition-transform duration-300`} />
+                          {offer.iconSrc ? (
+                            <img src={offer.iconSrc} alt="icon" className="h-10 w-10 object-contain group-hover:scale-110 transition-transform duration-300" />
+                          ) : (
+                            <Compass className={`h-10 w-10 text-${offer.color} group-hover:scale-110 transition-transform duration-300`} />
+                          )}
                         </div>
                         {/* Decorative ring */}
                         <div className={`absolute inset-0 rounded-full border-2 border-${offer.color}/20 group-hover:border-${offer.color}/40 transition-colors duration-300`} />

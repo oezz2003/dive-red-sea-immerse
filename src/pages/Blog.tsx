@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -20,93 +21,17 @@ import {
   Globe,
   BookOpen
 } from 'lucide-react';
+import { 
+  getAllBlogPosts, 
+  categories, 
+  formatBlogDate 
+} from '@/data/blogs';
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const categories = [
-    { id: 'all', name: 'All Posts', icon: BookOpen },
-    { id: 'diving-tips', name: 'Diving Tips', icon: Fish },
-    { id: 'destinations', name: 'Destinations', icon: Globe },
-    { id: 'photography', name: 'Photography', icon: Camera },
-    { id: 'news', name: 'News & Updates', icon: Share2 },
-  ];
-
-  const blogPosts = [
-    {
-      id: 1,
-      title: 'Top 10 Diving Spots in the NI',
-      excerpt: 'Discover the most breathtaking underwater locations that make the NI a world-class diving destination.',
-      category: 'destinations',
-      author: 'Ahmed Hassan',
-      date: '2024-01-15',
-      readTime: '8 min read',
-      views: 1250,
-      image: '/images/gallery-1-2.jpg',
-      tags: ['NI', 'Diving Spots', 'Travel Guide']
-    },
-    {
-      id: 2,
-      title: 'Underwater Photography: Capturing the Perfect Shot',
-      excerpt: 'Learn professional techniques for underwater photography and how to capture stunning images of marine life.',
-      category: 'photography',
-      author: 'Sarah Mitchell',
-      date: '2024-01-12',
-      readTime: '12 min read',
-      views: 890,
-      image: '/images/gallery-1-3.jpg',
-      tags: ['Photography', 'Underwater', 'Tips']
-    },
-    {
-      id: 3,
-      title: 'Safety First: Essential Diving Equipment Checklist',
-      excerpt: 'A comprehensive guide to essential diving equipment that every diver should have for safe underwater adventures.',
-      category: 'diving-tips',
-      author: 'Captain Omar',
-      date: '2024-01-10',
-      readTime: '6 min read',
-      views: 2100,
-      image: '/images/course-1-4.jpg',
-      tags: ['Safety', 'Equipment', 'Beginner Tips']
-    },
-    {
-      id: 4,
-      title: 'Eagle Divers Wins Best Diving Center Award 2024',
-      excerpt: 'We are proud to announce that Eagle Divers has been recognized as the Best Diving Center in the NI region.',
-      category: 'news',
-      author: 'Eagle Divers Team',
-      date: '2024-01-08',
-      readTime: '4 min read',
-      views: 3200,
-      image: '/images/eagle_divers_ni_team.jpg',
-      tags: ['News', 'Awards', 'Achievement']
-    },
-    {
-      id: 5,
-      title: 'Marine Life Conservation: How Divers Can Help',
-      excerpt: 'Learn about marine conservation efforts in the NI and how responsible diving practices can protect underwater ecosystems.',
-      category: 'diving-tips',
-      author: 'Dr. Fatima Al-Rashid',
-      date: '2024-01-05',
-      readTime: '10 min read',
-      views: 1580,
-      image: '/images/gallery-1-5.jpg',
-      tags: ['Conservation', 'Marine Life', 'Environment']
-    },
-    {
-      id: 6,
-      title: 'Night Diving: A Different World Underwater',
-      excerpt: 'Experience the magic of night diving and discover the nocturnal marine life that comes alive after dark.',
-      category: 'destinations',
-      author: 'Mohamed Farid',
-      date: '2024-01-03',
-      readTime: '7 min read',
-      views: 960,
-      image: '/images/gallery-1-6.jpg',
-      tags: ['Night Diving', 'Adventure', 'Marine Life']
-    }
-  ];
+  const blogPosts = getAllBlogPosts();
 
   const filteredPosts = blogPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -116,13 +41,7 @@ const Blog = () => {
     return matchesSearch && matchesCategory;
   });
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
+  // Using formatBlogDate from blogs.ts instead of local function
 
   return (
     <>
@@ -185,7 +104,7 @@ const Blog = () => {
                         : ''
                     }`}
                   >
-                    <category.icon className="h-4 w-4 mr-2" />
+                    {React.createElement(category.icon, { className: "h-4 w-4 mr-2" })}
                     {category.name}
                   </Button>
                 ))}
@@ -218,39 +137,46 @@ const Blog = () => {
                     whileHover={{ y: -10 }}
                   >
                     <Card className="overflow-hidden bg-card border-border shadow-float hover:shadow-glow transition-all duration-300 h-full">
-                      <div className="relative h-48 bg-gradient-to-br from-turquoise/20 to-seaweed/20">
-                        <div className="absolute inset-0 bg-ocean-gradient opacity-80" />
-                        <div className="absolute top-4 left-4">
-                          <Badge 
-                            variant="secondary" 
-                            className="bg-white/90 text-ocean-deep capitalize"
-                          >
-                            {post.category.replace('-', ' ')}
-                          </Badge>
+                      <Link to={`/blog/${post.slug}`} className="block">
+                        {/* Removed image container and replaced with text-based header */}
+                        <div className="bg-gradient-to-br from-turquoise/20 to-seaweed/20 p-6">
+                          <div className="flex items-center justify-between mb-4">
+                            <Badge 
+                              variant="secondary" 
+                              className="bg-white/90 text-ocean-deep capitalize"
+                            >
+                              {post.category.replace('-', ' ')}
+                            </Badge>
+                            <div className="flex items-center gap-1 text-ocean-deep text-sm">
+                              <Eye className="h-4 w-4" />
+                              {post.views}
+                            </div>
+                          </div>
+                          <h3 className="text-xl font-bold text-ocean-deep text-center line-clamp-2">
+                            {post.title}
+                          </h3>
                         </div>
-                        <div className="absolute bottom-4 right-4 flex items-center gap-1 text-white text-sm">
-                          <Eye className="h-4 w-4" />
-                          {post.views}
-                        </div>
-                      </div>
+                      </Link>
                       
-                      <CardHeader>
+                      <CardHeader className="pb-4">
                         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                           <Calendar className="h-4 w-4" />
-                          {formatDate(post.date)}
+                          {formatBlogDate(post.date)}
                           <span>•</span>
                           <Clock className="h-4 w-4" />
                           {post.readTime}
                         </div>
-                        <CardTitle className="text-xl text-foreground hover:text-turquoise transition-colors cursor-pointer">
-                          {post.title}
-                        </CardTitle>
+                        <Link to={`/blog/${post.slug}`}>
+                          <CardTitle className="text-lg text-foreground hover:text-turquoise transition-colors cursor-pointer">
+                            {post.title}
+                          </CardTitle>
+                        </Link>
                         <p className="text-muted-foreground line-clamp-3">
                           {post.excerpt}
                         </p>
                       </CardHeader>
                       
-                      <CardContent className="space-y-4">
+                      <CardContent className="space-y-4 pt-0">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-2 text-sm text-muted-foreground">
                             <User className="h-4 w-4" />
@@ -266,13 +192,15 @@ const Blog = () => {
                           ))}
                         </div>
                         
-                        <Button 
-                          className="w-full btn-bubble bg-surface-gradient hover:shadow-glow"
-                          size="lg"
-                        >
-                          Read More
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
+                        <Link to={`/blog/${post.slug}`}>
+                          <Button 
+                            className="w-full btn-bubble bg-surface-gradient hover:shadow-glow"
+                            size="lg"
+                          >
+                            Read More
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </Button>
+                        </Link>
                       </CardContent>
                     </Card>
                   </motion.article>

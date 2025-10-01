@@ -52,12 +52,7 @@ const FloatingWhatsApp = () => {
       </motion.div>
 
       {/* Main Button */}
-      <motion.button
-        onClick={handleClick}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
+      <motion.div
         className="relative group"
       >
         {/* Close Button */}
@@ -78,9 +73,17 @@ const FloatingWhatsApp = () => {
           />
           
           {/* Main Button */}
-          <div className="relative w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 group-hover:shadow-green-500/25">
+          <motion.button
+            type="button"
+            onClick={handleClick}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 group-hover:shadow-green-500/25"
+          >
             <MessageCircle className="w-7 h-7 text-white" />
-          </div>
+          </motion.button>
 
           {/* Notification Badge */}
           <motion.div
@@ -91,7 +94,7 @@ const FloatingWhatsApp = () => {
             !
           </motion.div>
         </div>
-      </motion.button>
+      </motion.div>
 
       {/* Floating Elements */}
       <div className="absolute inset-0 pointer-events-none">
