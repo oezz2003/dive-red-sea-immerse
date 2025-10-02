@@ -39,7 +39,7 @@ const Activities = () => {
       groupSize: 'Max 4 students',
       location: 'Eagle Divers NI',
       rating: 4.9,
-      image: '/padi/course-1-3.jpg',
+      image: '/images/PADI_open_water.jpg',
       description: 'The world\'s most popular scuba diving course. Learn to dive safely and confidently.',
       highlights: ['Theory & Pool Training', '4 Open Water Dives', 'PADI Certification', 'Equipment Included']
     },
@@ -51,21 +51,9 @@ const Activities = () => {
       groupSize: 'Max 4 students',
       location: 'Eagle Divers NI',
       rating: 4.8,
-      image: '/padi/PADI-Advanced-Open-Water.jpg',
+      image: '/images/ADVANCED_OPEN_WATER_DIVER.jpg',
       description: 'Try three adventure dives to gain experience and certification credit.',
       highlights: ['3 Adventure Dives', 'Skill Development', 'Fun Underwater Activities', 'Certification Credit']
-    },
-    {
-      id: 3,
-      title: 'PADI Basic Freediver',
-      category: 'beginner',
-      duration: '1 day',
-      groupSize: 'Max 6 students',
-      location: 'Eagle Divers NI',
-      rating: 4.7,
-      image: '/padi/freediving(1).jpg',
-      description: 'Introduction to freediving techniques and safety.',
-      highlights: ['Breath-hold Training', 'Safety Procedures', 'Basic Freedives', 'Certification']
     },
     {
       id: 4,
@@ -75,7 +63,7 @@ const Activities = () => {
       groupSize: 'Max 4 students',
       location: 'Eagle Divers NI',
       rating: 4.9,
-      image: '/padi/ADVANCED_OPEN_WATER_DIVERjpg.jpg',
+      image: '/padi/PADI_Advanced_Open_Water_Divers_Course_Crete_1080x.webp',
       description: 'Enhance your diving skills with five adventure dives including deep and navigation.',
       highlights: ['5 Adventure Dives', 'Deep & Navigation', 'Elective Specialties', 'Certification']
     },
@@ -87,7 +75,7 @@ const Activities = () => {
       groupSize: 'Max 4 students',
       location: 'Eagle Divers NI',
       rating: 4.8,
-      image: '/padi/padi_tec_50.jpg',
+      image: '/padi/padi rescue diver course .webp',
       description: 'Learn to prevent and manage diving emergencies. Develop leadership skills.',
       highlights: ['Emergency Response', 'Rescue Scenarios', 'First Aid Training', 'Leadership Skills']
     },
@@ -306,53 +294,7 @@ const Activities = () => {
           </div>
         </section>
 
-        {/* Call to Action */}
-        <section className="py-20 bg-ocean-gradient relative overflow-hidden">
-          <div className="absolute inset-0">
-            {[...Array(10)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-4 h-4 bg-white/10 rounded-full"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                }}
-                animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [0.3, 0.8, 0.3],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                }}
-              />
-            ))}
-          </div>
-          
-          <div className="container mx-auto px-4 text-center relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-4xl font-bold text-white mb-6">
-                Ready for Your Water Adventure?
-              </h2>
-              <p className="text-white/90 text-lg max-w-2xl mx-auto mb-8">
-                Join thousands of satisfied adventurers who have experienced the magic of the NI 
-                with Eagle Divers' premium water activities.
-              </p>
-              <Button 
-                size="lg"
-                className="btn-bubble bg-coral hover:bg-coral/90 text-white shadow-glow"
-              >
-                <Anchor className="mr-2 h-5 w-5" />
-                Contact Us Today
-              </Button>
-            </motion.div>
-          </div>
-        </section>
+
       </main>
 
       <Footer />

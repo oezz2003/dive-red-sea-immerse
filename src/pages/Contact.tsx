@@ -22,20 +22,47 @@ const Contact = () => {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Booking Request Sent!",
-      description: "We'll contact you within 24 hours to confirm your booking.",
-    });
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      date: '',
-      course: '',
-      message: '',
-    });
+    try {
+      const response = await fetch('/assets/inc/sendemail.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          date: formData.date,
+          services: formData.course,
+          message: formData.message,
+        }),
+      });
+      const text = await response.text();
+      if (text.includes('success')) {
+        toast({
+          title: "Message Sent Successfully!",
+          description: "We'll get back to you soon.",
+        });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          date: '',
+          course: '',
+          message: '',
+        });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleChange = (field: string, value: string) => {
@@ -171,7 +198,7 @@ const Contact = () => {
                             id="phone"
                             value={formData.phone}
                             onChange={(e) => handleChange('phone', e.target.value)}
-                            placeholder="+1 (555) 123-4567"
+                            placeholder="+44 7123 456789"
                           />
                         </div>
                         <div className="space-y-2">

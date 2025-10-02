@@ -212,76 +212,7 @@ const Shop = () => {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section className="py-20 bg-card">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl font-bold text-foreground mb-6">
-                Contact Eagle Divers NI
-              </h2>
-              <p className="text-muted-foreground text-lg max-w-3xl mx-auto mb-8">
-                Based in Northern Ireland, we're here to plan every detail of your trip. 
-                Get in touch today to start planning your diving holiday:
-              </p>
-            </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {contactInfo.map((contact, index) => (
-                <motion.div
-                  key={contact.title}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                >
-                  <Card className="text-center bg-background border-border shadow-float hover:shadow-glow transition-all duration-300">
-                    <CardHeader>
-                      <div className={`mx-auto w-16 h-16 rounded-full bg-${contact.color}/20 flex items-center justify-center mb-4`}>
-                        <contact.icon className={`h-8 w-8 text-${contact.color}`} />
-                      </div>
-                      <CardTitle className="text-lg text-foreground">
-                        {contact.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground font-medium">
-                        {contact.detail}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center"
-            >
-              <div className="bg-gradient-to-r from-turquoise/10 to-coral/10 rounded-2xl p-8 border border-turquoise/20">
-                <h3 className="text-2xl font-bold text-foreground mb-4">
-                  ✈️ Flights, transfers, accommodation, diving packages — all arranged for you by Eagle Divers NI.
-                </h3>
-                <p className="text-lg text-muted-foreground mb-6">
-                  🐠 Just bring your passion for the ocean, and we'll handle the rest!
-                </p>
-                <Button 
-                  size="lg"
-                  className="btn-bubble bg-coral hover:bg-coral/90 text-white shadow-glow"
-                >
-                  <Plane className="mr-2 h-5 w-5" />
-                  Start Planning Your Holiday
-                </Button>
-              </div>
-            </motion.div>
-          </div>
-        </section>
 
         {/* Call to Action */}
         <section className="py-20 bg-ocean-gradient relative overflow-hidden">
