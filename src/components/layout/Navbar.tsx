@@ -87,7 +87,7 @@ const Navbar = () => {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex-1 flex pt-2 justify-start sm:justify-center"
+            className="flex-1 flex pt-2 justify-start sm:justify-center px-1 lg:px-0"
           >
             <Link to="/" className="flex flex-col items-center space-y-1 group ">
               <div className="relative">
@@ -136,7 +136,7 @@ const Navbar = () => {
             className="lg:hidden p-2"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
+            {isOpen ? <X className="h-5 w-5 sm:h-10 sm:w-10" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
           </Button>
         </div>
       </div>

@@ -33,9 +33,18 @@ const Contact = () => {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const courseParam = params.get('course');
-    if (courseParam) {
-      setFormData(prev => ({ ...prev, course: courseParam }));
-      params.delete('course');
+    const locationParam = params.get('location');
+      const offerParam = params.get('offer');
+    if (courseParam || locationParam || offerParam) {
+      setFormData(prev => ({
+        ...prev,
+        course: courseParam || prev.course,
+        location: locationParam || prev.location,
+        offer: offerParam || prev.offer
+      }));
+      if (courseParam) params.delete('course');
+      if (locationParam) params.delete('location');
+      if (offerParam) params.delete('offer');
       navigate({ search: params.toString() }, { replace: true });
       setTimeout(() => {
         if (formRef.current) {
@@ -55,6 +64,8 @@ const Contact = () => {
     phone: '',
     date: null,
     course: '',
+    location: '',
+      offer: '',
     message: ''
   });
 
@@ -92,7 +103,7 @@ const Contact = () => {
     e.preventDefault();
     
     // Form validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.course.trim() || !formData.message.trim()) {
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || (!formData.course.trim() && !formData.offer.trim()&&!formData.location.trim()) || !formData.message.trim()) {
       toast({
         title: "Please fill all required fields",
         description: "All fields marked with * are required.",
@@ -149,12 +160,14 @@ const Contact = () => {
         });
 
         setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          date: '',
-          course: '',
-          message: ''
+       name: '',
+       email: '',
+       phone: '',
+       date: '',
+       course: '',
+       location: '',
+       offer: '',
+       message: ''
         });
       }, (error) => {
         console.error('Error sending email');
@@ -358,30 +371,52 @@ const Contact = () => {
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="course">Course/Activity *</Label>
-                        <Select value={formData.course} onValueChange={(value) => handleChange('course', value)} required>
-                          <SelectTrigger className={formData.course ? "text-gray-900" : "text-gray-400"}>
-                            <SelectValue placeholder="Select a course or activity">
-                              <span className={formData.course ? "text-gray-200" : "text-gray-400"}>
-                                {formData.course || "Select a course or activity"}
-                              </span>
-                            </SelectValue>
-                          </SelectTrigger>
-                          <SelectContent>
-                            {Object.entries(courseOptions).map(([category, courses]) => (
-                              <div key={category}>
-                                <SelectGroup>
-                                  <SelectLabel className="font-semibold text-blue-600">{category}</SelectLabel>
-                                  {courses.map((course) => (
-                                    <SelectItem key={course} value={course}>
-                                      {course}
-                                    </SelectItem>
-                                  ))}
-                                </SelectGroup>
-                              </div>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                        {formData.offer ? (
+                          <Label htmlFor="course">Selected Offer *</Label>
+                        ) : formData.location ? (
+                          <Label htmlFor="course">Selected Trip *</Label>
+                        ) : (
+                          <Label htmlFor="course">Course/Activity *</Label>
+                        )}
+                        {formData.offer ? (
+                          <Input
+                            id="course"
+                            value={formData.offer}
+                            readOnly
+                            className="bg-muted text-muted-foreground cursor-not-allowed"
+                          />
+                        ) : formData.location ? (
+                          <Input
+                            id="course"
+                            value={formData.location}
+                            readOnly
+                            className="bg-muted text-muted-foreground cursor-not-allowed"
+                          />
+                        ) : (
+                          <Select value={formData.course} onValueChange={(value) => handleChange('course', value)} required>
+                            <SelectTrigger className={formData.course ? "text-gray-900" : "text-gray-400"}>
+                              <SelectValue placeholder="Select a course or activity">
+                                <span className={formData.course ? "text-gray-200" : "text-gray-400"}>
+                                  {formData.course || "Select a course or activity"}
+                                </span>
+                              </SelectValue>
+                            </SelectTrigger>
+                            <SelectContent>
+                              {Object.entries(courseOptions).map(([category, courses]) => (
+                                <div key={category}>
+                                  <SelectGroup>
+                                    <SelectLabel className="font-semibold text-blue-600">{category}</SelectLabel>
+                                    {courses.map((course) => (
+                                      <SelectItem key={course} value={course}>
+                                        {course}
+                                      </SelectItem>
+                                    ))}
+                                  </SelectGroup>
+                                </div>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        )}
                       </div>
 
                       <div className="space-y-2">

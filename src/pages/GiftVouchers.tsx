@@ -16,11 +16,17 @@ import {
   Mail,
   MessageCircle,
   Sparkles,
-  MapPin
+  MapPin,
+  Heart,
+  Group
 } from 'lucide-react';
 
 
 import scubaMan from "@/components/icons/scubaMan";
+import discover_scuba from '@/components/icons/discover_scuba';
+import DryOpenWater from '@/components/icons/dry_open_water';
+import DrySuit from '@/components/icons/dry_suit';
+import Enriched from '@/components/icons/enriched';
 
 const GiftVouchers = () => {
   const specialOffers = [
@@ -43,7 +49,7 @@ const GiftVouchers = () => {
       description: 'A safe, fun, and easy introduction for beginners who want to try scuba in a controlled environment.',
       emoji: '🏊',
       color: 'coral',
-  icon: scubaMan,
+  icon: discover_scuba,
       features: ['Controlled environment', 'Perfect for beginners', 'Safe introduction', 'Try before you dive']
     },
     {
@@ -54,7 +60,7 @@ const GiftVouchers = () => {
       description: 'Get fully certified with your Open Water Diver qualification and learn how to safely use a drysuit — perfect for diving all year round in Northern Ireland and beyond.',
       emoji: '🧊',
       color: 'seaweed',
-  icon: scubaMan,
+            icon: DryOpenWater,
       features: ['Open Water certification', 'Drysuit training', 'Year-round diving', 'Northern Ireland ready']
     },
     {
@@ -65,7 +71,7 @@ const GiftVouchers = () => {
       description: 'Boost your bottom time and reduce fatigue with our Nitrox Course.',
       emoji: '💨',
       color: 'sunny',
-  icon: scubaMan,
+  icon: Enriched,
       features: ['Extended bottom time', 'Reduced fatigue', 'One free Nitrox tank fill', 'Advanced diving skills']
     },
     {
@@ -76,29 +82,29 @@ const GiftVouchers = () => {
       description: 'Learn the skills you need to dive comfortably and safely in a drysuit — essential for colder waters and longer dives.',
       emoji: '🧥',
       color: 'turquoise',
-  icon: scubaMan,
+  icon: DrySuit,
       features: ['Drysuit certification', 'Cold water diving', 'Extended dive times', 'Professional training']
     }
   ];
 
   const whyChooseUs = [
     {
-  icon: scubaMan,
+  icon: Heart,
       title: 'Experienced, passionate instructors',
       description: 'Learn from certified professionals who love what they do'
     },
     {
-  icon: scubaMan,
+  icon: Group,
       title: 'Small groups for personal attention',
       description: 'Maximum 4 students per instructor for focused learning'
     },
     {
-  icon: scubaMan,
+  icon: Calendar,
       title: 'Flexible scheduling around you',
       description: 'We work around your schedule, not the other way around'
     },
     {
-  icon: scubaMan,
+  icon: Users ,
       title: 'Courses tailored for local & international diving',
       description: 'Prepare for both Northern Ireland waters and global destinations'
     }
@@ -108,9 +114,9 @@ const GiftVouchers = () => {
     <>
       <Navbar />
       
-      <main className="pt-20">
+      <main className="pt-0">
         {/* Hero Section */}
-        <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative pt-20 h-screen flex items-center justify-center overflow-hidden">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-fixed"
             style={{
@@ -221,7 +227,7 @@ const GiftVouchers = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ y: -10, scale: 1.02 }}
                   className="relative group h-full flex cursor-pointer "
-                  onClick={() => {/* TODO: Replace with actual action, e.g. navigation or modal */}}
+                  onClick={() => { window.location.href = `/contact?offer=${encodeURIComponent(offer.title)}`; }}
                 >
                   
                   <Card className="relative overflow-hidden bg-gradient-to-br from-card to-card/80 shadow-float hover:shadow-glow transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-primary/10 h-full flex flex-col">
@@ -289,9 +295,12 @@ const GiftVouchers = () => {
                       </div>
                       
                       <div className="pt-4">
-                      {/* Removed Book Now text from card content */}
-                    {/* Card shadow and Book Now text on hover */}
-                    
+                        {/* Button only visible on small screens */}
+                        <div className="block sm:hidden md:hidden mt-6">
+                          <Button size="lg" className="w-full bg-coral text-white" onClick={e => { e.stopPropagation(); window.location.href = `/contact?offer=${encodeURIComponent(offer.title)}`; }}>
+                            Book Now
+                          </Button>
+                        </div>
                       </div>
                     </CardContent>
                     
