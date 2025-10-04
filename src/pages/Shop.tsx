@@ -164,8 +164,38 @@ const Shop = () => {
           </div>
         </section>
 
+        <div className="container mx-auto px-4 text-center relative z-10 py-10 border-b border-border">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl font-bold text-white mb-6">
+                Ready for Your Next Adventure?
+              </h2>
+              <p className="text-white/90 text-lg max-w-2xl mx-auto mb-8">
+                Let Eagle Divers NI take you on the diving holiday of a lifetime. 
+                From Northern Ireland to the world's most spectacular dive sites.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+                <Button 
+                  size="lg"
+                  className="btn-bubble bg-coral hover:bg-coral/90 text-white shadow-glow flex-1"
+                >
+                  <Plane className="mr-2 h-5 w-5" />
+                  Plan Your Holiday
+                </Button>
+              </div>
+              <p className="text-white/70 text-sm mt-4">
+                Free consultation • Custom packages • Expert guidance
+              </p>
+            </motion.div>
+          </div>
+        
+
         {/* Popular Destinations */}
-        <section className="py-20 bg-background">
+        <section className="py-10 bg-background">
+          
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -239,33 +269,7 @@ const Shop = () => {
             ))}
           </div>
           
-          <div className="container mx-auto px-4 text-center relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-4xl font-bold text-white mb-6">
-                Ready for Your Next Adventure?
-              </h2>
-              <p className="text-white/90 text-lg max-w-2xl mx-auto mb-8">
-                Let Eagle Divers NI take you on the diving holiday of a lifetime. 
-                From Northern Ireland to the world's most spectacular dive sites.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-                <Button 
-                  size="lg"
-                  className="btn-bubble bg-coral hover:bg-coral/90 text-white shadow-glow flex-1"
-                >
-                  <Plane className="mr-2 h-5 w-5" />
-                  Plan Your Holiday
-                </Button>
-              </div>
-              <p className="text-white/70 text-sm mt-4">
-                Free consultation • Custom packages • Expert guidance
-              </p>
-            </motion.div>
-          </div>
+          
         </section>
       </main>
 

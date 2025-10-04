@@ -49,7 +49,7 @@ const Blog = () => {
       
       <main >
         {/* Hero Section */}
-        <section className="py-60 relative overflow-hidden">
+        <section className="py-40 xl:py-60 xxl:py-80 relative overflow-hidden">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-fixed "
             style={{
@@ -136,10 +136,10 @@ const Blog = () => {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     whileHover={{ y: -10 }}
                   >
-                    <Card className="overflow-hidden bg-card border-border shadow-float hover:shadow-glow transition-all duration-300 h-full">
+                    <Card className="overflow-hidden bg-card border-border shadow-float hover:shadow-glow transition-all duration-300 h-full flex flex-col">
                       <Link to={`/blog/${post.slug}`} className="block">
                         {/* Removed image container and replaced with text-based header */}
-                        <div className="bg-gradient-to-br from-turquoise/20 to-seaweed/20 p-6">
+                        <div className="bg-gradient-to-br h-[150px] from-turquoise/90 to-seaweed/60 p-6">
                           <div className="flex items-center justify-between mb-4">
                             <Badge 
                               variant="secondary" 
@@ -152,7 +152,7 @@ const Blog = () => {
                               {post.views}
                             </div>
                           </div>
-                          <h3 className="text-xl font-bold text-ocean-deep text-center line-clamp-2">
+                          <h3 className="text-xl font-bold text-ocean-deep text-center  line-clamp-2">
                             {post.title}
                           </h3>
                         </div>
@@ -176,31 +176,34 @@ const Blog = () => {
                         </p>
                       </CardHeader>
                       
-                      <CardContent className="space-y-4 pt-0">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <User className="h-4 w-4" />
-                            {post.author}
+                      <CardContent className="flex-1 flex flex-col justify-between">
+                        <div>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                              <User className="h-4 w-4" />
+                              {post.author}
+                            </div>
+                          </div>
+                          
+                          <div className="flex flex-wrap gap-2 mt-2">
+                            {post.tags.slice(0, 3).map((tag, i) => (
+                              <Badge key={i} variant="outline" className="text-xs p-2 px-4">
+                                {tag}
+                              </Badge>
+                            ))}
                           </div>
                         </div>
-                        
-                        <div className="flex flex-wrap gap-2">
-                          {post.tags.slice(0, 3).map((tag, i) => (
-                            <Badge key={i} variant="outline" className="text-xs">
-                              {tag}
-                            </Badge>
-                          ))}
+                        <div className="mt-auto">
+                          <Link to={`/blog/${post.slug}`}>
+                            <Button 
+                              className="w-full btn-bubble mt-8 bg-surface-gradient hover:shadow-glow"
+                              size="lg"
+                            >
+                              Read More
+                              <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                          </Link>
                         </div>
-                        
-                        <Link to={`/blog/${post.slug}`}>
-                          <Button 
-                            className="w-full btn-bubble bg-surface-gradient hover:shadow-glow"
-                            size="lg"
-                          >
-                            Read More
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </Button>
-                        </Link>
                       </CardContent>
                     </Card>
                   </motion.article>

@@ -46,7 +46,9 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -95 }}
       animate={{ 
-        y: isVisible ? 0 : -100
+        y: isVisible ? 0 : '-100%',
+        borderBottomWidth: isVisible ? 0 : 1,
+        
       }}
       transition={{ duration: 0, ease: "easeInOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -55,7 +57,7 @@ const Navbar = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-2 md:py-4 sm:py-4">
         <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20 xl:h-24">
           {/* Left Navigation - Desktop Only */}
           <div className="hidden lg:flex items-center space-x-6 xl:space-x-8 flex-1 max-w-md">
@@ -85,7 +87,7 @@ const Navbar = () => {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex-1 flex pt-4 justify-start sm:justify-center"
+            className="flex-1 flex pt-2 justify-start sm:justify-center"
           >
             <Link to="/" className="flex flex-col items-center space-y-1 group ">
               <div className="relative">

@@ -16,14 +16,11 @@ import {
   Mail,
   MessageCircle,
   Sparkles,
-  MapPin,
-  Fish,
-  Droplet,
-  Wind,
-  Shirt,
-  FlaskConical,
-  Shield
+  MapPin
 } from 'lucide-react';
+
+
+import scubaMan from "@/components/icons/scubaMan";
 
 const GiftVouchers = () => {
   const specialOffers = [
@@ -35,7 +32,7 @@ const GiftVouchers = () => {
       description: 'Experience the thrill of scuba diving in open water under the guidance of our certified instructors.',
       emoji: '🌊',
       color: 'turquoise',
-      icon: Fish,
+  icon: scubaMan,
       features: ['Open water experience', 'Certified instructor guidance', 'All equipment included', 'Safety briefing']
     },
     {
@@ -46,7 +43,7 @@ const GiftVouchers = () => {
       description: 'A safe, fun, and easy introduction for beginners who want to try scuba in a controlled environment.',
       emoji: '🏊',
       color: 'coral',
-      icon: Droplet,
+  icon: scubaMan,
       features: ['Controlled environment', 'Perfect for beginners', 'Safe introduction', 'Try before you dive']
     },
     {
@@ -57,7 +54,7 @@ const GiftVouchers = () => {
       description: 'Get fully certified with your Open Water Diver qualification and learn how to safely use a drysuit — perfect for diving all year round in Northern Ireland and beyond.',
       emoji: '🧊',
       color: 'seaweed',
-      icon: Award,
+  icon: scubaMan,
       features: ['Open Water certification', 'Drysuit training', 'Year-round diving', 'Northern Ireland ready']
     },
     {
@@ -68,7 +65,7 @@ const GiftVouchers = () => {
       description: 'Boost your bottom time and reduce fatigue with our Nitrox Course.',
       emoji: '💨',
       color: 'sunny',
-      icon: FlaskConical,
+  icon: scubaMan,
       features: ['Extended bottom time', 'Reduced fatigue', 'One free Nitrox tank fill', 'Advanced diving skills']
     },
     {
@@ -79,29 +76,29 @@ const GiftVouchers = () => {
       description: 'Learn the skills you need to dive comfortably and safely in a drysuit — essential for colder waters and longer dives.',
       emoji: '🧥',
       color: 'turquoise',
-      icon: Shield,
+  icon: scubaMan,
       features: ['Drysuit certification', 'Cold water diving', 'Extended dive times', 'Professional training']
     }
   ];
 
   const whyChooseUs = [
     {
-      icon: Star,
-    title: 'Experienced, passionate instructors',
+  icon: scubaMan,
+      title: 'Experienced, passionate instructors',
       description: 'Learn from certified professionals who love what they do'
     },
     {
-      icon: Users,
+  icon: scubaMan,
       title: 'Small groups for personal attention',
       description: 'Maximum 4 students per instructor for focused learning'
     },
     {
-      icon: Calendar,
+  icon: scubaMan,
       title: 'Flexible scheduling around you',
       description: 'We work around your schedule, not the other way around'
     },
     {
-      icon: Compass,
+  icon: scubaMan,
       title: 'Courses tailored for local & international diving',
       description: 'Prepare for both Northern Ireland waters and global destinations'
     }
@@ -111,7 +108,7 @@ const GiftVouchers = () => {
     <>
       <Navbar />
       
-      <main >
+      <main className="pt-20">
         {/* Hero Section */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
           <div 
@@ -223,36 +220,42 @@ const GiftVouchers = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ y: -10, scale: 1.02 }}
-                  className="relative group"
+                  className="relative group h-full flex cursor-pointer "
+                  onClick={() => {/* TODO: Replace with actual action, e.g. navigation or modal */}}
                 >
-                  <Card className="relative overflow-hidden bg-gradient-to-br from-card to-card/80 border-border shadow-float hover:shadow-glow transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-primary/10">
-                    {/* Premium gradient overlay */}
-                    <div className={`absolute inset-0 bg-gradient-to-br from-${offer.color}/5 via-transparent to-${offer.color}/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                    
-                    {/* Top accent bar */}
-                    <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-${offer.color} to-${offer.color}/60`} />
-                    
-                    {/* Floating elements */}
-                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className={`w-3 h-3 rounded-full bg-${offer.color} animate-pulse`} />
+                  
+                  <Card className="relative overflow-hidden bg-gradient-to-br from-card to-card/80 shadow-float hover:shadow-glow transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-primary/10 h-full flex flex-col">
+
+                    <div className="absolute inset-0 z-20 h-full w-full rounded-lg pointer-events-none opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300" style={{background: 'linear-gradient(235deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)'}}>
+                      {/* Book Now text centered */}
+                      <div className="z-30  flex items-center justify-center">
+                        <span className={`px-8 py-4 opacity-120 rounded-lg font-bold text-white bg-gradient-to-br from-${offer.color} to-${offer.color}/80 shadow-lg text-2xl`}>Book Now</span>
+                      </div>
                     </div>
+                    {/* </div> */}
+                   
                     
-                    <CardHeader className="text-center pb-6 relative z-10">
+                    <CardHeader className="text-center pb-6 relative z-10 flex-shrink-0">
                       {/* Emoji and icon container */}
-                      <div className="relative mb-6">
+                      <div className="relative mb-6 py-2 flex items-center justify-center">
                         
-                        <div className={`mx-auto w-20 h-20 rounded-full bg-gradient-to-br from-${offer.color}/20 to-${offer.color}/10 flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl group-hover:shadow-${offer.color}/20 transition-all duration-300`}>
-                          <offer.icon className={`h-10 w-10 text-${offer.color} group-hover:scale-110 transition-transform duration-300`} />
-                        </div>
+                        {/* <div className={`mx-auto w-20 h-20 rounded-full bg-gradient-to-br from-${offer.color}/20 to-${offer.color}/10 flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:shadow-${offer.color}/20 transition-all duration-300`}> */}
+                          <offer.icon 
+                            width={55} 
+                            height={55} 
+                            className={`group-hover:scale-110 transition-transform duration-300`} 
+                            fill="#3498db"
+                          />
+                        {/* </div> */}
                         {/* Decorative ring */}
-                        <div className={`absolute inset-0 rounded-full border-2 border-${offer.color}/20 group-hover:border-${offer.color}/40 transition-colors duration-300`} />
+                        <div className={`absolute inset-0 rounded-full  transition-colors duration-300`} />
                       </div>
                       
                       <CardTitle className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                         {offer.title}
                       </CardTitle>
                       
-                      <div className="inline-flex items-center px-3 py-1 rounded-full bg-muted/50 text-sm text-muted-foreground mb-4">
+                      <div className="flex items-center px-3 py-1 rounded-full bg-muted/50 text-sm text-muted-foreground mb-4 mx-auto w-fit">
                         <MapPin className="w-4 h-4 mr-1" />
                         {offer.location}
                       </div>
@@ -269,7 +272,7 @@ const GiftVouchers = () => {
                       </p>
                     </CardHeader>
                     
-                    <CardContent className="space-y-6 relative z-10">
+                    <CardContent className="space-y-6 relative z-10 flex flex-col flex-1 justify-end">
                       <div className="space-y-3">
                         <h4 className="font-semibold text-foreground text-lg flex items-center gap-2">
                           <Award className={`w-5 h-5 text-${offer.color} stroke-2`} />
@@ -286,13 +289,9 @@ const GiftVouchers = () => {
                       </div>
                       
                       <div className="pt-4">
-                        <Button 
-                          className={`w-full btn-bubble bg-gradient-to-r from-${offer.color} to-${offer.color}/80 hover:from-${offer.color}/90 hover:to-${offer.color}/70 text-white shadow-lg hover:shadow-xl hover:shadow-${offer.color}/25 transition-all duration-300 group-hover:scale-105`}
-                          size="lg"
-                        >
-                          <Star className="mr-2 h-5 w-5" />
-                          Book Now
-                        </Button>
+                      {/* Removed Book Now text from card content */}
+                    {/* Card shadow and Book Now text on hover */}
+                    
                       </div>
                     </CardContent>
                     
@@ -334,9 +333,9 @@ const GiftVouchers = () => {
                   <Card className="text-center bg-background border-border shadow-float hover:shadow-glow transition-all duration-300">
                     <CardHeader>
                       <div className="mx-auto w-16 h-16 rounded-full bg-turquoise/20 flex items-center justify-center mb-4">
-                        <feature.icon className="h-8 w-8 text-turquoise" />
+                        <feature.icon width={32} height={32} fill="#fff" />
                       </div>
-                      <CardTitle className="text-lg text-foreground">
+                      <CardTitle className="text-lg text-foreground min-h-[3.5rem]">
                         {feature.title}
                       </CardTitle>
                     </CardHeader>
@@ -404,7 +403,8 @@ const GiftVouchers = () => {
                 Ready to start your diving journey? Get in touch today!
               </p>
             </motion.div>
-          </div>
+            {/* End of offer cards grid */}
+              </div>
         </section>
 
 

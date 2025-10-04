@@ -402,7 +402,7 @@ const Contact = () => {
 
                       <Button 
                         type="submit" 
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="btn-bubble bg-surface-gradient hover:shadow-glow w-full font-semibold py-3 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                         size="lg"
                         disabled={isSubmitting}
                       >
@@ -447,7 +447,7 @@ const Contact = () => {
                     // Google Maps link for the pinned location
                     const mapsUrl = 'https://maps.google.com/maps?q=Eagle+Divers+dive+club,+Antrim,+Northern+Ireland&t=&z=14&ie=UTF8&iwloc=&output=embed';
                     const cardContent = (
-                      <Card className={`p-6 bg-card border-border hover:shadow-float transition-all duration-300 py-8 ${(isPhone || isLocation) ? 'cursor-pointer hover:bg-blue-50' : ''}`}>
+                      <Card className={`p-6 bg-card border-border hover:shadow-float transition-all duration-300 py-8 ${(isPhone || isLocation) ? 'cursor-pointer hover:bg-blue-800' : ''}`}>
                         <div className="flex items-center space-x-4 ">
                           <div className="p-3 bg-primary/10 rounded-lg ">
                             <info.icon className="h-6 w-6 text-primary margin-auto" />
@@ -460,7 +460,7 @@ const Contact = () => {
                               {info.title === 'Email'
                                 ? info.details.map((detail, i) => (
                                     <>
-                                      <a key={i} href={`mailto:${detail}`} className="text-muted-foreground underline underline-offset-2">
+                                      <a key={i} href={`mailto:${detail}`} className="text-muted-foreground  underline-offset-4 hover:text-primary hover:underline transition-colors transition-period-300">
                                         {detail}
                                       </a>
                                       {i < info.details.length - 1 && (

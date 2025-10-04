@@ -25,7 +25,29 @@ const AboutSection = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
-      />
+      />{/* Animated Bubbles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(30)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-primary/30 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${100 + Math.random() * 20}%`,
+            }}
+            animate={{
+              y: [-20, -window.innerHeight - 100],
+              opacity: [0, 0.8, 0],
+              scale: [0.5, 1, 0.5],
+            }}
+            transition={{
+              duration: 8 + Math.random() * 4,
+              repeat: Infinity,
+              delay: Math.random() * 5,
+            }}
+          />
+        ))}
+      </div>
       
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -122,17 +144,7 @@ const AboutSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/20 to-transparent" />
             </div>
             
-            {/* Floating elements */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="absolute -top-6 -right-6 w-12 h-12 bg-primary/20 rounded-full animate-pulse"
-            />
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-              className="absolute -bottom-4 -left-4 w-8 h-8 bg-seafoam/30 rounded-full animate-pulse"
-            />
+          
           </motion.div>
         </div>
       </div>

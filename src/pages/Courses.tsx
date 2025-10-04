@@ -127,7 +127,7 @@ const Courses = () => {
       <main>
         {/* Header */}
          <section 
-           className="py-60 relative overflow-hidden"
+           className="py-40 xl:py-60 xxl:py-80 relative overflow-hidden"
            style={{
              backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(26, 188, 156, 0.4)), url('/hero pics/ssi hero.jpg')",
              backgroundSize: 'cover',
