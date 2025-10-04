@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -18,32 +18,78 @@ const Contact = () => {
     phone: '',
     date: '',
     course: '',
-    message: '',
+    message: ''
   });
+
+  const courseOptions = {
+    'SSI Courses': [
+      'Try Scuba',
+      'Open Water Diver',
+      'Deep Diving Specialty',
+      'Enriched Air Nitrox',
+      'Perfect Buoyancy',
+      'Assistant Instructor'
+    ],
+    'PADI Courses': [
+      'PADI Open Water Diver',
+      'PADI Adventure Diver',
+      'PADI Basic Freediver',
+      'PADI Advanced Open Water Diver',
+      'PADI Rescue Diver',
+      'PADI Enriched Air Diver'
+    ],
+    'Other Activities': [
+      'Snorkeling Tour',
+      'Boat Trip',
+      'Equipment Rental',
+      'Guided Dive',
+      'Group Booking',
+      'Custom Package'
+    ]
+  };
   const { toast } = useToast();
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Form validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.course.trim() || !formData.message.trim()) {
+      toast({
+        title: "Please fill all required fields",
+        description: "All fields marked with * are required.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Invalid email address",
+        description: "Please enter a valid email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
     try {
-      const response = await fetch('/assets/inc/sendemail.php', {
+      const response = await fetch('/sendemail.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: new URLSearchParams({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          date: formData.date,
-          services: formData.course,
-          message: formData.message,
-        }),
+        body: new URLSearchParams(formData)
       });
-      const text = await response.text();
-      if (text.includes('success')) {
+
+      if (response.ok) {
         toast({
-          title: "Message Sent Successfully!",
-          description: "We'll get back to you soon.",
+          title: "Message sent successfully!",
+          description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
         });
         setFormData({
           name: '',
@@ -51,17 +97,23 @@ const Contact = () => {
           phone: '',
           date: '',
           course: '',
-          message: '',
+          message: ''
         });
       } else {
-        throw new Error('Failed to send message');
+        toast({
+          title: "Error sending message",
+          description: "Please try again or contact us directly at info@eagledivers.com",
+          variant: "destructive"
+        });
       }
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again later.",
-        variant: "destructive",
+        title: "Error sending message",
+        description: "Please try again or contact us directly at info@eagledivers.com",
+        variant: "destructive"
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -157,48 +209,53 @@ const Contact = () => {
                 transition={{ duration: 0.8 }}
               >
                 <Card className="bg-card border-border shadow-depth">
-                  <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-foreground">
-                      Send us a Message
+                  <CardHeader className="text-center">
+                    <CardTitle className="text-3xl font-bold text-foreground mb-2">
+                      Book Your Adventure
                     </CardTitle>
                     <p className="text-muted-foreground">
-                      Fill out the form below and we'll get back to you as soon as possible.
+                      Ready to explore the underwater world? Fill out the form below and we'll get back to you within 24 hours.
                     </p>
                   </CardHeader>
                   <CardContent>
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid md:grid-cols-2 gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="name">Full Name</Label>
+                          <Label htmlFor="name">Full Name *</Label>
                           <Input
                             id="name"
                             value={formData.name}
                             onChange={(e) => handleChange('name', e.target.value)}
-                            placeholder="John Doe"
+                            placeholder="Enter your full name"
                             required
+                            className="transition-colors focus:ring-2 focus:ring-blue-500"
                           />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="email">Email</Label>
+                          <Label htmlFor="email">Email Address *</Label>
                           <Input
                             id="email"
                             type="email"
                             value={formData.email}
                             onChange={(e) => handleChange('email', e.target.value)}
-                            placeholder="john@example.com"
+                            placeholder="your.email@example.com"
                             required
+                            className="transition-colors focus:ring-2 focus:ring-blue-500"
                           />
                         </div>
                       </div>
 
                       <div className="grid md:grid-cols-2 gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="phone">Phone Number</Label>
+                          <Label htmlFor="phone">Phone Number *</Label>
                           <Input
                             id="phone"
+                            type="tel"
                             value={formData.phone}
                             onChange={(e) => handleChange('phone', e.target.value)}
                             placeholder="+44 7123 456789"
+                            required
+                            className="transition-colors focus:ring-2 focus:ring-blue-500"
                           />
                         </div>
                         <div className="space-y-2">
@@ -208,46 +265,66 @@ const Contact = () => {
                             type="date"
                             value={formData.date}
                             onChange={(e) => handleChange('date', e.target.value)}
+                            className="transition-colors focus:ring-2 focus:ring-blue-500"
                           />
                         </div>
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="course">Course/Activity</Label>
-                        <Select value={formData.course} onValueChange={(value) => handleChange('course', value)}>
+                        <Label htmlFor="course">Course/Activity *</Label>
+                        <Select value={formData.course} onValueChange={(value) => handleChange('course', value)} required>
                           <SelectTrigger>
                             <SelectValue placeholder="Select a course or activity" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="open-water">Open Water Diver</SelectItem>
-                            <SelectItem value="advanced">Advanced Open Water</SelectItem>
-                            <SelectItem value="rescue">Rescue Diver</SelectItem>
-                            <SelectItem value="divemaster">Divemaster</SelectItem>
-                            <SelectItem value="snorkeling">Snorkeling Tour</SelectItem>
-                            <SelectItem value="boat-trip">Boat Trip</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
+                            {Object.entries(courseOptions).map(([category, courses]) => (
+                              <div key={category}>
+                                <SelectGroup>
+                                  <SelectLabel className="font-semibold text-blue-600">{category}</SelectLabel>
+                                  {courses.map((course) => (
+                                    <SelectItem key={course} value={course}>
+                                      {course}
+                                    </SelectItem>
+                                  ))}
+                                </SelectGroup>
+                              </div>
+                            ))}
                           </SelectContent>
                         </Select>
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="message">Message</Label>
+                        <Label htmlFor="message">Message *</Label>
                         <Textarea
                           id="message"
+                          name="message"
                           value={formData.message}
                           onChange={(e) => handleChange('message', e.target.value)}
-                          placeholder="Tell us about your diving experience or any special requirements..."
-                          rows={4}
+                          placeholder="Tell us about your diving experience, preferred dates, group size, or any special requirements..."
+                          rows={5}
+                          required
+                          className="transition-colors focus:ring-2 focus:ring-blue-500"
                         />
+                        <p className="text-sm text-gray-500 mt-1">Please include any special requirements or questions</p>
                       </div>
 
                       <Button 
                         type="submit" 
-                        className="w-full btn-bubble bg-surface-gradient hover:shadow-glow"
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                         size="lg"
+                        disabled={isSubmitting}
                       >
-                        <Send className="mr-2 h-5 w-5" />
-                        Send Message
+                        {isSubmitting ? (
+                          <>
+                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Sending Message...
+                          </>
+                        ) : (
+                          <><Send className="mr-2 h-5 w-5" />Send Message</>
+                        )}
                       </Button>
                     </form>
                   </CardContent>

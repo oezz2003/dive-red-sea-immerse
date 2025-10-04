@@ -145,7 +145,48 @@ All colors MUST be HSL.
     animation: ripple 0.6s ease-out;
   }
 
-  /* Bubble hover effect for buttons */
+  /* Button Standardization System */
+  .btn-standard {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-depth hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+
+  .btn-outline {
+    @apply border-2 border-input bg-background hover:bg-accent hover:text-accent-foreground hover:border-primary;
+  }
+
+  .btn-ghost {
+    @apply hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .btn-destructive {
+    @apply bg-destructive text-destructive-foreground hover:bg-destructive/90;
+  }
+
+  .btn-sm {
+    @apply h-10 px-4 py-2 text-sm;
+  }
+
+  .btn-default {
+    @apply h-12 px-6 py-3 text-base;
+  }
+
+  .btn-lg {
+    @apply h-14 px-8 py-4 text-lg;
+  }
+
+  .btn-icon {
+    @apply h-12 w-12 p-3;
+  }
+
+  /* Enhanced bubble animation for buttons */
   .btn-bubble {
     @apply relative overflow-hidden transition-all duration-300;
   }
@@ -159,6 +200,15 @@ All colors MUST be HSL.
 
   .btn-bubble:hover::before {
     transform: translateX(100%);
+  }
+
+  /* Button group consistency */
+  .btn-group {
+    @apply flex gap-3 items-center;
+  }
+
+  .btn-group .btn-standard {
+    @apply flex-1;
   }
 
   /* Logo animation effects */
