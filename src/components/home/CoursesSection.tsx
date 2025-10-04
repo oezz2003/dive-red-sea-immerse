@@ -158,7 +158,7 @@ const CoursesSection = () => {
             className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
             asChild
           >
-            <Link to="/courses">
+            <Link to="/SSI">
               View All Courses
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>

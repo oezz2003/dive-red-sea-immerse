@@ -58,16 +58,16 @@ const Footer = () => {
               <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Home
               </Link>
-              <Link to="/courses" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/SSI" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 SSI Courses
               </Link>
-              <Link to="/activities" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/PADI" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 PADI Activities
               </Link>
-              <Link to="/shop" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/holidays" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Diving Holidays
               </Link>
-              <Link to="/gift-vouchers" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/offers" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Gift Vouchers
               </Link>
               <Link to="/gallery" className="text-sm text-muted-foreground hover:text-primary transition-colors">
@@ -86,16 +86,16 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-foreground">Popular Courses</h3>
             <div className="flex flex-col space-y-2">
-              <Link to="/courses" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/SSI" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Try Scuba
               </Link>
-              <Link to="/courses" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/SSI" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Open Water Diver
               </Link>
-              <Link to="/activities" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/PADI" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 PADI Open Water Diver
               </Link>
-              <Link to="/activities" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/PADI" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 PADI Advanced Open Water
               </Link>
             </div>

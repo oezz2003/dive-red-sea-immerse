@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -9,14 +12,48 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import { Calendar } from "lucide-react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { useToast } from '@/hooks/use-toast';
+import emailjs from "@emailjs/browser";
+
+function sendmail(){
+  emailjs.init({
+        publicKey: "G36A-jsbmi4ia1odR",
+      });
+}
+
+
 
 const Contact = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const courseParam = params.get('course');
+    if (courseParam) {
+      setFormData(prev => ({ ...prev, course: courseParam }));
+      params.delete('course');
+      navigate({ search: params.toString() }, { replace: true });
+      setTimeout(() => {
+        if (formRef.current) {
+          const rect = formRef.current.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          window.scrollTo({
+            top: rect.top + scrollTop - 180,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+  }, [location.search, navigate]);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    date: '',
+    date: null,
     course: '',
     message: ''
   });
@@ -78,19 +115,39 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/sendemail.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(formData)
-      });
+      // const response = await fetch('/sendemail.php', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/x-www-form-urlencoded',
+      //   },
+      //   body: new URLSearchParams(formData)
+      // });
+      console.log(formData);
+      emailjs.init({
+  publicKey: 'G36A-jsbmi4ia1odR',
+  // Do not allow headless browsers
+  blockHeadless: true,
+  blockList: {
+    // Block the suspended emails
+    list: ['foo@emailjs.com', 'bar@emailjs.com'],
+    // The variable contains the email address
+    watchVariable: 'userEmail',
+  },
+  limitRate: {
+    // Set the limit rate for the application
+    id: 'app',
+    // Allow 1 request per 10s
+    throttle: 10000,
+  },
+});
 
-      if (response.ok) {
+      emailjs.send('service_6gvo2tp', 'template_xh2u7md', formData).then((response) => {
+      
         toast({
           title: "Message sent successfully!",
           description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
         });
+
         setFormData({
           name: '',
           email: '',
@@ -99,20 +156,28 @@ const Contact = () => {
           course: '',
           message: ''
         });
-      } else {
+      }, (error) => {
+        console.error('Error sending email');
         toast({
           title: "Error sending message",
-          description: "Please try again or contact us directly at info@eagledivers.com",
+          description: error,
           variant: "destructive"
         });
-      }
+      })
     } catch (error) {
+      console.error('Error sending email:', error);
       toast({
         title: "Error sending message",
         description: "Please try again or contact us directly at info@eagledivers.com",
         variant: "destructive"
       });
     } finally {
+      emailjs.send('service_6gvo2tp', 'template_c3r9i89', { email: formData.email, name: formData.name }).then((response) => {
+        console.log('Email sent successfully:', response);
+      }).catch((error) => {
+        console.error('Error sending email:', error);
+      });
+
       setIsSubmitting(false);
     }
   };
@@ -125,7 +190,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Location',
-      details: ['Antrim', 'Northern Ireland'],
+      details: ['Antrim, Northern Ireland'],
     },
     {
       icon: Phone,
@@ -148,11 +213,12 @@ const Contact = () => {
     <>
       <Navbar />
       
-      <main className="pt-20">
+      <main >
         {/* Header */}
         <section 
-          className="py-20 relative overflow-hidden"
+          className="py-40 relative overflow-hidden"
           style={{
+            // height: '60vh',
             backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(26, 188, 156, 0.4)), url('/hero pics/contact hero .jpg')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -181,7 +247,7 @@ const Contact = () => {
             ))}
           </div>
           
-          <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="container mx-auto px-4 text-center relative z-10 top-20">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -207,18 +273,20 @@ const Contact = () => {
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
+                className="space-y-8"
               >
-                <Card className="bg-card border-border shadow-depth">
-                  <CardHeader className="text-center">
-                    <CardTitle className="text-3xl font-bold text-foreground mb-2">
+                <div>
+                    <h2 className="text-3xl font-bold text-foreground mb-4">
                       Book Your Adventure
-                    </CardTitle>
-                    <p className="text-muted-foreground">
+                    </h2>
+                    <p className="text-muted-foreground text-lg">
                       Ready to explore the underwater world? Fill out the form below and we'll get back to you within 24 hours.
                     </p>
-                  </CardHeader>
+                  </div>
+                <Card className="bg-card border-border shadow-depth pt-4">
+                  
                   <CardContent>
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid md:grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <Label htmlFor="name">Full Name *</Label>
@@ -260,21 +328,44 @@ const Contact = () => {
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="date">Preferred Date</Label>
-                          <Input
-                            id="date"
-                            type="date"
-                            value={formData.date}
-                            onChange={(e) => handleChange('date', e.target.value)}
-                            className="transition-colors focus:ring-2 focus:ring-blue-500"
-                          />
+                          <div style={{ position: 'relative' }} className="w-full">
+                            <DatePicker
+                              selected={formData.date ? new Date(formData.date) : null}
+                              onChange={(date: Date | null) => handleChange('date', date ? date.toISOString().split('T')[0] : '')}
+                              customInput={
+                                <div className="w-full relative">
+                                  <Input
+                                    id="date"
+                                    name="date"
+                                    value={formData.date || ''}
+                                    onChange={(e) => handleChange('date', e.target.value)}
+                                    className="transition-colors focus:ring-2 focus:ring-blue-500 pr-10"
+                                    autoComplete="off"
+                                    placeholder="Select a date"
+                                  />
+                                  <span style={{ position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', display: 'flex', alignItems: 'center', height: '100%' }}>
+                                    <Calendar size={20} style={{ color: '#2563eb' }} />
+                                  </span>
+                                </div>
+                              }
+                              dateFormat="yyyy-MM-dd"
+                              wrapperClassName="w-full"
+                              popperPlacement="bottom"
+                              required
+                            />
+                          </div>
                         </div>
                       </div>
 
                       <div className="space-y-2">
                         <Label htmlFor="course">Course/Activity *</Label>
                         <Select value={formData.course} onValueChange={(value) => handleChange('course', value)} required>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select a course or activity" />
+                          <SelectTrigger className={formData.course ? "text-gray-900" : "text-gray-400"}>
+                            <SelectValue placeholder="Select a course or activity">
+                              <span className={formData.course ? "text-gray-200" : "text-gray-400"}>
+                                {formData.course || "Select a course or activity"}
+                              </span>
+                            </SelectValue>
                           </SelectTrigger>
                           <SelectContent>
                             {Object.entries(courseOptions).map(([category, courses]) => (
@@ -299,6 +390,7 @@ const Contact = () => {
                           id="message"
                           name="message"
                           value={formData.message}
+                          style={{ height: "87px" }}
                           onChange={(e) => handleChange('message', e.target.value)}
                           placeholder="Tell us about your diving experience, preferred dates, group size, or any special requirements..."
                           rows={5}
@@ -349,34 +441,69 @@ const Contact = () => {
                 </div>
 
                 <div className="grid gap-6">
-                  {contactInfo.map((info, index) => (
-                    <motion.div
-                      key={info.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    >
-                      <Card className="p-6 bg-card border-border hover:shadow-float transition-all duration-300">
-                        <div className="flex items-start space-x-4">
-                          <div className="p-3 bg-primary/10 rounded-lg">
-                            <info.icon className="h-6 w-6 text-primary" />
+                  {contactInfo.map((info, index) => {
+                    const isPhone = info.title === 'Phone';
+                    const isLocation = info.title === 'Location';
+                    // Google Maps link for the pinned location
+                    const mapsUrl = 'https://maps.google.com/maps?q=Eagle+Divers+dive+club,+Antrim,+Northern+Ireland&t=&z=14&ie=UTF8&iwloc=&output=embed';
+                    const cardContent = (
+                      <Card className={`p-6 bg-card border-border hover:shadow-float transition-all duration-300 py-8 ${(isPhone || isLocation) ? 'cursor-pointer hover:bg-blue-50' : ''}`}>
+                        <div className="flex items-center space-x-4 ">
+                          <div className="p-3 bg-primary/10 rounded-lg ">
+                            <info.icon className="h-6 w-6 text-primary margin-auto" />
                           </div>
                           <div>
                             <h3 className="font-semibold text-foreground mb-2">
                               {info.title}
                             </h3>
-                            <div className="space-y-1">
-                              {info.details.map((detail, i) => (
-                                <p key={i} className="text-muted-foreground">
-                                  {detail}
-                                </p>
-                              ))}
+                            <div className="flex flex-row flex-wrap gap-6 items-center">
+                              {info.title === 'Email'
+                                ? info.details.map((detail, i) => (
+                                    <>
+                                      <a key={i} href={`mailto:${detail}`} className="text-muted-foreground underline underline-offset-2">
+                                        {detail}
+                                      </a>
+                                      {i < info.details.length - 1 && (
+                                        <span className="mx-2 text-gray-400">|</span>
+                                      )}
+                                    </>
+                                  ))
+                                : info.details.map((detail, i) => (
+                                    <>
+                                      <p key={i} className="text-muted-foreground">
+                                        {detail}
+                                      </p>
+                                      {i < info.details.length - 1 && (
+                                        <span className="mx-2 text-gray-400">|</span>
+                                      )}
+                                    </>
+                                  ))}
                             </div>
                           </div>
                         </div>
                       </Card>
-                    </motion.div>
-                  ))}
+                    );
+                    return (
+                      <motion.div
+                        key={info.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                      >
+                        {isPhone ? (
+                          <a href={`tel:${info.details[0]}`} aria-label={`Call ${info.details[0]}`} style={{ textDecoration: 'none', display: 'block' }}>
+                            {cardContent}
+                          </a>
+                        ) : isLocation ? (
+                          <a href={mapsUrl.replace('&output=embed', '')} aria-label="View location on Google Maps" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block' }}>
+                            {cardContent}
+                          </a>
+                        ) : (
+                          cardContent
+                        )}
+                      </motion.div>
+                    );
+                  })}
                 </div>
 
                 <motion.div

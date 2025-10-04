@@ -111,7 +111,7 @@ const GiftVouchers = () => {
     <>
       <Navbar />
       
-      <main className="pt-20">
+      <main >
         {/* Hero Section */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
           <div 

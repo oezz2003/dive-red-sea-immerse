@@ -164,7 +164,7 @@ const Gallery = () => {
                   asChild
                   className="bg-white text-ocean-deep hover:bg-gray-100"
                 >
-                  <Link to="/courses">View Courses</Link>
+                  <Link to="/SSI">View Courses</Link>
                 </Button>
                 <Button
                   size="lg"

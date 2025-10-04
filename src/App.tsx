@@ -29,10 +29,10 @@ const App = () => (
         <div className="min-h-screen bg-background">
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/courses" element={<Courses />} />
-            <Route path="/activities" element={<Activities />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/gift-vouchers" element={<GiftVouchers />} />
+            <Route path="/SSI" element={<Courses />} />
+            <Route path="/PADI" element={<Activities />} />
+            <Route path="/holidays" element={<Shop />} />
+            <Route path="/offers" element={<GiftVouchers />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />

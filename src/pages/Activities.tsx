@@ -137,10 +137,10 @@ const Activities = () => {
     <>
       <Navbar />
       
-      <main className="pt-20">
+      <main>
          {/* Hero Section */}
          <section 
-           className="py-20 relative overflow-hidden"
+           className="py-60 relative overflow-hidden"
            style={{
              backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(26, 188, 156, 0.4)), url('/hero pics/padi hero.jpg')",
              backgroundSize: 'cover',
@@ -211,14 +211,11 @@ const Activities = () => {
               {filteredActivities.map((activity, index) => (
                 <motion.div
                   key={activity.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  whileHover={{ y: -10, scale: 1.02 }}
                 >
-                  <Card className="h-full bg-card border-border hover:shadow-glow transition-all duration-500 relative overflow-hidden group">
-                    {/* Card glow effect */}
-                    <div className="absolute inset-0 bg-surface-gradient opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
+                  <Card className="h-full bg-card border-border transition-all duration-500 relative overflow-hidden">
 
                     {activity.rating >= 4.8 && (
                       <div className="absolute top-4 right-4 z-10">
@@ -234,7 +231,7 @@ const Activities = () => {
                         <img 
                           src={activity.image} 
                           alt={activity.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-cover transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/60 to-transparent" />
                         <div className="absolute top-3 left-3">
@@ -252,7 +249,7 @@ const Activities = () => {
                           <span className="font-semibold">{activity.rating}</span>
                         </div>
                       </div>
-                      <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      <CardTitle className="text-xl font-bold text-foreground transition-colors">
                         {activity.title}
                       </CardTitle>
                     </CardHeader>
@@ -289,7 +286,7 @@ const Activities = () => {
                         className="w-full btn-bubble bg-surface-gradient hover:shadow-glow group/btn"
                         asChild
                       >
-                        <Link to="/contact">
+                        <Link to={`/contact?course=${encodeURIComponent(activity.title)}`}>
                           Book Now
                           <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                         </Link>

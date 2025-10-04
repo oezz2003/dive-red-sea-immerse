@@ -34,10 +34,10 @@ const Navbar = () => {
 
   const navItems = [
     { href: '/', label: 'Home' },
-    { href: '/courses', label: 'SSI' },
-    { href: '/activities', label: 'PADI' },
-    { href: '/shop', label: 'Holidays' },
-    { href: '/gift-vouchers', label: 'Offers' },
+  { href: '/SSI', label: 'SSI' },
+  { href: '/PADI', label: 'PADI' },
+  { href: '/holidays', label: 'Holidays' },
+  { href: '/offers', label: 'Offers' },
     { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
   ];
@@ -46,11 +46,10 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -95 }}
       animate={{ 
-        y: isVisible ? 0 : -100,
-        opacity: isVisible ? 1 : 0
+        y: isVisible ? 0 : -100
       }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-      className={`fixed top-1 left-0 right-0 z-50 transition-all duration-500 ${
+      transition={{ duration: 0, ease: "easeInOut" }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled 
           ? 'bg-background/95 header-blur shadow-depth border-b border-border' 
           : 'bg-transparent'
@@ -86,9 +85,9 @@ const Navbar = () => {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex-1 flex justify-center mx-4"
+            className="flex-1 flex pt-4 justify-start sm:justify-center"
           >
-            <Link to="/" className="flex flex-col items-center space-y-1 group logo-glow">
+            <Link to="/" className="flex flex-col items-center space-y-1 group ">
               <div className="relative">
                 <img 
                   src="/images/logo-1-1.png" 

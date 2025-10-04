@@ -47,11 +47,11 @@ const Blog = () => {
     <>
       <Navbar />
       
-      <main className="pt-20">
+      <main >
         {/* Hero Section */}
-        <section className="relative h-96 flex items-center justify-center overflow-hidden">
+        <section className="py-60 relative overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center bg-fixed"
+            className="absolute inset-0 bg-cover bg-center bg-fixed "
             style={{
               backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.7), rgba(26, 188, 156, 0.4)), url('/hero pics/blog hero.jpg')"
             }}
