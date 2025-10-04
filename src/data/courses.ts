@@ -24,7 +24,7 @@ export const courses: Course[] = [
     features: ['Confined Water Session', 'Basic Skills', 'Equipment Introduction', 'Safety Briefing', 'SSI Try Scuba recognition card'],
     category: 'Beginner',
     popular: true,
-    image: '/ssi/try scuba.jpg',
+    image: '/ssi/scuba-diver.webp',
     organization: 'SSI'
   },
   {
@@ -37,7 +37,7 @@ export const courses: Course[] = [
     features: ['Academic Training', 'Confined Water Training', '4 Open Water Dives', 'SSI Certification', 'Equipment Included'],
     category: 'Beginner',
     popular: true,
-    image: '/ssi/opern water diver.jpg',
+    image: '/ssi/open-water.webp',
     organization: 'SSI'
   },
   {

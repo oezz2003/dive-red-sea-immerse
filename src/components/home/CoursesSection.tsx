@@ -12,7 +12,8 @@ const CoursesSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-  const courses = getPopularCourses();
+  // Show only the first 3 popular courses
+  const courses = getPopularCourses().slice(0, 3);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -60,12 +61,12 @@ const CoursesSection = () => {
         >
           {courses.map((course, index) => (
             <motion.div
-              key={course.id}
+              key={course.title}
               variants={cardVariants}
               transition={{ duration: 0.6, ease: "easeOut" }}
               whileHover={{ y: -10, scale: 1.02 }}
             >
-              <Card className="h-full bg-background border-border hover:shadow-glow transition-all duration-500 relative overflow-hidden group">
+              <Card className="h-full flex flex-col bg-card border-border transition-all duration-500 relative overflow-hidden">
                 {course.popular && (
                   <div className="absolute top-4 right-4 z-10">
                     <Badge className="bg-coral text-white">
@@ -74,16 +75,12 @@ const CoursesSection = () => {
                     </Badge>
                   </div>
                 )}
-
-                {/* Card glow effect */}
-                <div className="absolute inset-0 bg-surface-gradient opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
-
                 <CardHeader className="relative">
                   <div className="relative h-40 mb-4 rounded-lg overflow-hidden">
                     <img 
                       src={course.image} 
                       alt={course.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/60 to-transparent" />
                     <div className="absolute top-3 left-3">
@@ -97,14 +94,12 @@ const CoursesSection = () => {
                       </Badge>
                     </div>
                   </div>
-                  <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                  <CardTitle className="text-xl font-bold text-foreground transition-colors">
                     {course.title}
                   </CardTitle>
                 </CardHeader>
-
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">{course.description}</p>
-
                   <div className="flex gap-4 text-sm text-muted-foreground">
                     <div className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
@@ -112,10 +107,9 @@ const CoursesSection = () => {
                     </div>
                     <div className="flex items-center gap-1">
                       <Users className="w-4 h-4" />
-                      Max {course.maxDepth}
+                      Max Depth {course.maxDepth}
                     </div>
                   </div>
-
                   <div className="space-y-2">
                     <h4 className="font-semibold text-foreground">What's Included:</h4>
                     <ul className="space-y-1">
@@ -128,13 +122,12 @@ const CoursesSection = () => {
                     </ul>
                   </div>
                 </CardContent>
-
-                <CardFooter>
+                <CardFooter className="mt-auto">
                   <Button 
                     className="w-full btn-bubble bg-surface-gradient hover:shadow-glow group/btn"
                     asChild
                   >
-                    <Link to="/contact">
+                    <Link to={`/contact?course=${encodeURIComponent(course.title)}`}>
                       Book Now
                       <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                     </Link>
