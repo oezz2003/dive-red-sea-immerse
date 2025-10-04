@@ -8,19 +8,19 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="space-y-4">
-            <div className="flex flex-col items-start space-y-2">
+            <div className="flex flex-col items-center space-y-2">
               <img 
                 src="/images/logo-1-1.png" 
                 alt="Eagle Divers Logo" 
                 className="h-12 w-auto object-contain"
               />
               <div className="text-xs font-semibold text-primary/80 tracking-widest uppercase">
-                NI
+                Northern Ireland
               </div>
             </div>
             <p className="text-sm text-muted-foreground">
               Professional diving center offering world-class scuba diving experiences 
-              in the beautiful NI.
+              in the beautiful Northern Ireland.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">

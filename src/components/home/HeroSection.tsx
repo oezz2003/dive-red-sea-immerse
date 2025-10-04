@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
@@ -87,7 +87,7 @@ const HeroSection = () => {
         <motion.div
           variants={itemVariants}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex justify-center items-center"
         >
           <Button 
             size="lg" 
@@ -95,20 +95,8 @@ const HeroSection = () => {
             asChild
           >
             <Link to="/contact">
-              Book Your Dive
+              Book Now
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </Button>
-
-          <Button 
-            size="lg" 
-            variant="outline"
-            className="border-white/30 text-white hover:bg-white/10 text-lg px-8 py-3 group"
-            asChild
-          >
-            <Link to="/contact">
-              <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-              Get Started
             </Link>
           </Button>
         </motion.div>
@@ -119,26 +107,6 @@ const HeroSection = () => {
           className="mt-12 text-white/60 text-sm"
         >
           <p>PADI Certified • 35+ Years Experience • NI Specialists</p>
-        </motion.div>
-      </motion.div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
-        >
-          <motion.div
-            animate={{ y: [0, 16, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-white/60 rounded-full mt-2"
-          />
         </motion.div>
       </motion.div>
     </section>

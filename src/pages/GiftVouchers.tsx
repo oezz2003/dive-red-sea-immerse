@@ -20,7 +20,9 @@ import {
   Fish,
   Droplet,
   Wind,
-  Shirt
+  Shirt,
+  FlaskConical,
+  Shield
 } from 'lucide-react';
 
 const GiftVouchers = () => {
@@ -66,7 +68,7 @@ const GiftVouchers = () => {
       description: 'Boost your bottom time and reduce fatigue with our Nitrox Course.',
       emoji: '💨',
       color: 'sunny',
-      icon: Wind,
+      icon: FlaskConical,
       features: ['Extended bottom time', 'Reduced fatigue', 'One free Nitrox tank fill', 'Advanced diving skills']
     },
     {
@@ -77,15 +79,15 @@ const GiftVouchers = () => {
       description: 'Learn the skills you need to dive comfortably and safely in a drysuit — essential for colder waters and longer dives.',
       emoji: '🧥',
       color: 'turquoise',
-      icon: Shirt,
+      icon: Shield,
       features: ['Drysuit certification', 'Cold water diving', 'Extended dive times', 'Professional training']
     }
   ];
 
   const whyChooseUs = [
     {
-      icon: Users,
-      title: 'Experienced, passionate instructors',
+      icon: Star,
+    title: 'Experienced, passionate instructors',
       description: 'Learn from certified professionals who love what they do'
     },
     {
@@ -159,7 +161,7 @@ const GiftVouchers = () => {
                 <Sparkles className="h-8 w-8 text-sunny animate-pulse" />
               </div>
               <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6">
-                Special Offers with <span className="text-coral">Eagle Divers NI</span>
+                Special Offers with <span className="text-coral">Eagle Divers Northern Ireland</span>
               </h1>
               <p className="text-xl text-white/90 max-w-4xl mx-auto mb-8">
                 Dive into adventure – learn, explore, and save with our exclusive packages.
@@ -289,7 +291,7 @@ const GiftVouchers = () => {
                           size="lg"
                         >
                           <Star className="mr-2 h-5 w-5" />
-                          Book This Offer
+                          Book Now
                         </Button>
                       </div>
                     </CardContent>

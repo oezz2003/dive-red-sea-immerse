@@ -84,15 +84,6 @@ const FloatingWhatsApp = () => {
           >
             <MessageCircle className="w-7 h-7 text-white" />
           </motion.button>
-
-          {/* Notification Badge */}
-          <motion.div
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="absolute -top-1 -left-1 w-5 h-5 bg-coral text-white rounded-full flex items-center justify-center text-xs font-bold"
-          >
-            !
-          </motion.div>
         </div>
       </motion.div>
 

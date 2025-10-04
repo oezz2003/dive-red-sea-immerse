@@ -44,13 +44,13 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
+      initial={{ y: -95 }}
       animate={{ 
         y: isVisible ? 0 : -100,
         opacity: isVisible ? 1 : 0
       }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-1 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled 
           ? 'bg-background/95 header-blur shadow-depth border-b border-border' 
           : 'bg-transparent'
@@ -95,15 +95,10 @@ const Navbar = () => {
                   alt="Eagle Divers Logo" 
                   className="h-12 sm:h-14 lg:h-16 xl:h-18 w-auto object-contain"
                 />
-                <motion.div
-                  
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute -inset-1 sm:-inset-2 border border-primary/30 rounded-full"
-                />
               </div>
               <div className="text-center">
                 <div className="text-xs font-semibold text-primary/80 tracking-widest uppercase">
-                  NI
+                  Northern Ireland
                 </div>
               </div>
             </Link>
@@ -130,13 +125,7 @@ const Navbar = () => {
                 )}
               </Link>
             ))}
-            <Button 
-              size="sm" 
-              className="btn-bubble bg-surface-gradient hover:shadow-glow ml-2 xl:ml-4 text-xs xl:text-sm px-3 xl:px-4"
-              asChild
-            >
-              <Link to="/contact">Book</Link>
-            </Button>
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -170,11 +159,10 @@ const Navbar = () => {
                        alt="Eagle Divers Logo" 
                        className="h-14 sm:h-16 w-auto object-contain"
                      />
-                     <div className="absolute -inset-2 bg-primary/20 rounded-full animate-pulse" />
                    </div>
                    <div className="text-center">
                      <div className="text-xs font-semibold text-primary/80 tracking-widest uppercase">
-                       NI
+                       Northern Ireland
                      </div>
                    </div>
                  </Link>
@@ -198,15 +186,7 @@ const Navbar = () => {
                 ))}
               </div>
               
-              <Button 
-                size="lg" 
-                className="btn-bubble bg-surface-gradient hover:shadow-glow w-full text-sm sm:text-base py-3"
-                asChild
-              >
-                <Link to="/contact" onClick={() => setIsOpen(false)}>
-                  Book
-                </Link>
-              </Button>
+
             </div>
           </motion.div>
         )}

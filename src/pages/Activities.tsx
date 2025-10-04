@@ -25,9 +25,9 @@ const Activities = () => {
 
   const categories = [
     { id: 'all', name: 'All PADI Courses', icon: Waves },
-    { id: 'beginner', name: 'Beginner', icon: Wind },
+    { id: 'beginner', name: 'Beginner', icon: Fish },
     { id: 'advanced', name: 'Advanced', icon: Anchor },
-    { id: 'professional', name: 'Professional', icon: Palette },
+    { id: 'professional', name: 'Professional', icon: Ship },
   ];
 
   const activities = [
@@ -37,7 +37,7 @@ const Activities = () => {
       category: 'beginner',
       duration: '3-4 days',
       groupSize: 'Max 4 students',
-      location: 'Eagle Divers NI',
+      location: 'Eagle Divers Northern Ireland',
       rating: 4.9,
       image: '/images/PADI_open_water.jpg',
       description: 'The world\'s most popular scuba diving course. Learn to dive safely and confidently.',
@@ -49,7 +49,7 @@ const Activities = () => {
       category: 'beginner',
       duration: '2 days',
       groupSize: 'Max 4 students',
-      location: 'Eagle Divers NI',
+      location: 'Eagle Divers Northern Ireland',
       rating: 4.8,
       image: '/images/ADVANCED_OPEN_WATER_DIVER.jpg',
       description: 'Try three adventure dives to gain experience and certification credit.',
@@ -61,7 +61,7 @@ const Activities = () => {
       category: 'advanced',
       duration: '2-3 days',
       groupSize: 'Max 4 students',
-      location: 'Eagle Divers NI',
+      location: 'Eagle Divers Northern Ireland',
       rating: 4.9,
       image: '/padi/PADI_Advanced_Open_Water_Divers_Course_Crete_1080x.webp',
       description: 'Enhance your diving skills with five adventure dives including deep and navigation.',
@@ -73,7 +73,7 @@ const Activities = () => {
       category: 'advanced',
       duration: '3 days',
       groupSize: 'Max 4 students',
-      location: 'Eagle Divers NI',
+      location: 'Eagle Divers Northern Ireland',
       rating: 4.8,
       image: '/padi/padi rescue diver course .webp',
       description: 'Learn to prevent and manage diving emergencies. Develop leadership skills.',
@@ -85,7 +85,7 @@ const Activities = () => {
       category: 'advanced',
       duration: '1 day',
       groupSize: 'Max 6 students',
-      location: 'Eagle Divers NI',
+      location: 'Eagle Divers Northern Ireland',
       rating: 4.7,
       image: '/padi/skin_diver(1).jpg',
       description: 'Learn to dive with enriched air nitrox for longer bottom times.',
@@ -97,7 +97,7 @@ const Activities = () => {
       category: 'professional',
       duration: '4 weeks',
       groupSize: 'Max 4 students',
-      location: 'Eagle Divers NI',
+      location: 'Eagle Divers Northern Ireland',
       rating: 4.9,
       image: '/padi/padi_SIDEMOUNT(1).jpg',
       description: 'Become a diving professional. Lead dives and assist instructors.',
@@ -109,7 +109,7 @@ const Activities = () => {
       category: 'professional',
       duration: '2 days',
       groupSize: 'Max 4 students',
-      location: 'Eagle Divers NI',
+      location: 'Eagle Divers Northern Ireland',
       rating: 4.8,
       image: '/padi/Freediver-PADI_LaPaz_Underwater_1532.jpg',
       description: 'Learn underwater photography techniques and equipment use.',
@@ -121,7 +121,7 @@ const Activities = () => {
       category: 'professional',
       duration: '2 days',
       groupSize: 'Max 4 students',
-      location: 'Eagle Divers NI',
+      location: 'Eagle Divers Northern Ireland',
       rating: 4.7,
       image: '/padi/PADI_WRECK_DIVER.jpg',
       description: 'Learn to safely explore shipwrecks and artificial reefs.',
@@ -159,7 +159,7 @@ const Activities = () => {
                </h1>
                <p className="text-lg text-white/90 max-w-2xl mx-auto">
                  Professional PADI certified courses for all skill levels. 
-                 Start your underwater adventure with Eagle Divers NI.
+                 Start your underwater adventure with Eagle Divers Northern Ireland.
                </p>
              </motion.div>
            </div>
@@ -217,6 +217,9 @@ const Activities = () => {
                   whileHover={{ y: -10, scale: 1.02 }}
                 >
                   <Card className="h-full bg-card border-border hover:shadow-glow transition-all duration-500 relative overflow-hidden group">
+                    {/* Card glow effect */}
+                    <div className="absolute inset-0 bg-surface-gradient opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
+
                     {activity.rating >= 4.8 && (
                       <div className="absolute top-4 right-4 z-10">
                         <Badge className="bg-coral text-white">
@@ -227,19 +230,24 @@ const Activities = () => {
                     )}
 
                     <CardHeader className="relative">
-                      <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
+                      <div className="relative h-40 mb-4 rounded-lg overflow-hidden">
                         <img 
                           src={activity.image} 
                           alt={activity.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/60 to-transparent" />
-                        <div className="absolute top-4 left-4">
+                        <div className="absolute top-3 left-3">
                           <Badge variant="outline" className="text-white border-white bg-white/20">
                             {activity.category.charAt(0).toUpperCase() + activity.category.slice(1)}
                           </Badge>
                         </div>
-                        <div className="absolute bottom-4 right-4 flex items-center gap-1 text-white">
+                        <div className="absolute top-3 right-3">
+                          <Badge variant="outline" className="text-white border-white bg-white/20">
+                            PADI
+                          </Badge>
+                        </div>
+                        <div className="absolute bottom-3 right-3 flex items-center gap-1 text-white">
                           <Star className="h-4 w-4 fill-sunny text-sunny" />
                           <span className="font-semibold">{activity.rating}</span>
                         </div>
@@ -266,7 +274,7 @@ const Activities = () => {
                       <div className="space-y-2">
                         <h4 className="font-semibold text-foreground">What's Included:</h4>
                         <ul className="space-y-1">
-                          {activity.highlights.map((highlight, i) => (
+                          {activity.highlights.slice(0, 4).map((highlight, i) => (
                             <li key={i} className="text-sm text-muted-foreground flex items-center gap-2">
                               <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                               {highlight}

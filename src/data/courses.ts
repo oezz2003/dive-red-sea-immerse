@@ -41,30 +41,6 @@ export const courses: Course[] = [
     organization: 'SSI'
   },
   {
-    id: 3,
-    title: 'Advanced Freediver',
-    level: 'Specialty',
-    duration: 'N/A',
-    maxDepth: '30m',
-    description: 'Become stronger, more experienced freediver improving skills, trying techniques, discovering disciplines, progressing deeper levels. Increase dive time with advanced breath-holding training.',
-    features: [
-      'Improve freediving skills and learn new techniques',
-      'Explore limits and discover true ability in the deep blue sea',
-      'Learn new breath-holding training techniques',
-      'Discover exciting freefall and Frenzel techniques',
-      'Refine buddy system skills',
-      'Learn to plan and safely organize freediving sessions',
-      'Contributes to SSI Specialty Freediver, Progressive Freediver, and Master Freediver ratings',
-      'Minimum age: 15',
-      'Maximum training depth: 30m / 100ft',
-      'Prerequisites: Fit to swim, 6 logged Freediving sessions, Freediver (or equivalent)'
-    ],
-    category: 'Advanced',
-    popular: false,
-    image: '/ssi/advanced freediver.jpg',
-    organization: 'SSI'
-  },
-  {
     id: 4,
     title: 'Deep Diving Specialty',
     level: 'Specialty',

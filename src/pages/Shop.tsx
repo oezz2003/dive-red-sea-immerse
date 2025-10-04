@@ -122,13 +122,13 @@ const Shop = () => {
                 Diving Holidays
               </Badge>
               <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6">
-                Diving Holidays with <span className="text-coral">Eagle Divers NI</span>
+                Diving Holidays with <span className="text-coral">Eagle Divers Northern Ireland</span>
               </h1>
               <p className="text-xl text-white/90 max-w-4xl mx-auto mb-8">
                 From Northern Ireland to the World's Best Dive Sites
               </p>
               <p className="text-lg text-white/80 max-w-4xl mx-auto mb-8">
-                Looking for your next underwater adventure? At Eagle Divers NI, we specialize in 
+                Looking for your next underwater adventure? At Eagle Divers Northern Ireland, we specialize in 
                 organizing unforgettable diving holidays from Northern Ireland to the Red Sea and beyond. 
                 Whether you're a beginner or an experienced diver, our team can arrange the perfect trip for you.
               </p>

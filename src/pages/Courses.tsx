@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Clock, Users, Star, ArrowRight, Filter } from 'lucide-react';
+import { Clock, Users, Star, ArrowRight, Filter, ArrowDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Courses = () => {
@@ -33,29 +33,6 @@ const Courses = () => {
       category: 'Beginner',
       popular: true,
       image: '/ssi/opern water diver.jpg',
-    },
-    {
-      title: 'Advanced Freediver',
-      level: 'Specialty',
-      duration: 'N/A',
-      maxDepth: '30m',
-      description:
-        "Become stronger, more experienced freediver improving skills, trying techniques, discovering disciplines, progressing deeper levels. Increase dive time with advanced breath-holding training.",
-      features: [
-        "Improve freediving skills and learn new techniques",
-        "Explore limits and discover true ability in the deep blue sea",
-        "Learn new breath-holding training techniques",
-        "Discover exciting freefall and Frenzel techniques",
-        "Refine buddy system skills",
-        "Learn to plan and safely organize freediving sessions",
-        "Contributes to SSI Specialty Freediver, Progressive Freediver, and Master Freediver ratings",
-        "Minimum age: 15",
-        "Maximum training depth: 30m / 100ft",
-        "Prerequisites: Fit to swim, 6 logged Freediving sessions, Freediver (or equivalent)",
-      ],
-      category: 'Advanced',
-      popular: false,
-      image: '/ssi/advanced freediver.jpg',
     },
     {
       title: 'Deep Diving Specialty',
@@ -169,7 +146,7 @@ const Courses = () => {
               </h1>
               <p className="text-lg text-white/90 max-w-2xl mx-auto">
                 Professional SSI certified courses for all skill levels. 
-                Start your underwater adventure with Eagle Divers NI.
+                Start your underwater adventure with Eagle Divers Northern Ireland.
               </p>
             </motion.div>
           </div>
@@ -214,6 +191,9 @@ const Courses = () => {
                   whileHover={{ y: -10, scale: 1.02 }}
                 >
                   <Card className="h-full bg-card border-border hover:shadow-glow transition-all duration-500 relative overflow-hidden group">
+                    {/* Card glow effect */}
+                    <div className="absolute inset-0 bg-surface-gradient opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
+
                     {course.popular && (
                       <div className="absolute top-4 right-4 z-10">
                         <Badge className="bg-coral text-white">
@@ -224,16 +204,21 @@ const Courses = () => {
                     )}
 
                     <CardHeader className="relative">
-                      <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
+                      <div className="relative h-40 mb-4 rounded-lg overflow-hidden">
                         <img 
                           src={course.image} 
                           alt={course.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/60 to-transparent" />
-                        <div className="absolute top-4 left-4">
+                        <div className="absolute top-3 left-3">
                           <Badge variant="outline" className="text-white border-white bg-white/20">
                             {course.level}
+                          </Badge>
+                        </div>
+                        <div className="absolute top-3 right-3">
+                          <Badge variant="outline" className="text-white border-white bg-white/20">
+                            SSI
                           </Badge>
                         </div>
                       </div>
@@ -251,15 +236,15 @@ const Courses = () => {
                           {course.duration}
                         </div>
                         <div className="flex items-center gap-1">
-                          <Users className="w-4 h-4" />
-                          Max {course.maxDepth}
+                          <ArrowDown className="w-4 h-4" />
+                          Max Depth {course.maxDepth}
                         </div>
                       </div>
 
                       <div className="space-y-2">
                         <h4 className="font-semibold text-foreground">What's Included:</h4>
                         <ul className="space-y-1">
-                          {course.features.map((feature, i) => (
+                          {course.features.slice(0, 4).map((feature, i) => (
                             <li key={i} className="text-sm text-muted-foreground flex items-center gap-2">
                               <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                               {feature}
