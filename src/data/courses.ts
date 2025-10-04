@@ -134,7 +134,7 @@ export const courses: Course[] = [
     features: ['Theory & Pool Training', '4 Open Water Dives', 'PADI Certification', 'Equipment Included'],
     category: 'Beginner',
     popular: true,
-    image: '/padi/course-1-3.jpg',
+    image: '/images/PADI_open_water.jpg',
     organization: 'PADI'
   },
   {
