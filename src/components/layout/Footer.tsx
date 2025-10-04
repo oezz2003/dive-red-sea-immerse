@@ -22,15 +22,31 @@ const Footer = () => {
               Professional diving center offering world-class scuba diving experiences 
               in the beautiful Northern Ireland.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Facebook className="h-5 w-5" />
+            <div className="flex space-x-5">
+              <a 
+                href="https://www.facebook.com/eaglediversni/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-muted-foreground hover:bg-primary/20 hover:text-primary transition-all duration-300"
+                aria-label="Follow us on Facebook"
+              >
+                <Facebook className="h-6 w-6" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Instagram className="h-5 w-5" />
+              <a 
+                href="https://www.instagram.com/eaglediversni/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-muted-foreground hover:bg-primary/20 hover:text-primary transition-all duration-300"
+                aria-label="Follow us on Instagram"
+              >
+                <Instagram className="h-6 w-6" />
               </a>
-              <a href="mailto:info@eaglediversni.com" className="text-muted-foreground hover:text-primary transition-colors">
-                <Mail className="h-5 w-5" />
+              <a 
+                href="mailto:info@eaglediversni.com" 
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-muted-foreground hover:bg-primary/20 hover:text-primary transition-all duration-300"
+                aria-label="Send us an email"
+              >
+                <Mail className="h-6 w-6" />
               </a>
             </div>
           </div>
@@ -43,13 +59,25 @@ const Footer = () => {
                 Home
               </Link>
               <Link to="/courses" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Courses
+                SSI Courses
               </Link>
               <Link to="/activities" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Activities
+                PADI Activities
+              </Link>
+              <Link to="/shop" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Diving Holidays
+              </Link>
+              <Link to="/gift-vouchers" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Gift Vouchers
               </Link>
               <Link to="/gallery" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Gallery
+              </Link>
+              <Link to="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Blog
+              </Link>
+              <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Contact
               </Link>
             </div>
           </div>
@@ -58,18 +86,18 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-foreground">Popular Courses</h3>
             <div className="flex flex-col space-y-2">
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/courses" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Try Scuba
+              </Link>
+              <Link to="/courses" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Open Water Diver
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Advanced Open Water
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Rescue Diver
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Divemaster
-              </a>
+              </Link>
+              <Link to="/activities" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                PADI Open Water Diver
+              </Link>
+              <Link to="/activities" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                PADI Advanced Open Water
+              </Link>
             </div>
           </div>
 
@@ -105,12 +133,9 @@ const Footer = () => {
               © 2024 Eagle Divers. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>

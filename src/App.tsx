@@ -12,8 +12,10 @@ import GiftVouchers from "./pages/GiftVouchers";
 import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Gallery from "./pages/Gallery";
 import NotFound from "./pages/NotFound";
 import FloatingWhatsApp from "./components/layout/FloatingWhatsApp";
+import ScrollToTop from "./components/layout/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +25,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <div className="min-h-screen bg-background">
           <Routes>
             <Route path="/" element={<Index />} />
@@ -30,6 +33,7 @@ const App = () => (
             <Route path="/activities" element={<Activities />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/gift-vouchers" element={<GiftVouchers />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
