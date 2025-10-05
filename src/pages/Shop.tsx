@@ -221,7 +221,7 @@ const Shop = () => {
                       </CardTitle>
                       <div className="flex items-center px-3 py-1 rounded-full bg-muted/50 text-sm text-muted-foreground mb-4 mx-auto w-fit">
                         <Calendar className="w-4 h-4 mr-1" />
-                        October 24, 2025
+                        October 24, 2026
                       </div>
                       <div className="relative">
                         <div className="text-[14px] font-bold text-muted-foreground mb-2 group-hover:scale-105 transition-transform duration-300 text-left">
