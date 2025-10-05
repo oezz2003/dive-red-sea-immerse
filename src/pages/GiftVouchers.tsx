@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -29,6 +30,17 @@ import DrySuit from '@/components/icons/dry_suit';
 import Enriched from '@/components/icons/enriched';
 
 const GiftVouchers = () => {
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const handleScrollToCards = () => {
+    if (cardsRef.current) {
+      const rect = cardsRef.current.getBoundingClientRect();
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      window.scrollTo({
+        top: rect.top + scrollTop + 140,
+        behavior: 'smooth'
+      });
+    }
+  };
   const specialOffers = [
     {
       id: 'discover-scuba-sea',
@@ -178,12 +190,10 @@ const GiftVouchers = () => {
                 <Button 
                   size="lg" 
                   className="btn-bubble bg-coral hover:bg-coral/90 text-white"
-                  asChild
+                  onClick={handleScrollToCards}
                 >
-                  <Link to="/contact">
-                    <Star className="mr-2 h-5 w-5" />
-                    View Offers
-                  </Link>
+                  <Star className="mr-2 h-5 w-5" />
+                  View Offers
                 </Button>
                 <Button 
                   size="lg" 
@@ -202,7 +212,7 @@ const GiftVouchers = () => {
         </section>
 
         {/* Special Offers */}
-        <section className="py-20 bg-background">
+  <section ref={cardsRef} className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -270,7 +280,6 @@ const GiftVouchers = () => {
                         <div className="text-4xl font-bold text-primary mb-2 group-hover:scale-105 transition-transform duration-300">
                           {offer.price}
                         </div>
-                        <div className={`w-16 h-0.5 bg-gradient-to-r from-${offer.color} to-transparent mx-auto`} />
                       </div>
                       
                       <p className="text-muted-foreground text-sm leading-relaxed mt-4">
