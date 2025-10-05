@@ -114,3 +114,4 @@ export const whyChooseUs = [
       "Prepare for both Northern Ireland waters and global destinations.",
   },
 ];
+export default GiftVouchers;
