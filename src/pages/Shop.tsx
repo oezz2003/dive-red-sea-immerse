@@ -3,21 +3,6 @@ import discover_scuba from '@/components/icons/discover_scuba';
 import DryOpenWater from '@/components/icons/dry_open_water';
 import DrySuit from '@/components/icons/dry_suit';
 import Enriched from '@/components/icons/enriched';
-  // Adventure offers for the 'Ready for Your Next Adventure?' section
-  const adventureOffers = [
-    
-    
-    {
-      id: 'drysuit-course',
-      title: 'Drysuit Course',
-      location: 'Specialty Course',
-      price: '£225',
-      description: 'Learn the skills you need to dive comfortably and safely in a drysuit — essential for colder waters and longer dives.',
-      color: 'turquoise',
-      icon: DrySuit,
-      features: ['Drysuit certification', 'Cold water diving', 'Extended dive times', 'Professional training']
-    }
-  ];
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
@@ -25,8 +10,8 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Plane, 
+import {
+  Plane,
   Star,
   ArrowRight,
   Calendar,
@@ -40,35 +25,45 @@ import {
   Ship
 } from 'lucide-react';
 
+// Adventure offers for the 'Ready for Your Next Adventure?' section
+const adventureOffers = [
+  {
+    id: 'drysuit-course',
+    title: 'Drysuit Course',
+    location: 'Specialty Course',
+    price: '£225',
+    description: 'Learn the skills you need to dive comfortably and safely in a drysuit — essential for colder waters and longer dives.',
+    color: 'turquoise',
+    icon: DrySuit,
+    features: ['Drysuit certification', 'Cold water diving', 'Extended dive times', 'Professional training']
+  }
+];
+
 const Shop = () => {
   const navigate = useNavigate();
   const destinations = [
     {
       icon: Waves,
-      title: 'Hurghada ',
+      title: 'Hurghada',
       description: 'Vibrant coral reefs, diverse marine life, and accessible dive sites.',
-      
       color: 'turquoise'
     },
     {
       icon: Fish,
-      title: 'Sharm El Sheikh ',
+      title: 'Sharm El Sheikh',
       description: 'World-famous sites like Ras Mohammed and the Straits of Tiran.',
-      
       color: 'coral'
     },
     {
       icon: Anchor,
-      title: 'Dahab ',
+      title: 'Dahab',
       description: 'Relaxed atmosphere with the famous Blue Hole and Canyon sites.',
-     
       color: 'seaweed'
     },
     {
       icon: Ship,
       title: 'Liveaboard',
       description: 'Multi-day diving adventures exploring remote reefs and islands.',
-      
       color: 'sunny'
     }
   ];
@@ -101,7 +96,7 @@ const Shop = () => {
       <main>
         {/* Hero Section */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center bg-fixed"
             style={{
               backgroundImage: "linear-gradient(rgba(10, 26, 47, 0.8), rgba(255, 107, 53, 0.3)), url('/hero pics/holiday hero .jpg')"
@@ -150,8 +145,8 @@ const Shop = () => {
                 From Northern Ireland to the World's Best Dive Sites
               </p>
               <p className="text-sm sm:text-lg text-white/80 max-w-full sm:max-w-4xl mx-auto mb-4 sm:mb-8 px-2 sm:px-0">
-                Looking for your next underwater adventure? At Eagle Divers Northern Ireland, we specialize in 
-                organizing unforgettable diving holidays from Northern Ireland to the Red Sea and beyond. 
+                Looking for your next underwater adventure? At Eagle Divers Northern Ireland, we specialize in
+                organizing unforgettable diving holidays from Northern Ireland to the Red Sea and beyond.
                 Whether you're a beginner or an experienced diver, our team can arrange the perfect trip for you.
               </p>
               <motion.div
@@ -160,8 +155,8 @@ const Shop = () => {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full px-2 sm:px-0"
               >
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="btn-bubble bg-coral hover:bg-coral/90 text-white w-full sm:w-auto"
                   asChild
                 >
@@ -170,8 +165,8 @@ const Shop = () => {
                     Plan Your Trip
                   </Link>
                 </Button>
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   variant="outline"
                   className="border-white text-white hover:bg-white hover:text-ocean-deep w-full sm:w-auto"
                   asChild
@@ -196,34 +191,94 @@ const Shop = () => {
               Ready for Your Next Adventure?
             </h2>
             <p className="text-white/90 text-lg max-w-2xl mx-auto mb-8">
-              Let Eagle Divers NI take you on the diving holiday of a lifetime. 
+              Let Eagle Divers NI take you on the diving holiday of a lifetime.
               From Northern Ireland to the world's most spectacular dive sites.
             </p>
             <div className="flex flex-col mt-20 items-center justify-center gap-20 md:flex-col lg:flex-row xl:flex-row xxl:flex-row lg:justify-center xl:justify-center xxl:justify-center gap-x-8 mb-8">
           
+                {/* Card 1: Sharm El Sheikh (Updated) */}
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1 * 0.1 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  whileHover={typeof window !== 'undefined' && window.innerWidth >= 640 ? { y: -10, scale: 1.02 } : {}}
+                  className="relative group h-full w-full sm:w-[500px] flex cursor-pointer mb-6 sm:mb-0"
+                  style={{ pointerEvents: 'auto' }}
+                  onClick={() => navigate(`/contact?location=Sharm El Sheikh`)}
+                >
+                  <Card className="relative overflow-hidden bg-gradient-to-br from-card to-card/80 shadow-float transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-primary/10 h-full flex flex-col w-full sm:max-w-[500px] px-2 py-2 sm:px-6 sm:py-6 sm:hover:shadow-glow sm:group-hover:scale-105 text-[15px] sm:text-base" style={{ cursor: 'pointer' }}>
+                    <div className="absolute inset-0 z-20 h-full w-full rounded-lg pointer-events-none opacity-0 sm:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300" style={{background: 'linear-gradient(235deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)'}}>
+                      <div className="z-30 flex items-center justify-center">
+                        <span className={`px-8 py-4 opacity-120 rounded-lg font-bold text-white bg-gradient-to-br from-coral to-coral shadow-lg text-2xl`}>Book Now</span>
+                      </div>
+                    </div>
+                    <CardHeader className="text-center pb-6 relative z-10 flex-shrink-0">
+                      <div className="relative flex items-center justify-center">
+                        <span className="font-bold text-2xl text-coral text-center group-hover:text-primary transition-colors duration-300">Sharm El Sheikh</span>
+                      </div>
+                      <CardTitle className="text-sm font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                        🐠 Dive Trip to Sharm El Sheikh
+                      </CardTitle>
+                      <div className="flex items-center px-3 py-1 rounded-full bg-muted/50 text-sm text-muted-foreground mb-4 mx-auto w-fit">
+                        <Calendar className="w-4 h-4 mr-1" />
+                        October 24, 2026
+                      </div>
+                      <div className="relative">
+                        <div className="text-[14px] font-bold text-muted-foreground mb-2 group-hover:scale-105 transition-transform duration-300 text-left">
+                          Fly from London Gatwick to the Red Sea’s diving paradise, Sharm El Sheikh, for an unforgettable 5-day adventure filled with world-class diving and cultural exploration.
+                        </div>
+                        <div className={`w-16 h-0.5 bg-gradient-to-r from-coral to-transparent`} />
+                      </div>
+                      <p className="text-muted-foreground text-sm leading-relaxed mt-4 text-left">
+                        Your holiday includes:
+                      </p>
+                    </CardHeader>
+                    <CardContent className="space-y-6 relative z-10 flex flex-col flex-1">
+                      <div className="space-y-3">
+                        <ul className="space-y-2">
+                          <li className='text-muted-foreground text-left text-xs'>✈️ Return flights from London Gatwick to Sharm El Sheikh</li>
+                          <li className='text-muted-foreground text-left text-xs'>🏨 Hotel accommodation with airport transfers</li>
+                          <li className='text-muted-foreground text-left text-xs'>🤿 5-day diving package – enjoy 10 dives at world-renowned sites such as Ras Mohammed National Park and the Straits of Tiran</li>
+                          <li className='text-muted-foreground text-left text-xs'>🛍️ Guided visit to the Old Market – experience local culture, try authentic Egyptian food, and shop for souvenirs</li>
+                        </ul>
+                        <p className="text-muted-foreground text-xs mt-4 text-left italic">
+                          Crystal-clear waters, vibrant reefs, and unforgettable dive sites await you in Sharm El Sheikh, the jewel of the Red Sea.
+                        </p>
+                         <p className="text-muted-foreground text-xs mt-2 text-left font-bold">
+                          🌴 Dive in, explore, and experience the best of Egypt above and below the surface!
+                        </p>
+                      </div>
+                      <div className="block sm:hidden md:hidden mt-6">
+                        <Button size="lg" className="w-full bg-coral text-white" onClick={e => { e.stopPropagation(); navigate(`/contact?location=Sharm El Sheikh`); }}>
+                          Book Now
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+
+                {/* Card 2: Hurghada (Original - Price Removed) */}
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
                   whileHover={typeof window !== 'undefined' && window.innerWidth >= 640 ? { y: -10, scale: 1.02 } : {}}
                   className="relative group h-full w-full sm:w-[500px] flex cursor-pointer mb-6 sm:mb-0"
                   style={{ pointerEvents: 'auto' }}
                   onClick={() => navigate(`/contact?location=Hurghada`)}
                 >
                   <Card className="relative overflow-hidden bg-gradient-to-br from-card to-card/80 shadow-float transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-primary/10 h-full flex flex-col w-full sm:max-w-[500px] px-2 py-2 sm:px-6 sm:py-6 sm:hover:shadow-glow sm:group-hover:scale-105 text-[15px] sm:text-base" style={{ cursor: 'pointer' }}>
-                  <div className="absolute inset-0 z-20 h-full w-full rounded-lg pointer-events-none opacity-0 sm:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300" style={{background: 'linear-gradient(235deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)'}}>
-                      {/* Book Now text centered */}
-                      <div className="z-30  flex items-center justify-center">
+                    <div className="absolute inset-0 z-20 h-full w-full rounded-lg pointer-events-none opacity-0 sm:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300" style={{background: 'linear-gradient(235deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)'}}>
+                      <div className="z-30 flex items-center justify-center">
                         <span className={`px-8 py-4 opacity-120 rounded-lg font-bold text-white bg-gradient-to-br from-coral to-coral shadow-lg text-2xl`}>Book Now</span>
                       </div>
                     </div>
                     <CardHeader className="text-center pb-6 relative z-10 flex-shrink-0">
-                      <div className="relative  flex items-center justify-center">
-                        <span className="font-bold text-2xl text-coral text-center font-bold text-foreground  group-hover:text-primary transition-colors duration-300">Hurghada</span>
+                      <div className="relative flex items-center justify-center">
+                        <span className="font-bold text-2xl text-coral text-center group-hover:text-primary transition-colors duration-300">Hurghada</span>
                       </div>
                       <CardTitle className="text-sm font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-                        Scuba Diving Holiday
-                        from Belfast to Hurghada
+                        Scuba Diving Holiday from Belfast to Hurghada
                       </CardTitle>
                       <div className="flex items-center px-3 py-1 rounded-full bg-muted/50 text-sm text-muted-foreground mb-4 mx-auto w-fit">
                         <Calendar className="w-4 h-4 mr-1" />
@@ -234,168 +289,42 @@ const Shop = () => {
                           Escape to the Red Sea for an unforgettable diving adventure!<br />
                         </div>
                         <div className="text-[14px] font-bold text-muted-foreground mb-2 group-hover:scale-105 transition-transform duration-300 text-left">
-                          Join us on a week-long holiday from Belfast to Hurghada, staying at the King Tut Aqua Beach Resort, an all-inclusive beachfront hotel perfectly located for relaxation and underwater exploration.
+                          Join us on a week-long holiday from Belfast to Hurghada, staying at the King Tut Aqua Beach Resort, an all-inclusive beachfront hotel.
                         </div>
                         <div className={`w-16 h-0.5 bg-gradient-to-r from-coral to-transparent`} />
                       </div>
                       <p className="text-muted-foreground text-sm leading-relaxed mt-4 text-left">
-Your holiday includes:
+                        Your holiday includes:
                       </p>
                     </CardHeader>
                     <CardContent className="space-y-6 relative z-10 flex flex-col flex-1 justify-end">
                       <div className="space-y-3">
-                       
                         <ul className="space-y-2">
                           <li className='text-muted-foreground text-left text-xs'>✈️ Return flights from Belfast to Hurghada</li>
                           <li className='text-muted-foreground text-left text-xs'>🏖️ 7 nights’ stay at the 4★ King Tut Aqua Beach Resort – All-Inclusive</li>
                           <li className='text-muted-foreground text-left text-xs'>🚐 Airport transfers included</li>
-                          <li className='text-muted-foreground text-left text-xs'>🤿 5-day scuba diving package – explore vibrant coral reefs and marine life in the crystal-clear Red Sea</li>
-                          <li className='text-muted-foreground text-left text-xs'>🌊 1 day activity – your choice of quad biking adventure across the desert or water sports (kitesurfing or windsurfing)</li>
-                          <li className='text-muted-foreground text-left text-xs'>🛥️ Transfers between the hotel and dive boat included throughout your diving days</li>
+                          <li className='text-muted-foreground text-left text-xs'>🤿 5-day scuba diving package – explore vibrant coral reefs and marine life</li>
+                          <li className='text-muted-foreground text-left text-xs'>🌊 1 day activity – your choice of quad biking adventure or water sports</li>
+                          <li className='text-muted-foreground text-left text-xs'>🛥️ Transfers between the hotel and dive boat included</li>
                         </ul>
-                        <div className="mt-6 p-4 rounded-lg bg-muted/30 border border-primary/30 text-left">
-                          <div className="text-lg font-bold text-primary mb-2 flex items-center gap-2">
-                            <span className="text-2xl">💸</span> Price Breakdown
-                          </div>
-                          <div className="space-y-1">
-                            <div className="flex justify-between items-center text-xs">
-                              <span className="font-semibold text-muted-foreground">Flights + Hotel (All-Inclusive):</span>
-                              <span className="font-bold text-coral text-base">£585 <span className="text-xs font-normal">per person</span></span>
-                            </div>
-                            <hr className="my-2 border-t border-border" />
-                            <div className="flex justify-between items-center text-xs">
-                              <span className="font-semibold text-muted-foreground">5 Days Diving + Boat Transfers + 1 Day Activity:</span>
-                              <span className="font-bold text-coral text-base">£350 <span className="text-xs font-normal">per person</span></span>
-                            </div>
-                          </div>
-                          <div className="mt-3 text-sm text-muted-foreground">
-                            <span className="font-semibold">❌ Not included:</span>
-                            <ul className="list-disc ml-5 mt-1">
-                              <li>🚕 Transfers from the hotel to the local shopping area</li>
-                              <li>💰 Optional tip at the end of the holiday – <span className="font-bold">£40 per person</span></li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className={`w-16 h-0.5 bg-transparent mx-auto`} />
-                      {/* Button only visible on small screens */}
+                      </div>
                       <div className="block sm:hidden md:hidden mt-6">
-                        <Button size="lg" className="w-full bg-coral text-white" onClick={e => { e.stopPropagation(); navigate(`/contact?location=hurgada}`); }}>
+                        <Button size="lg" className="w-full bg-coral text-white" onClick={e => { e.stopPropagation(); navigate(`/contact?location=Hurghada`); }}>
                           Book Now
                         </Button>
-                      </div>
                       </div>
                     </CardContent>
                   </Card>
                 </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 2 * 0.1 }}
-                  whileHover={typeof window !== 'undefined' && window.innerWidth >= 640 ? { y: -10, scale: 1.02 } : {}}
-                  className="relative group h-full w-full sm:w-[500px] flex cursor-pointer mb-6 sm:mb-0"
-                  style={{ pointerEvents: 'auto' }}
-                  onClick={() => navigate(`/contact?location=Sharm El Sheikh`)}
-                >
-
-                  <Card className="relative overflow-hidden bg-gradient-to-br from-card to-card/80 shadow-float transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-primary/10 h-full flex flex-col w-full sm:max-w-[500px] px-2 py-2 sm:px-6 sm:py-6 sm:hover:shadow-glow sm:group-hover:scale-105 text-[15px] sm:text-base" style={{ cursor: 'pointer' }}>
-                  <div className="absolute inset-0 z-20 h-full w-full rounded-lg pointer-events-none opacity-0 sm:group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300" style={{background: 'linear-gradient(235deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)'}}>
-                      {/* Book Now text centered */}
-                      <div className="z-30  flex items-center justify-center">
-                        <span className={`px-8 py-4 opacity-120 rounded-lg font-bold text-white bg-gradient-to-br from-coral to-coral shadow-lg text-2xl`}>Book Now</span>
-                      </div>
-                    </div>
-                    <CardHeader className="text-center pb-6 relative z-10 flex-shrink-0">
-                      <div className="relative  flex items-center justify-center">
-                        <span className="font-bold text-2xl text-coral text-center font-bold text-foreground  group-hover:text-primary transition-colors duration-300">Hurghada</span>
-                      </div>
-                      <CardTitle className="text-sm font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-                        Scuba Diving Holiday
-                        from Belfast to Hurghada
-                      </CardTitle>
-                      <div className="flex items-center px-3 py-1 rounded-full bg-muted/50 text-sm text-muted-foreground mb-4 mx-auto w-fit">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        March 21, 2026
-                      </div>
-                      <div className="relative">
-                        <div className="text-[14px] font-bold text-foreground mb-2 group-hover:scale-105 transition-transform duration-300 text-left">
-                          Escape to the Red Sea for an unforgettable diving adventure!<br />
-                        </div>
-                        <div className="text-[14px] font-bold text-muted-foreground mb-2 group-hover:scale-105 transition-transform duration-300 text-left">
-                          Join us on a week-long holiday from Belfast to Hurghada, staying at the King Tut Aqua Beach Resort, an all-inclusive beachfront hotel perfectly located for relaxation and underwater exploration.
-                        </div>
-                        <div className={`w-16 h-0.5 bg-gradient-to-r from-coral to-transparent`} />
-                      </div>
-                      <p className="text-muted-foreground text-sm leading-relaxed mt-4 text-left">
-Your holiday includes:
-                      </p>
-                    </CardHeader>
-                    <CardContent className="space-y-6 relative z-10 flex flex-col flex-1 justify-end">
-                      <div className="space-y-3">
-                       
-                        <ul className="space-y-2">
-                          <li className='text-muted-foreground text-left text-xs'>✈️ Return flights from Belfast to Hurghada</li>
-                          <li className='text-muted-foreground text-left text-xs'>🏖️ 7 nights’ stay at the 4★ King Tut Aqua Beach Resort – All-Inclusive</li>
-                          <li className='text-muted-foreground text-left text-xs'>🚐 Airport transfers included</li>
-                          <li className='text-muted-foreground text-left text-xs'>🤿 5-day scuba diving package – explore vibrant coral reefs and marine life in the crystal-clear Red Sea</li>
-                          <li className='text-muted-foreground text-left text-xs'>🌊 1 day activity – your choice of quad biking adventure across the desert or water sports (kitesurfing or windsurfing)</li>
-                          <li className='text-muted-foreground text-left text-xs'>🛥️ Transfers between the hotel and dive boat included throughout your diving days</li>
-                        </ul>
-                        <div className="mt-6 p-4 rounded-lg bg-muted/30 border border-primary/30 text-left">
-                          <div className="text-lg font-bold text-primary mb-2 flex items-center gap-2">
-                            <span className="text-2xl">💸</span> Price Breakdown
-                          </div>
-                          <div className="space-y-1">
-                            <div className="flex justify-between items-center text-xs">
-                              <span className="font-semibold text-muted-foreground">Flights + Hotel (All-Inclusive):</span>
-                              <span className="font-bold text-coral text-base">£585 <span className="text-xs font-normal">per person</span></span>
-                            </div>
-                            <hr className="my-2 border-t border-border" />
-                            <div className="flex justify-between items-center text-xs">
-                              <span className="font-semibold text-muted-foreground">5 Days Diving + Boat Transfers + 1 Day Activity:</span>
-                              <span className="font-bold text-coral text-base">£350 <span className="text-xs font-normal">per person</span></span>
-                            </div>
-                          </div>
-                          <div className="mt-3 text-sm text-muted-foreground">
-                            <span className="font-semibold">❌ Not included:</span>
-                            <ul className="list-disc ml-5 mt-1">
-                              <li>🚕 Transfers from the hotel to the local shopping area</li>
-                              <li>💰 Optional tip at the end of the holiday – <span className="font-bold">£40 per person</span></li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className={`w-16 h-0.5 bg-transparent mx-auto`} />
-                      {/* Button only visible on small screens */}
-                      <div className="block sm:hidden md:hidden mt-6">
-                        <Button size="lg" className="w-full bg-coral text-white" onClick={e => { e.stopPropagation(); navigate(`/contact?location=sharm-el-sheikh`); }}>
-                          Book Now
-                        </Button>
-                      </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              
             </div>
-            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-              <Button 
-                size="lg"
-                className="btn-bubble bg-coral hover:bg-coral/90 text-white shadow-glow flex-1"
-              >
-                <Plane className="mr-2 h-5 w-5" />
-                Plan Your Holiday
-              </Button>
-            </div> */}
             <p className="text-white/70 text-sm mt-4">
               Free consultation • Custom packages • Expert guidance
             </p>
           </motion.div>
         </div>
-        
 
         {/* Popular Destinations */}
         <section className="py-10 bg-background">
-          
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -410,7 +339,6 @@ Your holiday includes:
                 Discover the world's most spectacular dive sites with our expertly planned diving holidays.
               </p>
             </motion.div>
-
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {destinations.map((destination, index) => (
                 <motion.div
@@ -422,7 +350,6 @@ Your holiday includes:
                 >
                   <Card className="text-center bg-card border-border shadow-float hover:shadow-glow transition-all duration-300">
                     <CardHeader>
-                      
                       <div className={`mx-auto w-16 h-16 rounded-full bg-${destination.color}/20 flex items-center justify-center mb-4`}>
                         <destination.icon className={`h-8 w-8 text-${destination.color}`} />
                       </div>
@@ -441,8 +368,6 @@ Your holiday includes:
             </div>
           </div>
         </section>
-
-
 
         {/* Call to Action */}
         <section className="py-20 bg-ocean-gradient relative overflow-hidden">
@@ -468,8 +393,6 @@ Your holiday includes:
               />
             ))}
           </div>
-          
-          
         </section>
       </main>
 
