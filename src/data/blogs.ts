@@ -73,7 +73,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>Whether you’re exploring coral gardens in the Red Sea or local waters closer to home, scuba diving offers far more than adventure — it’s a natural therapy for your mind.</p>
       
-      <h3>Call to action:</h3>
+      
       <p>Ready to experience the healing power of the ocean? Join one of our upcoming dive trips and discover how scuba diving can help you find peace beneath the surface.</p>
     `,
     category: "Wellness",
@@ -101,7 +101,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>In an age where digital interactions often replace real ones, diving offers genuine human connection — something we all need for positive mental health.</p>
       
-      <h3>Call to action:</h3>
+      
       <p>Join a group dive or one of our Red Sea diving holidays and experience the uplifting social side of scuba diving. It’s not just about the dive — it’s about the people you meet along the way.</p>
     `,
     category: "Community",
@@ -129,7 +129,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>So, if you’re feeling overwhelmed or disconnected, consider taking your next break underwater. The ocean doesn’t just cleanse the body — it heals the mind.</p>
       
-      <h3>Call to action:</h3>
+      
       <p>Discover the mental health benefits of scuba diving for yourself. Join us on our next Red Sea adventure and experience the magic of nature’s therapy firsthand.</p>
     `,
     category: "Nature",
