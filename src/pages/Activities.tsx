@@ -99,7 +99,7 @@ const Activities = () => {
       groupSize: 'Max 4 students',
       location: 'Eagle Divers Northern Ireland',
       rating: 4.9,
-      image: '/padi/padi_SIDEMOUNT(1).jpg',
+      image: '/padi/divemaster.webp',
       description: 'Become a diving professional. Lead dives and assist instructors.',
       highlights: ['Leadership Training', 'Dive Theory', 'Practical Skills', 'Professional Certification']
     },
