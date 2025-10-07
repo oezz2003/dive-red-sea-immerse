@@ -61,7 +61,7 @@ const BlogDetail = () => {
         <section className="relative h-96 flex items-center justify-center overflow-hidden">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-fixed"
-            
+            style={{ backgroundImage: `url(${post.image})` }}
           />
           
           <div className="container mx-auto px-4 text-center relative z-10">
@@ -89,14 +89,6 @@ const BlogDetail = () => {
                 <div className="flex items-center">
                   <Calendar className="h-4 w-4 mr-2" />
                   {formatBlogDate(post.date)}
-                </div>
-                <div className="flex items-center">
-                  <Clock className="h-4 w-4 mr-2" />
-                  {post.readTime}
-                </div>
-                <div className="flex items-center">
-                  <Eye className="h-4 w-4 mr-2" />
-                  {post.views} views
                 </div>
               </div>
             </motion.div>
