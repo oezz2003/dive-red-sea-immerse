@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -54,6 +55,25 @@ const BlogDetail = () => {
   
   return (
     <>
+      <Helmet>
+        <title>{post.title} - Eagle Divers NI Diving Blog</title>
+        <meta name="description" content={post.excerpt} />
+        <meta name="keywords" content={`diving blog, ${post.tags.join(', ')}, Eagle Divers NI`} />
+        <link rel="canonical" href={`https://eaglediversni.com/blog/${post.slug}`} />
+        <meta property="og:title" content={`${post.title} - Eagle Divers NI`} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://eaglediversni.com/blog/${post.slug}`} />
+        <meta property="og:image" content="/images/logo-1-1.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${post.title} - Eagle Divers NI`} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content="/images/logo-1-1.png" />
+        <meta property="article:author" content={post.author} />
+        <meta property="article:published_time" content={post.date} />
+        <meta property="article:section" content={post.category} />
+        {post.tags.map(tag => <meta key={tag} property="article:tag" content={tag} />)}
+      </Helmet>
       <Navbar />
       
       <main className="pt-20">

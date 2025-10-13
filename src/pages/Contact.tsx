@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useEffect, useRef } from 'react';
@@ -224,6 +225,21 @@ const Contact = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Contact Eagle Divers - NI Diving Center</title>
+        <meta name="description" content="Get in touch with Eagle Divers for scuba diving courses, tours, and inquiries. Located in NI, professional PADI instructors." />
+        <meta name="keywords" content="contact Eagle Divers, NI diving center, scuba diving booking, diving inquiries, PADI instructors" />
+        <link rel="canonical" href="https://eaglediversni.com/contact" />
+        <meta property="og:title" content="Contact Eagle Divers - NI Diving Center" />
+        <meta property="og:description" content="Book your scuba diving adventure with Eagle Divers in NI. Professional courses and tours." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://eaglediversni.com/contact" />
+        <meta property="og:image" content="/images/logo-1-1.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Eagle Divers - NI Diving Center" />
+        <meta name="twitter:description" content="Book your scuba diving adventure with Eagle Divers in NI. Professional courses and tours." />
+        <meta name="twitter:image" content="/images/logo-1-1.png" />
+      </Helmet>
       <Navbar />
       
       <main >

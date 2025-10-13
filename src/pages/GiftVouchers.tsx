@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
@@ -124,6 +125,21 @@ const GiftVouchers = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Special Offers and Packages - Eagle Divers NI Diving Center</title>
+        <meta name="description" content="Discover exclusive scuba diving offers and packages at Eagle Divers NI. Special courses, deals, and experiences for all skill levels." />
+        <meta name="keywords" content="diving offers, scuba diving packages, special courses, Eagle Divers NI, diving deals, beginner offers" />
+        <link rel="canonical" href="https://eaglediversni.com/offers" />
+        <meta property="og:title" content="Special Offers and Packages - Eagle Divers NI" />
+        <meta property="og:description" content="Exclusive scuba diving offers and packages at Eagle Divers NI. Save on courses and experiences." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://eaglediversni.com/offers" />
+        <meta property="og:image" content="/images/logo-1-1.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Special Offers and Packages - Eagle Divers NI" />
+        <meta name="twitter:description" content="Exclusive scuba diving offers and packages at Eagle Divers NI. Save on courses and experiences." />
+        <meta name="twitter:image" content="/images/logo-1-1.png" />
+      </Helmet>
       <Navbar />
       
       <main className="pt-0">

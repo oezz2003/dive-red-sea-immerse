@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -45,6 +46,21 @@ const Blog = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Diving Blog - Eagle Divers NI Diving Center</title>
+        <meta name="description" content="Read our diving blog for tips, guides, and stories about scuba diving in Northern Ireland, courses, and underwater adventures." />
+        <meta name="keywords" content="diving blog, scuba diving tips, NI diving guides, underwater photography, marine conservation" />
+        <link rel="canonical" href="https://eaglediversni.com/blog" />
+        <meta property="og:title" content="Diving Blog - Eagle Divers NI" />
+        <meta property="og:description" content="Expert scuba diving tips, guides, and stories from Eagle Divers Northern Ireland" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://eaglediversni.com/blog" />
+        <meta property="og:image" content="/images/logo-1-1.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Diving Blog - Eagle Divers NI" />
+        <meta name="twitter:description" content="Expert scuba diving tips, guides, and stories from Eagle Divers Northern Ireland" />
+        <meta name="twitter:image" content="/images/logo-1-1.png" />
+      </Helmet>
       <Navbar />
       
       <main >

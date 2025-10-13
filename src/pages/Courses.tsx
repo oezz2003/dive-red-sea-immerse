@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Navbar from '@/components/layout/Navbar';
@@ -122,6 +123,21 @@ const Courses = () => {
 
   return (
     <>
+      <Helmet>
+        <title>SSI Diving Courses - Eagle Divers NI Diving Center</title>
+        <meta name="description" content="Professional SSI scuba diving courses in NI. From beginner Try Scuba to advanced specialties. PADI certified instructors." />
+        <meta name="keywords" content="SSI diving courses, scuba diving certification, NI diving, beginner diving, advanced diving, Eagle Divers" />
+        <link rel="canonical" href="https://eaglediversni.com/SSI" />
+        <meta property="og:title" content="SSI Diving Courses - Eagle Divers NI" />
+        <meta property="og:description" content="Professional SSI scuba diving courses from beginner to advanced levels in NI" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://eaglediversni.com/SSI" />
+        <meta property="og:image" content="/images/logo-1-1.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="SSI Diving Courses - Eagle Divers NI" />
+        <meta name="twitter:description" content="Professional SSI scuba diving courses from beginner to advanced levels in NI" />
+        <meta name="twitter:image" content="/images/logo-1-1.png" />
+      </Helmet>
       <Navbar />
       
       <main>

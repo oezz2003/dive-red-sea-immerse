@@ -10,6 +10,8 @@ export interface BlogPost {
   date: string;
   tags?: string[];
   image?: string;
+  views?: number;
+  readTime?: string;
 }
 
 import { BookOpen, Fish, Globe, Camera, Share2 } from 'lucide-react';
@@ -82,27 +84,29 @@ export const blogPosts: BlogPost[] = [
     date: "2024-07-20",
     tags: ["Scuba Diving", "Stress Relief", "Wellness", "Red Sea"],
     image: "/blogs/bte4.webp",
+    views: 245,
+    readTime: "3 min read"
   },
   {
     id: 2,
     title: "Connection and Confidence – The Social Side of Scuba Diving",
     slug: "connection-and-confidence",
-    excerpt: "While scuba diving may seem like a solitary activity, it’s actually built on connection, trust, and teamwork — three elements that have powerful benefits for mental health.",
+    excerpt: "While scuba diving may seem like a solitary activity, it's actually built on connection, trust, and teamwork — three elements that have powerful benefits for mental health.",
     content: `
       <h2>The Social Benefits of Scuba Diving</h2>
       
-      <p>While scuba diving may seem like a solitary activity, it’s actually built on connection, trust, and teamwork — three elements that have powerful benefits for mental health.</p>
+      <p>While scuba diving may seem like a solitary activity, it's actually built on connection, trust, and teamwork — three elements that have powerful benefits for mental health.</p>
       
       <p>Every dive requires cooperation between buddies and dive teams. You rely on each other for safety, communication, and shared experiences. This sense of trust and belonging is one of the reasons divers often form lifelong friendships. Feeling part of a supportive community can help combat loneliness, boost confidence, and strengthen overall emotional well-being.</p>
       
-      <p>Scuba diving also helps build self-confidence. Learning new skills, managing equipment, and navigating the underwater world encourages personal growth and resilience. Each successful dive — whether it’s mastering buoyancy, identifying a new species, or completing your first deep dive — reinforces your sense of accomplishment and self-belief.</p>
+      <p>Scuba diving also helps build self-confidence. Learning new skills, managing equipment, and navigating the underwater world encourages personal growth and resilience. Each successful dive — whether it's mastering buoyancy, identifying a new species, or completing your first deep dive — reinforces your sense of accomplishment and self-belief.</p>
       
       <p>The dive community is welcoming and diverse, bringing together people from all walks of life who share a love of the ocean. The shared stories, laughter, and post-dive chats create a sense of camaraderie that extends far beyond the water.</p>
       
       <p>In an age where digital interactions often replace real ones, diving offers genuine human connection — something we all need for positive mental health.</p>
       
       
-      <p>Join a group dive or one of our Red Sea diving holidays and experience the uplifting social side of scuba diving. It’s not just about the dive — it’s about the people you meet along the way.</p>
+      <p>Join a group dive or one of our Red Sea diving holidays and experience the uplifting social side of scuba diving. It's not just about the dive — it's about the people you meet along the way.</p>
     `,
     category: "Community",
     author: "Mr. Zee",
@@ -110,27 +114,29 @@ export const blogPosts: BlogPost[] = [
     date: "2024-07-25",
     tags: ["Scuba Diving", "Community", "Confidence", "Social"],
     image: "/blogs/scuba-divers-enter-water-from-boat-via-giant-stride-entry-diving-into-the-water-.jpg",
+    views: 189,
+    readTime: "4 min read"
   },
   {
     id: 3,
-    title: "Nature’s Therapy – How the Ocean Heals the Mind",
+    title: "Nature's Therapy – How the Ocean Heals the Mind",
     slug: "natures-therapy-ocean-heals-mind",
     excerpt: "The ocean has long been associated with healing and renewal, and scuba diving allows us to experience that connection on a profound level.",
     content: `
       <h2>The Healing Power of the Ocean</h2>
       
-      <p>The ocean has long been associated with healing and renewal, and scuba diving allows us to experience that connection on a profound level. Scientists call it “blue therapy” — the positive psychological effects of being in, on, or near the water.</p>
+      <p>The ocean has long been associated with healing and renewal, and scuba diving allows us to experience that connection on a profound level. Scientists call it "blue therapy" — the positive psychological effects of being in, on, or near the water.</p>
       
-      <p>When you’re diving, you’re immersed in a sensory world of colour, motion, and quiet. The soft light filtering through the surface, the slow sway of coral, and the graceful movement of marine life create a natural form of meditation. This connection with nature can lower stress, ease symptoms of depression, and boost overall happiness.</p>
+      <p>When you're diving, you're immersed in a sensory world of colour, motion, and quiet. The soft light filtering through the surface, the slow sway of coral, and the graceful movement of marine life create a natural form of meditation. This connection with nature can lower stress, ease symptoms of depression, and boost overall happiness.</p>
       
-      <p>Research suggests that spending time in nature — especially near water — increases the release of dopamine and serotonin, the brain’s “feel-good” chemicals. Divers often describe feeling calmer, more focused, and more grateful after a dive. It’s a reminder of how small we are in the vastness of nature, and how beautiful the world can be when we slow down enough to notice it.</p>
+      <p>Research suggests that spending time in nature — especially near water — increases the release of dopamine and serotonin, the brain's "feel-good" chemicals. Divers often describe feeling calmer, more focused, and more grateful after a dive. It's a reminder of how small we are in the vastness of nature, and how beautiful the world can be when we slow down enough to notice it.</p>
       
       <p>Scuba diving also fosters a sense of purpose. Protecting and respecting marine life encourages mindfulness and environmental awareness, which can increase life satisfaction and emotional balance.</p>
       
-      <p>So, if you’re feeling overwhelmed or disconnected, consider taking your next break underwater. The ocean doesn’t just cleanse the body — it heals the mind.</p>
+      <p>So, if you're feeling overwhelmed or disconnected, consider taking your next break underwater. The ocean doesn't just cleanse the body — it heals the mind.</p>
       
       
-      <p>Discover the mental health benefits of scuba diving for yourself. Join us on our next Red Sea adventure and experience the magic of nature’s therapy firsthand.</p>
+      <p>Discover the mental health benefits of scuba diving for yourself. Join us on our next Red Sea adventure and experience the magic of nature's therapy firsthand.</p>
     `,
     category: "Nature",
     author: "Mr. Zee",
@@ -138,5 +144,7 @@ export const blogPosts: BlogPost[] = [
     date: "2024-07-30",
     tags: ["Ocean", "Nature", "Therapy", "Mental Health"],
     image: "/blogs/shutterstock_141494932-1-1366x800@2x.jpg",
+    views: 312,
+    readTime: "5 min read"
   },
 ];

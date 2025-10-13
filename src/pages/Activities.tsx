@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -135,6 +136,21 @@ const Activities = () => {
 
   return (
     <>
+      <Helmet>
+        <title>PADI Diving Courses - Eagle Divers NI Diving Center</title>
+        <meta name="description" content="Professional PADI scuba diving courses in NI. From Open Water to Rescue Diver. Certified instructors." />
+        <meta name="keywords" content="PADI diving courses, scuba diving certification, NI diving, beginner diving, advanced diving, Eagle Divers" />
+        <link rel="canonical" href="https://eaglediversni.com/PADI" />
+        <meta property="og:title" content="PADI Diving Courses - Eagle Divers NI" />
+        <meta property="og:description" content="Professional PADI scuba diving courses from beginner to advanced levels in NI" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://eaglediversni.com/PADI" />
+        <meta property="og:image" content="/images/logo-1-1.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="PADI Diving Courses - Eagle Divers NI" />
+        <meta name="twitter:description" content="Professional PADI scuba diving courses from beginner to advanced levels in NI" />
+        <meta name="twitter:image" content="/images/logo-1-1.png" />
+      </Helmet>
       <Navbar />
       
       <main>

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -56,6 +57,21 @@ const Gallery = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Diving Gallery - Eagle Divers NI Diving Center</title>
+        <meta name="description" content="Explore our diving gallery showcasing underwater adventures, marine life, and scuba diving experiences in Northern Ireland." />
+        <meta name="keywords" content="diving gallery, scuba diving photos, underwater photography, NI diving, marine life, diving experiences" />
+        <link rel="canonical" href="https://eaglediversni.com/gallery" />
+        <meta property="og:title" content="Diving Gallery - Eagle Divers NI" />
+        <meta property="og:description" content="Explore stunning underwater photography and diving experiences from Eagle Divers NI" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://eaglediversni.com/gallery" />
+        <meta property="og:image" content="/images/logo-1-1.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Diving Gallery - Eagle Divers NI" />
+        <meta name="twitter:description" content="Explore stunning underwater photography and diving experiences from Eagle Divers NI" />
+        <meta name="twitter:image" content="/images/logo-1-1.png" />
+      </Helmet>
       <Navbar />
       
       <main className="pt-20">

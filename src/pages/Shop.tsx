@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import scubaMan from '@/components/icons/scubaMan';
 import discover_scuba from '@/components/icons/discover_scuba';
 import DryOpenWater from '@/components/icons/dry_open_water';
@@ -103,6 +104,21 @@ const Shop = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Diving Holidays and Trips - Eagle Divers NI Diving Center</title>
+        <meta name="description" content="Book your scuba diving holiday with Eagle Divers in NI. Guided trips to Sharm El Sheikh, Hurghada, equipment rental, and adventure packages." />
+        <meta name="keywords" content="diving holidays, scuba diving trips, Red Sea diving, Sharm El Sheikh, Hurghada, NI diving center, Eagle Divers" />
+        <link rel="canonical" href="https://eaglediversni.com/holidays" />
+        <meta property="og:title" content="Diving Holidays and Trips - Eagle Divers NI" />
+        <meta property="og:description" content="Plan your scuba diving holiday with Eagle Divers. Trips to the Red Sea and beyond." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://eaglediversni.com/holidays" />
+        <meta property="og:image" content="/images/logo-1-1.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Diving Holidays and Trips - Eagle Divers NI" />
+        <meta name="twitter:description" content="Plan your scuba diving holiday with Eagle Divers. Trips to the Red Sea and beyond." />
+        <meta name="twitter:image" content="/images/logo-1-1.png" />
+      </Helmet>
       <Navbar />
       
       <main>

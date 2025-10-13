@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -86,6 +87,21 @@ const PrivacyPolicy = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Privacy Policy - Eagle Divers NI Diving Center</title>
+        <meta name="description" content="Read our privacy policy to understand how Eagle Divers NI collects, uses, and protects your personal information. Your privacy matters to us." />
+        <meta name="keywords" content="privacy policy, data protection, Eagle Divers NI, personal information, GDPR, privacy rights" />
+        <link rel="canonical" href="https://eaglediversni.com/privacy-policy" />
+        <meta property="og:title" content="Privacy Policy - Eagle Divers NI" />
+        <meta property="og:description" content="Learn how we protect your privacy and handle your personal data at Eagle Divers NI" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://eaglediversni.com/privacy-policy" />
+        <meta property="og:image" content="/images/logo-1-1.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Privacy Policy - Eagle Divers NI" />
+        <meta name="twitter:description" content="Learn how we protect your privacy and handle your personal data at Eagle Divers NI" />
+        <meta name="twitter:image" content="/images/logo-1-1.png" />
+      </Helmet>
       <Navbar />
       
       <main className="pt-20">
