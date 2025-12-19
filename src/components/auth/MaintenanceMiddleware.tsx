@@ -8,7 +8,7 @@ interface MaintenanceMiddlewareProps {
 const MaintenanceMiddleware = ({ children }: MaintenanceMiddlewareProps) => {
     // Check if maintenance mode is enabled via environment variable
     // You can set VITE_MAINTENANCE_MODE=true in your .env file
-    const isMaintenanceMode = import.meta.env.VITE_MAINTENANCE_MODE === 'true';
+    const isMaintenanceMode = import.meta.env.VITE_MAINTENANCE_MODE === 'false';
 
     if (isMaintenanceMode) {
         return <Maintenance />;
