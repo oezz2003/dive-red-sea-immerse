@@ -23,7 +23,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('/hero pics/main hero.jpg')` }}
       >
@@ -79,9 +79,9 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed"
         >
-          Explore, Learn, and Discover with Certified Diving Experts. 
-          Experience the underwater wonders of the NI with professional 
-          PADI / SSI instructors.
+          Explore, Learn, and Discover with Certified Diving Experts.
+          Experience the underwater wonders of the NI with professional
+          PADI instructors.
         </motion.p>
 
         <motion.div
@@ -89,8 +89,8 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex justify-center items-center"
         >
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             className="btn-bubble bg-surface-gradient hover:shadow-glow text-lg px-8 py-3 group"
             asChild
           >

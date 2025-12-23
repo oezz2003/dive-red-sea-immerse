@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Waves, Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,9 +9,9 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="space-y-4">
             <div className="flex flex-col items-center space-y-2">
-              <img 
-                src="/images/logo-1-1.png" 
-                alt="Eagle Divers Logo" 
+              <img
+                src="/images/logo-1-1.png"
+                alt="Eagle Divers Logo"
                 className="h-12 w-auto object-contain"
               />
               <div className="text-xs font-semibold text-primary/80 tracking-widest uppercase">
@@ -19,30 +19,30 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm text-muted-foreground">
-              Professional diving center offering world-class scuba diving experiences 
+              Professional diving center offering world-class scuba diving experiences
               in the beautiful Northern Ireland.
             </p>
             <div className="flex space-x-5">
-              <a 
-                href="https://www.facebook.com/eaglediversni/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://www.facebook.com/eaglediversni/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-muted-foreground hover:bg-primary/20 hover:text-primary transition-all duration-300"
                 aria-label="Follow us on Facebook"
               >
                 <Facebook className="h-6 w-6" />
               </a>
-              <a 
-                href="https://www.instagram.com/eaglediversni/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://www.instagram.com/eaglediversni/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-muted-foreground hover:bg-primary/20 hover:text-primary transition-all duration-300"
                 aria-label="Follow us on Instagram"
               >
                 <Instagram className="h-6 w-6" />
               </a>
-              <a 
-                href="mailto:info@eaglediversni.com" 
+              <a
+                href="mailto:info@eaglediversni.com"
                 className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-muted-foreground hover:bg-primary/20 hover:text-primary transition-all duration-300"
                 aria-label="Send us an email"
               >
@@ -58,11 +58,8 @@ const Footer = () => {
               <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Home
               </Link>
-              <Link to="/SSI" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                SSI Courses
-              </Link>
-              <Link to="/PADI" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                PADI Activities
+              <Link to="/courses" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Courses
               </Link>
               <Link to="/holidays" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Diving Holidays
@@ -83,17 +80,17 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-foreground">Popular Courses</h3>
             <div className="flex flex-col space-y-2">
-              <Link to="/SSI" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Try Scuba
-              </Link>
-              <Link to="/SSI" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Open Water Diver
-              </Link>
-              <Link to="/PADI" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/courses" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 PADI Open Water Diver
               </Link>
-              <Link to="/PADI" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/courses" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Discover Scuba Diving
+              </Link>
+              <Link to="/courses" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 PADI Advanced Open Water
+              </Link>
+              <Link to="/courses" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Divemaster
               </Link>
             </div>
           </div>
@@ -127,7 +124,7 @@ const Footer = () => {
         <div className="border-t border-border mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-muted-foreground">
-              © 2024 Eagle Divers. All rights reserved.
+              © 2026 Eagle Divers. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">

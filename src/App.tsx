@@ -4,7 +4,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import Courses from "./pages/Courses";
 import Contact from "./pages/Contact";
 import Activities from "./pages/Activities";
 import Shop from "./pages/Shop";
@@ -31,8 +30,7 @@ const App = () => (
           <div className="min-h-screen bg-background">
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/SSI" element={<Courses />} />
-              <Route path="/PADI" element={<Activities />} />
+              <Route path="/courses" element={<Activities />} />
               <Route path="/holidays" element={<Shop />} />
               <Route path="/offers" element={<GiftVouchers />} />
               <Route path="/gallery" element={<Gallery />} />

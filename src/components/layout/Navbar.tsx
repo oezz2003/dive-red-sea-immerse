@@ -12,32 +12,30 @@ const Navbar = () => {
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
-    
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       setScrolled(currentScrollY > 50);
-      
-      // Hide header when scrolling down, show when scrolling up
+
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
       }
-      
+
       lastScrollY = currentScrollY;
     };
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
     { href: '/', label: 'Home' },
-  { href: '/SSI', label: 'SSI' },
-  { href: '/PADI', label: 'PADI' },
-  { href: '/holidays', label: 'Holidays' },
-  { href: '/offers', label: 'Offers' },
+    { href: '/courses', label: 'Courses' },
+    { href: '/holidays', label: 'Holidays' },
+    { href: '/offers', label: 'Offers' },
     { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
   ];
@@ -45,17 +43,15 @@ const Navbar = () => {
   return (
     <motion.nav
       initial={{ y: -95 }}
-      animate={{ 
+      animate={{
         y: isVisible ? 0 : '-100%',
         borderBottomWidth: isVisible ? 0 : 1,
-        
       }}
       transition={{ duration: 0, ease: "easeInOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled 
-          ? 'bg-background/95 header-blur shadow-depth border-b border-border' 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+          ? 'bg-background/95 header-blur shadow-depth border-b border-border'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-2 md:py-4 sm:py-4">
         <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20 xl:h-24">
@@ -65,11 +61,10 @@ const Navbar = () => {
               <Link
                 key={item.href}
                 to={item.href}
-                className={`nav-link relative text-sm xl:text-base font-medium transition-colors hover:text-primary px-2 py-1 ${
-                  location.pathname === item.href 
-                    ? 'text-primary' 
+                className={`nav-link relative text-sm xl:text-base font-medium transition-colors hover:text-primary px-2 py-1 ${location.pathname === item.href
+                    ? 'text-primary'
                     : 'text-foreground/80'
-                }`}
+                  }`}
               >
                 {item.label}
                 {location.pathname === item.href && (
@@ -89,11 +84,11 @@ const Navbar = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex-1 flex pt-2 justify-start sm:justify-center px-1 lg:px-0"
           >
-            <Link to="/" className="flex flex-col items-center space-y-1 group ">
+            <Link to="/" className="flex flex-col items-center space-y-1 group">
               <div className="relative">
-                <img 
-                  src="/images/logo-1-1.png" 
-                  alt="Eagle Divers Logo" 
+                <img
+                  src="/images/logo-1-1.png"
+                  alt="Eagle Divers Logo"
                   className="h-12 sm:h-14 lg:h-16 xl:h-18 w-auto object-contain"
                 />
               </div>
@@ -111,11 +106,10 @@ const Navbar = () => {
               <Link
                 key={item.href}
                 to={item.href}
-                className={`nav-link relative text-sm xl:text-base font-medium transition-colors hover:text-primary px-2 py-1 ${
-                  location.pathname === item.href 
-                    ? 'text-primary' 
+                className={`nav-link relative text-sm xl:text-base font-medium transition-colors hover:text-primary px-2 py-1 ${location.pathname === item.href
+                    ? 'text-primary'
                     : 'text-foreground/80'
-                }`}
+                  }`}
               >
                 {item.label}
                 {location.pathname === item.href && (
@@ -126,7 +120,6 @@ const Navbar = () => {
                 )}
               </Link>
             ))}
-
           </div>
 
           {/* Mobile Menu Button */}
@@ -151,43 +144,38 @@ const Navbar = () => {
             className="lg:hidden bg-background/95 backdrop-blur-md border-b border-border"
           >
             <div className="container mx-auto px-4 sm:px-6 py-6">
-               {/* Mobile Logo */}
-               <div className="flex justify-center mb-8">
-                 <Link to="/" onClick={() => setIsOpen(false)} className="flex flex-col items-center space-y-2 logo-glow">
-                   <div className="relative">
-                     <img 
-                       src="/images/logo-1-1.png" 
-                       alt="Eagle Divers Logo" 
-                       className="h-14 sm:h-16 w-auto object-contain"
-                     />
-                   </div>
-                   <div className="text-center">
-                     <div className="text-xs font-semibold text-primary/80 tracking-widest uppercase">
-                       Northern Ireland
-                     </div>
-                   </div>
-                 </Link>
-               </div>
-              
-              {/* Mobile Navigation */}
+              <div className="flex justify-center mb-8">
+                <Link to="/" onClick={() => setIsOpen(false)} className="flex flex-col items-center space-y-2 logo-glow">
+                  <div className="relative">
+                    <img
+                      src="/images/logo-1-1.png"
+                      alt="Eagle Divers Logo"
+                      className="h-14 sm:h-16 w-auto object-contain"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <div className="text-xs font-semibold text-primary/80 tracking-widest uppercase">
+                      Northern Ireland
+                    </div>
+                  </div>
+                </Link>
+              </div>
+
               <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-8">
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`text-center py-3 px-3 sm:px-4 rounded-lg transition-all duration-300 text-sm sm:text-base ${
-                      location.pathname === item.href 
-                        ? 'bg-primary/10 text-primary border border-primary/20' 
+                    className={`text-center py-3 px-3 sm:px-4 rounded-lg transition-all duration-300 text-sm sm:text-base ${location.pathname === item.href
+                        ? 'bg-primary/10 text-primary border border-primary/20'
                         : 'text-foreground/80 hover:bg-primary/5 hover:text-primary'
-                    }`}
+                      }`}
                   >
                     {item.label}
                   </Link>
                 ))}
               </div>
-              
-
             </div>
           </motion.div>
         )}

@@ -51,8 +51,8 @@ const Gallery = () => {
   const categories = ['All', 'Underwater', 'Courses', 'Marine Life', 'Equipment', 'Surface', 'Adventure', 'Conservation'];
   const [selectedCategory, setSelectedCategory] = useState('All');
 
-  const filteredImages = selectedCategory === 'All' 
-    ? galleryImages 
+  const filteredImages = selectedCategory === 'All'
+    ? galleryImages
     : galleryImages.filter(image => image.category === selectedCategory);
 
   return (
@@ -73,12 +73,12 @@ const Gallery = () => {
         <meta name="twitter:image" content="/images/logo-1-1.png" />
       </Helmet>
       <Navbar />
-      
+
       <main className="pt-20">
         {/* Hero Section */}
         <section className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-ocean-deep to-turquoise opacity-10" />
-          
+
           <div className="container mx-auto px-4 text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -180,7 +180,7 @@ const Gallery = () => {
                   asChild
                   className="bg-white text-ocean-deep hover:bg-gray-100"
                 >
-                  <Link to="/SSI">View Courses</Link>
+                  <Link to="/courses">View Courses</Link>
                 </Button>
                 <Button
                   size="lg"
@@ -200,7 +200,7 @@ const Gallery = () => {
 
       {/* Lightbox Modal */}
       {selectedImage && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >

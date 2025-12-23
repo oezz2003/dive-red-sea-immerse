@@ -47,7 +47,7 @@ const CoursesSection = () => {
             Diving <span className="text-primary">Courses</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            From beginner to professional level, our PADI and SSI certified courses 
+            From beginner to professional level, our PADI certified courses
             will guide you through every step of your diving journey.
           </p>
         </motion.div>
@@ -77,8 +77,8 @@ const CoursesSection = () => {
                 )}
                 <CardHeader className="relative">
                   <div className="relative h-40 mb-4 rounded-lg overflow-hidden">
-                    <img 
-                      src={course.image} 
+                    <img
+                      src={course.image}
                       alt={course.title}
                       className="w-full h-full object-cover transition-transform duration-500"
                     />
@@ -90,7 +90,7 @@ const CoursesSection = () => {
                     </div>
                     <div className="absolute top-3 right-3">
                       <Badge variant="outline" className="text-white border-white bg-white/20">
-                        {course.organization}
+                        PADI
                       </Badge>
                     </div>
                   </div>
@@ -123,7 +123,7 @@ const CoursesSection = () => {
                   </div>
                 </CardContent>
                 <CardFooter className="mt-auto">
-                  <Button 
+                  <Button
                     className="w-full btn-bubble bg-surface-gradient hover:shadow-glow group/btn"
                     asChild
                   >
@@ -145,13 +145,13 @@ const CoursesSection = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-12"
         >
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             size="lg"
             className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
             asChild
           >
-            <Link to="/SSI">
+            <Link to="/courses">
               View All Courses
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
